@@ -1,0 +1,1731 @@
+// WANTED! FOR HALF-LIFE SPEECH SYSTEM SENTENCES. 28/11/00
+
+//***********************
+//****     Gunbelt   ****
+//**** v1.1 10/10/00 ****
+//***********************
+
+HEV_AAx wanted/voice/null
+HEV_A0 wanted/voice/null
+
+//Player dies
+HEV_DEAD0 wanted/voice/null
+
+//Player recieves damage
+HEV_DMG0 wanted/voice/gb_scratch
+HEV_DMG1 wanted/voice/gb_tobone
+HEV_DMG2 wanted/voice/gb_tasteblood
+HEV_DMG3 wanted/voice/gb_scorpstg
+HEV_DMG4 wanted/voice/gb_twisted
+HEV_DMG5 wanted/voice/gb_greenstick
+HEV_DMG6 wanted/voice/gb_leaking
+HEV_DMG7 wanted/voice/gb_housecall
+
+//players health is dropping
+HEV_HLTH0 wanted/voice/gb_hdrop0
+HEV_HLTH1 wanted/voice/gb_hdrop1
+HEV_HLTH2 wanted/voice/gb_hcrit
+HEV_HLTH3 wanted/voice/gb_hkark
+
+//********************************
+//**** kaiewi Warriors 13/11 ****
+//********************************
+
+//KAIEWI Speech
+KA_SPEAK0 wanted/kaiewi/k_dynamite0
+KA_SPEAK1 wanted/kaiewi/k_dynamite1
+KA_SPEAK2 wanted/kaiewi/k_dynamite2
+KA_SPEAK3 wanted/kaiewi/k_alert0
+KA_SPEAK4 wanted/kaiewi/k_alert1
+KA_SPEAK5 wanted/kaiewi/k_alert2
+KA_SPEAK6 wanted/kaiewi/k_alert0
+KA_SPEAK7 wanted/kaiewi/k_alert1
+KA_SPEAK8 wanted/kaiewi/k_alert2
+KA_SPEAK9 wanted/kaiewi/k_cover0
+KA_SPEAK10 wanted/kaiewi/k_cover1
+KA_SPEAK11 wanted/kaiewi/k_throw0
+KA_SPEAK12 wanted/kaiewi/k_throw1
+KA_SPEAK13 wanted/kaiewi/k_taunt0
+KA_SPEAK14 wanted/kaiewi/k_taunt1
+KA_SPEAK15 wanted/kaiewi/k_taunt2
+KA_SPEAK16 wanted/kaiewi/k_charge0
+KA_SPEAK17 wanted/kaiewi/k_charge1
+KA_SPEAK18 wanted/kaiewi/k_charge2
+KA_SPEAK19 wanted/kaiewi/k_idle0
+KA_SPEAK20 wanted/kaiewi/k_idle1
+KA_SPEAK21 wanted/kaiewi/k_question0
+KA_SPEAK22 wanted/kaiewi/k_question1
+KA_SPEAK23 wanted/kaiewi/k_question2
+KA_SPEAK24 wanted/kaiewi/k_question3
+KA_SPEAK25 wanted/kaiewi/k_question4
+KA_SPEAK26 wanted/kaiewi/k_answer0
+KA_SPEAK27 wanted/kaiewi/k_answer1
+KA_SPEAK28 wanted/kaiewi/k_answer2
+KA_SPEAK29 wanted/kaiewi/k_clear0
+KA_SPEAK30 wanted/kaiewi/k_clear1
+KA_SPEAK31 wanted/kaiewi/k_clear2
+KA_SPEAK32 wanted/kaiewi/k_clear3
+KA_SPEAK33 wanted/kaiewi/k_check0
+KA_SPEAK34 wanted/kaiewi/k_check1
+
+//********************
+//****  Hoss NPC  ****
+//*** 1.2 21/08/00 ***
+//********************
+
+//When USED and told to follow
+HO_OK0 wanted/hoss/okillcover
+HO_OK1 wanted/hoss/imyourman
+HO_OK2 wanted/hoss/surething
+HO_OK3 wanted/hoss/rightbehind
+HO_OK4 wanted/hoss/lendahand
+HO_OK5 wanted/hoss/okmoveout
+HO_OK6 wanted/hoss/gethellout
+
+//When USED and told to stay
+HO_WAIT0 wanted/hoss/keeplookout
+HO_WAIT1 wanted/hoss/okillwait
+HO_WAIT2 wanted/hoss/yellifihear
+HO_WAIT3 wanted/hoss/illwaithere
+HO_WAIT4 wanted/hoss/waitothers
+HO_WAIT5 wanted/hoss/illwhistle
+
+//Post masacre hellos
+HO_HELLO0 wanted/hoss/hinicecoat
+HO_HELLO1 wanted/hoss/howdy
+HO_HELLO2 wanted/hoss/howdyboss
+HO_HELLO3 wanted/hoss/heysheriff
+HO_HELLO4 wanted/hoss/sheriff
+HO_HELLO5 wanted/hoss/howdydo
+HO_HELLO6 wanted/hoss/heythere
+
+//Generic Post Masacre Hoss Questions
+HO_QUESTION0 wanted/hoss/usewhisky
+HO_QUESTION1 wanted/hoss/getoutalive
+HO_QUESTION2 wanted/hoss/cantgetworse
+HO_QUESTION3 wanted/hoss/goshshooting
+HO_QUESTION4 wanted/hoss/madasramone
+HO_QUESTION5 wanted/hoss/whatfellers
+HO_QUESTION6 wanted/hoss/whatinblazes
+HO_QUESTION7 wanted/hoss/aintscared
+HO_QUESTION8 wanted/hoss/anycloser
+HO_QUESTION9 wanted/hoss/youhearthat
+HO_QUESTION10 wanted/hoss/reckontrue
+HO_QUESTION11 wanted/hoss/sssshhhh
+HO_QUESTION12 wanted/hoss/tellthinking
+HO_QUESTION13 wanted/hoss/everbeenshot
+HO_QUESTION14 wanted/hoss/maproudofme
+
+// Generic Hoss Answers
+HO_ANSWER0 wanted/hoss/noway
+HO_ANSWER1 wanted/hoss/ireckon
+HO_ANSWER2 wanted/hoss/soundsabout
+HO_ANSWER3 wanted/hoss/yessiree
+HO_ANSWER4 wanted/hoss/iguessso
+HO_ANSWER5 wanted/hoss/soundsright
+HO_ANSWER6 wanted/hoss/yep
+HO_ANSWER7 wanted/hoss/iaintsure
+HO_ANSWER8 wanted/hoss/betonit
+HO_ANSWER9 wanted/hoss/wayiseeit
+HO_ANSWER10 wanted/hoss/dontfigure
+HO_ANSWER11 wanted/hoss/dontguesso
+HO_ANSWER12 wanted/hoss/maybee
+HO_ANSWER13 wanted/hoss/justdontknow
+HO_ANSWER14 wanted/hoss/nope
+HO_ANSWER15 wanted/hoss/nosirree
+HO_ANSWER16 wanted/hoss/cantfigureit
+HO_ANSWER17 wanted/hoss/maybenot
+HO_ANSWER18 wanted/hoss/aintnotellin
+HO_ANSWER19 wanted/hoss/quityappin
+HO_ANSWER20 wanted/hoss/nosense
+HO_ANSWER21 wanted/hoss/askalready
+
+// Player is staring at Hoss
+HO_STARE0 wanted/hoss/hmmm
+HO_STARE1 wanted/hoss/whatyouthinkn
+HO_STARE2 wanted/hoss/dirtonboots
+HO_STARE3 wanted/hoss/heyup
+
+// Hoss is idle Post masacre
+HO_IDLE0 wanted/hoss/mariaprety
+HO_IDLE1 wanted/hoss/sasparella
+HO_IDLE2 wanted/hoss/bigolmess
+HO_IDLE3 wanted/hoss/luckwilturn
+HO_IDLE4 wanted/hoss/tune
+HO_IDLE5 wanted/hoss/badfeelin
+HO_IDLE6 wanted/hoss/ambush
+HO_IDLE7 wanted/hoss/newboots
+HO_IDLE8 wanted/hoss/hattoobig
+HO_IDLE9 wanted/hoss/poetry
+HO_IDLE10 wanted/hoss/triggerfinger
+
+// Hoss is attacking something
+HO_ATTACK0 wanted/hoss/shootem
+HO_ATTACK1 wanted/hoss/igotem
+HO_ATTACK2 wanted/hoss/standback
+HO_ATTACK3 wanted/hoss/aimforbelly
+HO_ATTACK4 wanted/hoss/takethis
+HO_ATTACK5 wanted/hoss/reachsky
+
+// Hoss hears something
+HO_HEAR0 wanted/hoss/sshhquietdown
+HO_HEAR1 wanted/hoss/hearthatnoise
+HO_HEAR2 wanted/hoss/dontlikesound
+
+// Hoss smells something
+HO_SMELL0 wanted/hoss/somethindied
+HO_SMELL1 wanted/hoss/smellsbad
+HO_SMELL2 wanted/hoss/smellsbaad
+
+// Hoss sees a wounded player
+HO_CUREA wanted/hoss/doclookat
+HO_CUREB wanted/hoss/needstitch
+HO_CUREC wanted/hoss/bulletstilin
+
+// Hoss is scared by player actions
+HO_SCARED0 wanted/hoss/nothurting
+HO_SCARED1 wanted/hoss/whataredoing
+
+// Hoss is wounded
+HO_WOUND0 wanted/hoss/imhit
+HO_WOUND1 wanted/hoss/goingtoscar
+
+// Hoss is mortaly wounded
+HO_MORTAL0 wanted/hoss/hurtrealbad
+
+// Player has shot Hoss
+HO_SHOT0 wanted/hoss/waititsme
+HO_SHOT1 wanted/hoss/whathaveidone
+HO_SHOT2 wanted/hoss/whatblazes
+HO_SHOT3 wanted/hoss/thatsmarts
+HO_SHOT4 wanted/hoss/careful
+HO_SHOT5 wanted/hoss/whatthe
+
+// Hoss is mad at the player
+HO_MAD0 wanted/hoss/ifthatstheway
+HO_MAD1 wanted/hoss/neverthought
+HO_MAD2 wanted/hoss/okthatsit
+HO_MAD3 wanted/hoss/iainttakinno
+HO_MAD4 wanted/hoss/iwanrnedyou
+HO_MAD5 wanted/hoss/madassnake
+HO_MAD6 wanted/hoss/quickordead
+
+// Hoss has killed something
+HO_KILL0 wanted/hoss/gotone
+HO_KILL1 wanted/hoss/gotanother
+HO_KILL2 wanted/hoss/surewasugly
+HO_KILL3 wanted/hoss/didyouseethat
+HO_KILL4 wanted/hoss/practice
+HO_KILL5 wanted/hoss/wildwest
+HO_KILL6 wanted/hoss/crackshot
+
+// Hoss cant oblige when you use him (Pre Massacre)
+HO_POK0 wanted/hoss/busynow
+HO_POK1 wanted/hoss/waterhorse
+HO_POK2 wanted/hoss/seeyoulater
+HO_POK3 wanted/hoss/cantnowsorry
+
+// Hoss cant follow you anymore
+HO_STOP0 wanted/hoss/cantgoon
+HO_STOP1 wanted/hoss/twistankle
+HO_STOP2 wanted/hoss/catchbreath
+
+//***********************
+//*** Western Townies ***
+//***********************
+
+// When USED and told to follow
+WA_OK0 wanted/twnwest/alwayswanted
+WA_OK1 wanted/twnwest/oksheriff
+WA_OK2 wanted/twnwest/thatsjustfine
+WA_OK3 wanted/twnwest/ihopeyoukno
+WA_OK4 wanted/twnwest/illberightb
+WA_OK5 wanted/twnwest/letssaddleup
+WA_OK6 wanted/twnwest/okletsgo
+WA_OK7 wanted/twnwest/yup
+WA_OK8 wanted/twnwest/allright
+
+// When USED and told to stay
+WA_WAIT0 wanted/twnwest/yougoonslow
+WA_WAIT1 wanted/twnwest/gooncatchup
+WA_WAIT2 wanted/twnwest/erryousure
+WA_WAIT3 wanted/twnwest/yeraintgoin
+WA_WAIT4 wanted/twnwest/ithinkilljust
+WA_WAIT5 wanted/twnwest/illfireashot
+WA_WAIT6 wanted/twnwest/juststayaspell
+
+// Fail to follow player any more
+WA_STOP0 wanted/twnwest/stoneinmyboot
+WA_STOP1 wanted/twnwest/cantgofurther
+WA_STOP2 wanted/twnwest/notwithoutarifle
+WA_STOP3 wanted/twnwest/toodangerous
+
+// Player is staring at Townie
+WA_STARE0 wanted/twnwest/iguess
+WA_STARE1 wanted/twnwest/areyouthinkin
+WA_STARE2 wanted/twnwest/whatisit
+
+// Post masacre hellos 
+WA_HELLO0 wanted/twnwest/howdypardner
+WA_HELLO1 wanted/twnwest/givenyouup
+WA_HELLO2 wanted/twnwest/seeyoualive
+WA_HELLO3 wanted/twnwest/pinebox
+WA_HELLO4 wanted/twnwest/hello
+WA_HELLO5 wanted/twnwest/goodtoseeyou
+WA_HELLO6 wanted/twnwest/gunbeltlikethat
+WA_HELLO7 wanted/twnwest/heytheresherrif
+WA_HELLO8 wanted/twnwest/Howdy
+
+//Generic Post Masacre Questions
+WA_QUESTION0 wanted/twnwest/seenanything
+WA_QUESTION1 wanted/twnwest/useshuteye
+WA_QUESTION2 wanted/twnwest/youthinkin
+WA_QUESTION3 wanted/twnwest/outaherealive
+WA_QUESTION4 wanted/twnwest/waytosaftey
+WA_QUESTION5 wanted/twnwest/cantgetworse
+WA_QUESTION6 wanted/twnwest/cavelryrescue
+WA_QUESTION7 wanted/twnwest/wonderaboutdyin
+WA_QUESTION8 wanted/twnwest/olddays
+WA_QUESTION9 wanted/twnwest/luckchange
+WA_QUESTION10 wanted/twnwest/hearsomethin
+WA_QUESTION11 wanted/twnwest/smellsomethin
+WA_QUESTION12 wanted/twnwest/carveontomb
+WA_QUESTION13 wanted/twnwest/waithere
+WA_QUESTION14 wanted/twnwest/onlywayout
+WA_QUESTION15 wanted/twnwest/mabelshen
+WA_QUESTION16 wanted/twnwest/newsmen
+WA_QUESTION17 wanted/twnwest/catchmeone
+WA_QUESTION18 wanted/twnwest/outlawskillus
+WA_QUESTION19 wanted/twnwest/injuntrick
+WA_QUESTION20 wanted/twnwest/keystothebank
+WA_QUESTION21 wanted/twnwest/eatsnake
+WA_QUESTION22 wanted/twnwest/tellwheresherrif
+WA_QUESTION23 wanted/twnwest/mexicanfellers
+WA_QUESTION24 wanted/twnwest/smellsmoke
+WA_QUESTION25 wanted/twnwest/ihavenoidea
+WA_QUESTION26 wanted/twnwest/dangwhatnext
+
+// Generic Answers
+WA_ANSWER0 wanted/twnwest/imnotsure
+WA_ANSWER1 wanted/twnwest/dontknowsure
+WA_ANSWER2 wanted/twnwest/maybee
+WA_ANSWER3 wanted/twnwest/couldbezeke
+WA_ANSWER4 wanted/twnwest/couldbe
+WA_ANSWER5 wanted/twnwest/somefolksayso
+WA_ANSWER6 wanted/twnwest/whyareyouaskin
+WA_ANSWER7 wanted/twnwest/stopyellin
+WA_ANSWER8 wanted/twnwest/ofcourse
+WA_ANSWER9 wanted/twnwest/absolutely
+WA_ANSWER10 wanted/twnwest/yessiree
+WA_ANSWER11 wanted/twnwest/ireckonso
+WA_ANSWER12 wanted/twnwest/right
+WA_ANSWER13 wanted/twnwest/sureboutthat
+WA_ANSWER14 wanted/twnwest/nodenyinit
+WA_ANSWER15 wanted/twnwest/nodoubtinit
+WA_ANSWER16 wanted/twnwest/yep
+WA_ANSWER17 wanted/twnwest/ofcourseitaint
+WA_ANSWER18 wanted/twnwest/thereaintnoway
+WA_ANSWER19 wanted/twnwest/nope
+WA_ANSWER20 wanted/twnwest/idontthinkso
+WA_ANSWER21 wanted/twnwest/twoheadedchicken
+WA_ANSWER22 wanted/twnwest/aintserious
+WA_ANSWER23 wanted/twnwest/cantsayiknow
+WA_ANSWER24 wanted/twnwest/justplaincrazy
+WA_ANSWER25 wanted/twnwest/shutup
+WA_ANSWER26 wanted/twnwest/yourguess
+WA_ANSWER27 wanted/twnwest/dumbquestions
+WA_ANSWER28 wanted/twnwest/askyouthat
+WA_ANSWER29 wanted/twnwest/ihearddifferent
+
+//When Townies are idle (post masacre)
+WA_IDLE0 wanted/twnwest/armyleftfort
+WA_IDLE1 wanted/twnwest/braypass 
+WA_IDLE2 wanted/twnwest/oldsheriff
+WA_IDLE3 wanted/twnwest/nothinasbad
+WA_IDLE4 wanted/twnwest/hangedbandits
+WA_IDLE5 wanted/twnwest/backeast
+WA_IDLE6 wanted/twnwest/gangresponsible
+WA_IDLE7 wanted/twnwest/overheard
+WA_IDLE8 wanted/twnwest/pearlhandledcolts
+WA_IDLE9 wanted/twnwest/sortthismess
+WA_IDLE10 wanted/twnwest/oldzeke
+WA_IDLE11 wanted/twnwest/myshotgun
+WA_IDLE12 wanted/twnwest/chickenfeed
+WA_IDLE13 wanted/twnwest/whatisnoise
+
+// Warning Player
+WA_NOGO wanted/twnwest/nogo
+
+// Sees monster 
+WA_MONST0 wanted/twnwest/prizechicken
+WA_MONST1 wanted/twnwest/liketrouble
+
+// Hears something
+WA_HEAR0 wanted/twnwest/ihearsomethin
+WA_HEAR1 wanted/twnwest/didyouhearthat
+WA_HEAR2 wanted/twnwest/hearmovin
+
+// Smells something
+WA_SMELL0 wanted/twnwest/zekeslongjons
+WA_SMELL1 wanted/twnwest/backofhorse
+WA_SMELL2 wanted/twnwest/smellsouthouse
+WA_SMELL3 wanted/twnwest/whatsthatsmell
+
+// Is wounded
+WA_WOUND0 wanted/twnwest/fleshwound
+WA_WOUND1 wanted/twnwest/cleanthrough
+
+// Is mortaly wounded
+WA_MORTAL0 wanted/twnwest/imagonner
+WA_MORTAL1 wanted/twnwest/imhurtbad
+
+// Sees wounded player
+WA_CUREA wanted/twnwest/woundbad
+WA_CUREB wanted/twnwest/yerwounded
+WA_CUREC wanted/twnwest/useashot
+
+// Player USES when wounded
+WA_HEAL0 wanted/twnwest/greasyhair
+WA_HEAL1 wanted/twnwest/shotofthis
+WA_HEAL2 wanted/twnwest/woundbad, swigofthis
+WA_HEAL3 wanted/twnwest/yerwounded, tryashot
+WA_HEAL4 wanted/twnwest/useashot, medicinal
+WA_HEAL5 wanted/twnwest/yerwounded, whiskyforpain
+WA_HEAL6 wanted/twnwest/woundbad, makebetter
+WA_HEAL7 wanted/twnwest/mouthfull
+
+// Pre-massacre Hellos
+WA_PHELLO0 wanted/twnwest/howdysheriff
+WA_PHELLO1 wanted/twnwest/fineday
+WA_PHELLO2 wanted/twnwest/mornin
+WA_PHELLO3 wanted/twnwest/goodday
+WA_PHELLO4 wanted/twnwest/hello2
+WA_PHELLO5 wanted/twnwest/hellothere
+WA_PHELLO6 wanted/twnwest/rogan
+
+// Generic questions
+WA_PQUEST0 wanted/twnwest/horseshoe
+WA_PQUEST1 wanted/twnwest/waistcoat
+WA_PQUEST2 wanted/twnwest/railroad
+WA_PQUEST3 wanted/twnwest/oillamps
+WA_PQUEST4 wanted/twnwest/grizzlybear
+WA_PQUEST5 wanted/twnwest/beansinatin
+WA_PQUEST6 wanted/twnwest/cyotees
+WA_PQUEST7 wanted/twnwest/preacher
+WA_PQUEST8 wanted/twnwest/poker
+WA_PQUEST9 wanted/twnwest/whisky
+WA_PQUEST10 wanted/twnwest/catfish
+WA_PQUEST11 wanted/twnwest/horse
+WA_PQUEST12 wanted/twnwest/roswell 
+WA_PQUEST13 wanted/twnwest/readnwrite
+WA_PQUEST14 wanted/twnwest/newplow
+WA_PQUEST15 wanted/twnwest/eggs
+WA_PQUEST16 wanted/twnwest/women
+WA_PQUEST17 wanted/twnwest/oldman
+
+// Pre masacre Idles
+WA_PIDLE0 wanted/twnwest/leftmyhorse
+WA_PIDLE1 wanted/twnwest/spurs
+WA_PIDLE2 wanted/twnwest/stagelate
+WA_PIDLE3 wanted/twnwest/saloonopen
+WA_PIDLE4 wanted/twnwest/forgotwhatsaying
+WA_PIDLE5 wanted/twnwest/rainthisyear
+WA_PIDLE6 wanted/twnwest/movingpictures
+WA_PIDLE7 wanted/twnwest/gurdengulch
+WA_PIDLE8 wanted/twnwest/tumbleweed
+WA_PIDLE9 wanted/twnwest/useadrink
+WA_PIDLE10 wanted/twnwest/harmonica
+
+// If you try and use townies before the massacre
+WA_POK0 wanted/twnwest/feedchickens
+WA_POK1 wanted/twnwest/supplies
+WA_POK2 wanted/twnwest/pokergame
+WA_POK3 wanted/twnwest/undertaker
+WA_POK4 wanted/twnwest/kindabusy
+
+// Is scared of player
+WA_PLFEAR0 wanted/twnwest/whatareyoudoin
+WA_PLFEAR1 wanted/twnwest/takemuchmore
+WA_PLFEAR2 wanted/twnwest/plainmadness
+WA_PLFEAR3 wanted/twnwest/pleaseno
+WA_PLFEAR4 wanted/twnwest/goongit
+WA_PLFEAR5 wanted/twnwest/whosside
+
+// Is scared by player actions
+WA_SCARED0 wanted/twnwest/whatthehell
+WA_SCARED1 wanted/twnwest/stopattacking
+WA_SCARED2 wanted/twnwest/maddernsnake
+
+// Townie is terrified
+WA_FEAR0 wanted/twnwest/fear0
+WA_FEAR1 wanted/twnwest/diejustyet
+WA_FEAR2 wanted/twnwest/noo
+WA_FEAR3 wanted/twnwest/makeoutalive
+WA_FEAR4 wanted/twnwest/fear6,ohdarn
+WA_FEAR5 wanted/twnwest/fear0,ohno
+WA_FEAR6 wanted/twnwest/fear6
+WA_FEAR7 wanted/twnwest/ohno
+WA_FEAR8 wanted/twnwest/ohnoo
+WA_FEAR9 wanted/twnwest/ohnooo
+WA_FEAR10 wanted/twnwest/ohdarn
+WA_FEAR11 wanted/twnwest/ohdarnit
+WA_FEAR12 wanted/twnwest/fear6,noo
+
+// Townie Screams
+WA_SCREAM0 wanted/twnwest/scream0
+WA_SCREAM1 wanted/twnwest/scream1
+WA_SCREAM2 wanted/twnwest/scream2
+WA_SCREAM3 wanted/twnwest/scream0
+WA_SCREAM4 wanted/twnwest/scream4
+WA_SCREAM5 wanted/twnwest/ohno2
+WA_SCREAM6 wanted/twnwest/no scream6
+WA_SCREAM7 wanted/twnwest/scream7
+WA_SCREAM8 wanted/twnwest/scream8
+WA_SCREAM9 wanted/twnwest/scream9
+WA_SCREAM10 wanted/twnwest/ohhell
+WA_SCREAM11 wanted/twnwest/whatthe scream4
+WA_SCREAM12 wanted/twnwest/no
+WA_SCREAM13 wanted/twnwest/gitaway
+WA_SCREAM14 wanted/twnwest/whatthe,no
+
+//*************
+//*** Annie ***
+//*************
+
+// When USED and told to follow
+AN_OK0 wanted/annie/wanthelp
+AN_OK1 wanted/annie/workwell
+AN_OK2 wanted/annie/countmein
+AN_OK3 wanted/annie/beenpractise
+AN_OK4 wanted/annie/gladtohelp
+AN_OK5 wanted/annie/letsgo
+AN_OK6 wanted/annie/moveout
+
+// When USED and told to stay
+AN_WAIT0 wanted/annie/illwaithere
+AN_WAIT1 wanted/annie/neverletme
+AN_WAIT2 wanted/annie/slowyoudown
+AN_WAIT3 wanted/annie/okillhide
+AN_WAIT4 wanted/annie/dontforget
+AN_WAIT5 wanted/annie/dontworry
+
+// Post masacre hellos
+AN_HELLO0 wanted/annie/hisheriff
+AN_HELLO1 wanted/annie/swellday
+AN_HELLO2 wanted/annie/howdysheriff
+AN_HELLO3 wanted/annie/hellothere
+AN_HELLO4 wanted/annie/howdy
+AN_HELLO5 wanted/annie/hello
+AN_HELLO6 wanted/annie/hithere
+
+//Generic Post Masacre Annie Questions
+AN_QUESTION0 wanted/annie/lemonade
+AN_QUESTION1 wanted/annie/cantgetworse
+AN_QUESTION2 wanted/annie/aimsbetter
+AN_QUESTION3 wanted/annie/tellpractice
+AN_QUESTION4 wanted/annie/shootwoman
+AN_QUESTION5 wanted/annie/whatsgoingon
+AN_QUESTION6 wanted/annie/notscaredyou
+AN_QUESTION7 wanted/annie/thinkexcite
+AN_QUESTION8 wanted/annie/giveup
+AN_QUESTION9 wanted/annie/hearthat
+AN_QUESTION10 wanted/annie/whatmetodo
+AN_QUESTION11 wanted/annie/seemoveing
+AN_QUESTION12 wanted/annie/hosslikeme
+AN_QUESTION13 wanted/annie/missinteeth
+
+// Generic Annie Answers
+AN_ANSWER0 wanted/annie/donthinkso
+AN_ANSWER1 wanted/annie/reckonso
+AN_ANSWER2 wanted/annie/soundsright
+AN_ANSWER3 wanted/annie/iguesso
+AN_ANSWER4 wanted/annie/eggsiseggs
+AN_ANSWER5 wanted/annie/surething
+AN_ANSWER6 wanted/annie/yes
+AN_ANSWER7 wanted/annie/dontaskme
+AN_ANSWER8 wanted/annie/putmoneyonit
+AN_ANSWER9 wanted/annie/hogwash
+AN_ANSWER10 wanted/annie/youdontsay
+AN_ANSWER11 wanted/annie/dontbeleive
+AN_ANSWER12 wanted/annie/hardone
+AN_ANSWER13 wanted/annie/idontknow
+AN_ANSWER14 wanted/annie/nope
+AN_ANSWER15 wanted/annie/nosiree
+AN_ANSWER16 wanted/annie/cantfigure
+AN_ANSWER17 wanted/annie/maybee
+AN_ANSWER18 wanted/annie/notelling
+AN_ANSWER19 wanted/annie/tattle
+AN_ANSWER20 wanted/annie/wingsoff
+AN_ANSWER21 wanted/annie/askyesterday
+
+// Player is staring at Annie
+AN_STARE0 wanted/annie/rudestare
+AN_STARE1 wanted/annie/whatnow
+AN_STARE2 wanted/annie/bigbutt
+AN_STARE3 wanted/annie/holesock
+
+// Annie is idle Post masacre
+AN_IDLE0 wanted/annie/thinking
+AN_IDLE1 wanted/annie/coffee
+AN_IDLE2 wanted/annie/harmonica
+AN_IDLE3 wanted/annie/gotochurch
+AN_IDLE4 wanted/annie/newbeans
+AN_IDLE5 wanted/annie/lookcloud
+AN_IDLE6 wanted/annie/gladpractise
+AN_IDLE7 wanted/annie/intuition
+AN_IDLE8 wanted/annie/hotbath
+AN_IDLE9 wanted/annie/sunhotoday
+AN_IDLE10 wanted/annie/hosslike
+
+// Annie is attacking something
+AN_ATTACK0 wanted/annie/binpractise
+AN_ATTACK1 wanted/annie/aimbetter
+AN_ATTACK2 wanted/annie/shootem
+AN_ATTACK3 wanted/annie/bitleft
+AN_ATTACK4 wanted/annie/gunstraight
+AN_ATTACK5 wanted/annie/sightsout
+
+// Annie hears something
+AN_HEAR0 wanted/annie/hearsomethin
+AN_HEAR1 wanted/annie/hearanoise
+AN_HEAR2 wanted/annie/soundsbad
+
+// Annie smells something
+AN_SMELL0 wanted/annie/outhouse
+AN_SMELL1 wanted/annie/deadbird
+AN_SMELL2 wanted/annie/smell
+
+// Annie sees a wounded player
+AN_CUREA wanted/annie/youbeenhit
+AN_CUREB wanted/annie/woundclean
+AN_CUREC wanted/annie/woundpain
+
+// Annie is scared by player actions
+AN_SCARED0 wanted/annie/whatareyou
+AN_SCARED1 wanted/annie/stopitonce
+
+// Annie is wounded
+AN_WOUND0 wanted/annie/owww
+AN_WOUND1 wanted/annie/beenhit
+
+// Annie is mortaly wounded
+AN_MORTAL0 wanted/annie/notmakeit
+
+// Player has shot Annie
+AN_SHOT0 wanted/annie/owww,dothatfor
+AN_SHOT1 wanted/annie/whatsmatter
+AN_SHOT2 wanted/annie/whatthe,stopitonce
+AN_SHOT3 wanted/annie/cutitout
+AN_SHOT4 wanted/annie/whatswrong
+AN_SHOT5 wanted/annie/owww,hopeaccident
+
+// Annie is mad at the player
+AN_MAD0 wanted/annie/prayimiss
+AN_MAD1 wanted/annie/enoughis
+AN_MAD2 wanted/annie/liedown
+AN_MAD3 wanted/annie/takenomore
+AN_MAD4 wanted/annie/owww,thatdoesit
+AN_MAD5 wanted/annie/wayyouwantit
+AN_MAD6 wanted/annie/turnonme
+
+// Annie has killed something
+AN_KILL0 wanted/annie/goshseethat
+AN_KILL1 wanted/annie/oneshot
+AN_KILL2 wanted/annie/seemyaim
+AN_KILL3 wanted/annie/tincans
+AN_KILL4 wanted/annie/sureidmissed
+AN_KILL5 wanted/annie/diddntthink
+AN_KILL6 wanted/annie/onebullet
+
+// Annie cant oblige when you use him (Pre Massacre)
+AN_POK0 wanted/annie/littlebusy
+AN_POK1 wanted/annie/visitouthouse
+AN_POK2 wanted/annie/chorestodo
+AN_POK3 wanted/annie/fiveminutes
+
+// Annie cant follow you anymore
+AN_STOP0 wanted/annie/corsets
+AN_STOP1 wanted/annie/toohardforme
+AN_STOP2 wanted/annie/needrest
+
+//************************
+//****   The Colonel  ****
+//************************
+
+// Training Ranch Scripts - make these generic scripts!
+
+CO_TRAIN1 wanted/colonel/ranch1
+CO_TRAIN2 wanted/colonel/ranch2
+CO_TRAIN3 wanted/colonel/ranch3
+CO_TRAIN4 wanted/colonel/ranch4
+CO_TRAIN5 wanted/colonel/ranch5
+CO_TRAIN6 wanted/colonel/ranch6
+CO_TRAIN7 wanted/colonel/ranch7
+CO_TRAIN8 wanted/colonel/ranch8
+CO_TRAIN9 wanted/colonel/ranch9
+CO_TRAIN10 wanted/colonel/ranch10
+CO_TRAIN11 wanted/colonel/ranch11
+CO_TRAIN12 wanted/colonel/ranch12
+CO_TRAIN13 wanted/colonel/ranch13
+CO_TRAIN14 wanted/colonel/ranch14
+CO_TRAIN15 wanted/colonel/ranch15
+CO_TRAIN16 wanted/colonel/ranch16
+
+//************************
+//**** Crispen Smythe ****
+//**** v1.2  26/10/00 ****
+//************************
+
+// When USED and told to follow
+CS_OK0 wanted/crispen/whatuse
+CS_OK1 wanted/crispen/allrightthen
+CS_OK2 wanted/crispen/letsgeton
+
+// When USED and told to stay
+CS_WAIT0 wanted/crispen/illstay
+CS_WAIT1 wanted/crispen/illwait
+CS_WAIT2 wanted/crispen/stayhere
+
+// Fail to follow player any more
+CS_STOP0 wanted/crispen/notstep
+CS_STOP1 wanted/crispen/helpothers
+
+// Player is staring at Crispen
+CS_STARE0 wanted/crispen/rulost
+CS_STARE1 wanted/crispen/canihelpyou
+
+// Post masacre hellos 
+CS_HELLO0 wanted/crispen/sheriffthankgod
+CS_HELLO1 wanted/crispen/saidyouweredead
+CS_HELLO2 wanted/crispen/mrblack
+CS_HELLO3 wanted/crispen/thankyourback
+CS_HELLO4 wanted/crispen/brigands
+CS_HELLO5 wanted/crispen/inonepiece
+
+// Generic Answers
+CS_ANSWER0 wanted/crispen/idlechatter
+CS_ANSWER1 wanted/crispen/asksomeoneelse
+CS_ANSWER2 wanted/crispen/icantsay
+CS_ANSWER3 wanted/crispen/idontknow
+CS_ANSWER4 wanted/crispen/postulate
+CS_ANSWER5 wanted/crispen/askoldzeke
+CS_ANSWER6 wanted/crispen/writeninbook
+CS_ANSWER7 wanted/crispen/stopshouting
+CS_ANSWER8 wanted/crispen/yesmaybeeno
+CS_ANSWER9 wanted/crispen/absolutlynot
+CS_ANSWER10 wanted/crispen/ibegpardon
+CS_ANSWER11 wanted/crispen/hogwash
+
+//Generic Post Masacre Questions
+CS_QUESTION0 wanted/crispen/ruffians
+CS_QUESTION1 wanted/crispen/telegraphed
+CS_QUESTION2 wanted/crispen/listentoreason
+CS_QUESTION3 wanted/crispen/whydidimove
+CS_QUESTION4 wanted/crispen/damagestuff
+CS_QUESTION5 wanted/crispen/myglasses
+CS_QUESTION6 wanted/crispen/seendawson
+CS_QUESTION7 wanted/crispen/creatediversion
+CS_QUESTION8 wanted/crispen/mycollection
+CS_QUESTION9 wanted/crispen/frightfull
+
+//When Crispen is idle (post masacre)
+CS_IDLE0 wanted/crispen/polishshoes.wav
+CS_IDLE1 wanted/crispen/stoleduster(P101) seentoday
+CS_IDLE2 wanted/crispen/cleanshoes
+CS_IDLE3 wanted/crispen/redwing
+CS_IDLE4 wanted/crispen/spoiledpie
+CS_IDLE5 wanted/crispen/pressing
+CS_IDLE6 wanted/crispen/cleanmess
+
+// Warning Player
+CS_NOGO wanted/crispen/dontgo
+
+// Sees monster
+CS_MONST0 wanted/crispen/prizebirds
+CS_MONST1 wanted/crispen/goodness
+
+//Hears something
+CS_HEAR0 wanted/crispen/whatwasthat
+CS_HEAR1 wanted/crispen/hearsomething
+
+//Smells Something
+CS_SMELL0 wanted/crispen/vilesmell
+CS_SMELL1 wanted/crispen/intollerable
+
+//Crispen is Wounded
+CS_WOUND0 wanted/crispen/ohhh
+CS_WOUND0 wanted/crispen/ohmyword
+
+// Crispen is mortaly wounded
+CS_MORTAL0 wanted/cripen/mummy
+
+// Sees wounded player
+CS_CUREA wanted/crispen/yourwounded
+CS_CUREB wanted/crispen/bloodonshirt
+
+// Player USES when wounded
+CS_HEAL0 wanted/crispen/needsomeofthis
+CS_HEAL0 wanted/crispen/wipelips
+CS_HEAL0 wanted/crispen/sipofthis
+
+// Crispen is scared of player
+CS_PLFEAR0 wanted/crispen/whatrudoing
+CS_PLFEAR1 wanted/crispen/playingat
+CS_PLFEAR2 wanted/crispen/barkingmad
+
+// Crispen is terrified
+CS_FEAR0 wanted/crispen/breath deargod(p98)
+CS_FEAR1 wanted/crispen/barkingmad.wav
+CS_FEAR2 wanted/crispen/youarecrazy
+
+// Crispen Screams
+CS_SCREAM0 wanted/crispen/scream0
+CS_SCREAM1 wanted/crispen/scream1
+CS_SCREAM2 wanted/crispen/help
+CS_SCREAM3 wanted/crispen/scream3
+CS_SCREAM4 wanted/crispen/scream4
+CS_SCREAM5 wanted/crispen/mummmmy
+
+// Is scared by player actions
+CS_SCARED0 wanted/crispen/ohdear
+CS_SCARED1 wanted/crispen/isaywhat
+
+// Pre-massacre Hellos
+CS_PHELLO0 wanted/crispen/gooddaytoyou
+CS_PHELLO1 wanted/crispen/hellothere
+CS_PHELLO2 wanted/crispen/goodmorning
+
+//Pre-massacre Questions
+CS_PQUEST0 wanted/crispen/duster
+CS_PQUEST1 wanted/crispen/butterflys
+CS_PQUEST2 wanted/crispen/spottedadmiral
+CS_PQUEST3 wanted/crispen/gazzette
+CS_PQUEST4 wanted/crispen/beansinatin
+CS_PQUEST5 wanted/crispen/seenpreacher
+CS_PQUEST6 wanted/crispen/telnorp
+CS_PQUEST7 wanted/crispen/amazongreen
+CS_PQUEST8 wanted/crispen/dawsontoday
+
+// Pre masacre Idles
+CS_PIDLE0 wanted/crispen/polishshoes
+CS_PIDLE1 wanted/crispen/stoleduster
+CS_PIDLE2 wanted/crispen/polishbrass
+CS_PIDLE3 wanted/crispen/writeletter
+CS_PIDLE4 wanted/crispen/redwing
+CS_PIDLE5 wanted/crispen/polishstove
+CS_PIDLE6 wanted/crispen/makeapie
+
+// If you try and use Crispen before the massacre
+CS_POK0 wanted/crispen/section12
+CS_POK1 wanted/crispen/intherules
+CS_POK2 wanted/crispen/abandon
+CS_POK3 wanted/crispen/rule27b
+CS_POK4 wanted/crispen/breakrules
+
+//************************
+//**** Dynamite Dave *****
+//**** v1.1 16/11/00 *****
+//************************
+
+// When USED and told to follow
+DD_OK0 wanted/dyndave/ddnoprob
+DD_OK1 wanted/dyndave/ddwithyou
+DD_OK2 wanted/dyndave/ddfershure
+
+//When used and told to wait.
+DD_WAIT0 wanted/dyndave/ddshantmove
+DD_WAIT1 wanted/dyndave/ddillwait
+DD_WAIT2 wanted/dyndave/ddnotneeded
+
+//Failed to follow player
+DD_STOP0 wanted/dyndave/ddtoodrunk
+DD_STOP1 wanted/dyndave/ddnotgoon
+
+//Player is staring
+DD_STARE0 wanted/dyndave/ddstare
+
+//post masacre hellos
+DD_HELLO0 wanted/dyndave/ddtomornin
+DD_HELLO1 wanted/dyndave/ddhowudoin
+DD_HELLO2 wanted/dyndave/ddgrandday
+DD_HELLO3 wanted/dyndave/ddwelcome
+
+//Generic Answers
+DD_ANSWER0 wanted/dyndave/dddontknow
+DD_ANSWER1 wanted/dyndave/ddcouldbeso
+DD_ANSWER2 wanted/dyndave/ddnotsure
+DD_ANSWER3 wanted/dyndave/ddaskpope
+
+//Generic Questions
+DD_QUESTION0 wanted/dyndave/ddbuyrock
+DD_QUESTION1 wanted/dyndave/ddminersweekly
+DD_QUESTION2 wanted/dyndave/ddsaloon
+DD_QUESTION3 wanted/dyndave/ddopenyet
+DD_QUESTION4 wanted/dyndave/ddmother
+
+//Dave is idle
+DD_IDLE0 wanted/dyndave/dddrythroat
+DD_IDLE1 wanted/dyndave/ddbathmonth
+DD_IDLE2 wanted/dyndave/ddrailroad
+DD_IDLE3 wanted/dyndave/ddcompany
+
+//Hears something
+DD_HEAR0 wanted/dyndave/ddwhatdevil
+
+//Smells Something
+DD_SMELL0 wanted/dyndave/ddsocks
+
+//Is wounded
+DD_WOUND0 wanted/dyndave/ddgash
+DD_WOUND1 wanted/dyndave/ddmajor
+DD_WOUND2 wanted/dyndave/ddfinished
+
+//Dave sees a wounded player
+DD_CURE0 dynadave/ddyouok
+
+//Dave heals a wounded player
+DD_HEAL0 wanted/dyndave/dddropofirish
+
+//Dave is terrified
+DD_FEAR0 wanted/dyndave/ddmothergod
+
+//Dave screams
+DD_SCREAM0 wanted/dyndave/ddbegorrah
+DD_SCREAM1 wanted/dyndave/ddgaw
+
+//Dave is scared by player actions
+DD_SCARED0 wanted/dyndave/ddstartrun
+
+//Pre-masacre OKs
+DD_POK0 wanted/dyndave/ddlanigans
+DD_POK1 wanted/dyndave/ddbathnight
+
+
+//************************
+//**** Mex Townies   *****
+//**** v1.0 21/08/00 *****
+//************************
+
+// When USED and told to follow
+MN_OK0 wanted/townmex/si
+MN_OK1 wanted/townmex/sure
+MN_OK2 wanted/townmex/prayyouknow
+MN_OK3 wanted/townmex/illfollowyou
+MN_OK4 wanted/townmex/letsbegoing
+MN_OK5 wanted/townmex/ifyousayso
+MN_OK6 wanted/townmex/ok
+MN_OK7 wanted/townmex/yes(p98)
+
+// When USED and told to stay
+MN_WAIT0 wanted/townmex/rusure
+MN_WAIT1 wanted/townmex/slowingudown
+MN_WAIT2 wanted/townmex/changemind
+MN_WAIT3 wanted/townmex/waitforothers
+MN_WAIT4 wanted/townmex/shout
+MN_WAIT5 wanted/townmex/siestatime
+
+// Fail to follow player any more
+MN_STOP0 wanted/townmex/cantgoon
+MN_STOP1 wanted/townmex/nogood
+MN_STOP2 wanted/townmex/noburo
+MN_STOP3 wanted/townmex/todangerous
+
+// Player is staring at Pedro
+MN_STARE0 wanted/townmex/wyatterp
+MN_STARE1 wanted/townmex/smallhat
+
+// Post masacre hellos
+MN_HELLO0 wanted/townmex/hello
+MN_HELLO1 wanted/townmex/badday
+MN_HELLO2 wanted/townmex/untrue
+MN_HELLO3 wanted/townmex/inthisworld
+MN_HELLO4 wanted/townmex/mrsherriffsir
+MN_HELLO5 wanted/townmex/youbadday
+MN_HELLO6 wanted/townmex/mygoodfriend
+
+// Generic Answers
+MN_ANSWER0 wanted/townmex/yess
+MN_ANSWER1 wanted/townmex/askmigeal
+MN_ANSWER2 wanted/townmex/thinkitstrue
+MN_ANSWER3 wanted/townmex/askoldman
+MN_ANSWER4 wanted/townmex/believeso
+MN_ANSWER5 wanted/townmex/ofcourse
+MN_ANSWER6 wanted/townmex/whynot
+MN_ANSWER7 wanted/townmex/howpossible
+MN_ANSWER8 wanted/townmex/ithinkso
+MN_ANSWER9 wanted/townmex/boresmetodeath
+MN_ANSWER10 wanted/townmex/talktomuch
+MN_ANSWER11 wanted/townmex/no
+MN_ANSWER12 wanted/townmex/iknownothing
+MN_ANSWER13 wanted/townmex/tireofspeak
+MN_ANSWER14 wanted/townmex/ifitoldyou
+MN_ANSWER15 wanted/townmex/doyouneverstop
+MN_ANSWER16 wanted/townmex/whatdoyoumean
+MN_ANSWER17 wanted/townmex/askpadre
+MN_ANSWER18 wanted/townmex/simplepeasant
+
+//Generic Post Masacre Questions
+MN_QUESTION0 wanted/townmex/greko
+MN_QUESTION1 wanted/townmex/newbeans
+MN_QUESTION2 wanted/townmex/whattheywant
+MN_QUESTION3 wanted/townmex/youngones
+MN_QUESTION4 wanted/townmex/newspaper
+MN_QUESTION5 wanted/townmex/stainsout
+MN_QUESTION6 wanted/townmex/mistake
+MN_QUESTION7 wanted/townmex/cactus
+MN_QUESTION8 wanted/townmex/goldinteeth
+MN_QUESTION9 wanted/townmex/siesta
+MN_QUESTION10 wanted/townmex/teqilaonyou
+MN_QUESTION11 wanted/townmex/deadfear
+MN_QUESTION12 wanted/townmex/holiday
+MN_QUESTION13 wanted/townmex/wastebullets
+MN_QUESTION14 wanted/townmex/mariasmustache
+MN_QUESTION15 wanted/townmex/wearefarmers
+MN_QUESTION16 wanted/townmex/buzzard
+MN_QUESTION17 wanted/townmex/chafe
+MN_QUESTION18 wanted/townmex/fightlastnight
+MN_QUESTION19 wanted/townmex/cutout
+
+//When Pedro is idle (post masacre)
+MN_IDLE0 wanted/townmex/beansandcorn
+MN_IDLE1 wanted/townmex/moreguns
+MN_IDLE2 wanted/townmex/useashot
+MN_IDLE3 wanted/townmex/runoutoftown
+MN_IDLE4 wanted/townmex/sherriffintown
+MN_IDLE5 wanted/townmex/onlycamefor
+MN_IDLE6 wanted/townmex/iforgot
+MN_IDLE7 wanted/townmex/banditsaway
+MN_IDLE8 wanted/townmex/youngboys
+MN_IDLE9 wanted/townmex/wifekillme
+
+// Warning Player
+MN_NOGO wanted/townmex/mnogo
+
+//Sees monster
+MN_MONST0 wanted/townmex/onlyachicken
+MN_MONST1 wanted/townmex/santamaria
+
+//Pedro hears something
+MN_HEAR0 wanted/townmex/hearthat
+MN_HEAR1 wanted/townmex/hearsomething
+MN_HEAR2 wanted/townmex/hearrustling
+
+//Pedro Smells something
+MN_SMELL0 wanted/townmex/stench
+MN_SMELL1 wanted/townmex/terriblesmell
+
+//Pedro is Wounded
+MN_WOUND0 wanted/townmex/argh
+MN_WOUND1 wanted/townmex/thathurt
+
+//Pedro is mortaly wounded
+MN_MORTAL0 wanted/townmex/ugh
+MN_MORTAL1 wanted/townmex/imshot
+
+// Sees wounded player
+MN_CUREA wanted/townmex/youareshot
+MN_CUREB wanted/townmex/youlookhurt
+MN_CUREC wanted/townmex/stitchwound
+
+// Player USES when wounded
+MN_HEAL0 wanted/townmex/needsome
+MN_HEAL1 wanted/townmex/dullpain
+MN_HEAL2 wanted/townmex/drinkthis
+
+//Pedro is scared of player
+MN_PLFEAR0 wanted/townmex/whatyoudo
+MN_PLFEAR1 wanted/townmex/pleasesenior
+MN_PLFEAR2 wanted/townmex/gringo
+MN_PLFEAR3 wanted/townmex/noo
+MN_PLFEAR4 wanted/townmex/nowait
+
+//Pedro is terrified
+MN_FEAR0 wanted/townmex/pleasesenior noo
+MN_FEAR1 wanted/townmex/donthurtme
+MN_FEAR2 wanted/townmex/noo(p101)
+MN_FEAR3 wanted/townmex/whydothis
+MN_FEAR4 wanted/townmex/gonemad
+MN_FEAR5 wanted/townmex/youarecrazy
+MN_FEAR6 wanted/townmex/helpme
+
+//Pedro Screams
+MN_SCREAM0 wanted/townmex/ahhh
+MN_SCREAM1 wanted/townmex/ohhh
+MN_SCREAM2 wanted/townmex/ohhahh
+MN_SCREAM3 wanted/townmex/noo(p102) ahhh
+MN_SCREAM4 wanted/townmex/oherrrr
+MN_SCREAM5 wanted/townmex/ohno
+MN_SCREAM6 wanted/townmex/ayee
+MN_SCREAM7 wanted/townmex/arghhhh
+MN_SCREAM8 wanted/townmex/eek
+MN_SCREAM9 wanted/townmex/yeowww
+MN_SCREAM10 wanted/townmex/squeeeeek
+
+// Is scared by player actions
+MN_SCARED0 wanted/townmex/whatthink
+MN_SCARED1 wanted/townmex/simplefarmers
+MN_SCARED2 wanted/townmex/crazymad
+
+// Pre-massacre Hellos
+MN_PHELLO0 wanted/townmex/helllo
+MN_PHELLO1 wanted/townmex/signore
+MN_PHELLO2 wanted/townmex/sherriff
+MN_PHELLO3 wanted/townmex/heyamigo
+
+//Pre-massacre Questions
+MN_PQUEST0 wanted/townmex/seensombrero
+MN_PQUEST1 wanted/townmex/enoughbullets
+MN_PQUEST2 wanted/townmex/evilmen
+MN_PQUEST3 wanted/townmex/madcrazy
+MN_PQUEST4 wanted/townmex/lunchtoday
+MN_PQUEST5 wanted/townmex/ridenburo
+MN_PQUEST6 wanted/townmex/stareat
+MN_PQUEST7 wanted/townmex/badmen
+MN_PQUEST8 wanted/townmex/lookfunny
+MN_PQUEST9 wanted/townmex/iforgot
+
+// Pre masacre Idles
+MN_PIDLE0 wanted/townmex/hottoday
+MN_PIDLE1 wanted/townmex/fertiliser
+MN_PIDLE2 wanted/townmex/runoutoftown
+MN_PIDLE3 wanted/townmex/worriedwife
+MN_PIDLE4 wanted/townmex/useashot
+MN_PIDLE5 wanted/townmex/cursevillage
+MN_PIDLE6 wanted/townmex/whitewash
+MN_PIDLE7 wanted/townmex/banditsaway
+MN_PIDLE8 wanted/townmex/iwish
+MN_PIDLE9 wanted/townmex/blackday
+
+// If you try and use Pedro before the massacre
+MN_POK0 wanted/townmex/findburo
+MN_POK1 wanted/townmex/laterhuh
+MN_POK2 wanted/townmex/tendhorses
+MN_POK3 wanted/townmex/weakback
+MN_POK4 wanted/townmex/noicant
+
+//************************
+//****    Miners     *****
+//**** v1.1 23/08/00 *****
+//************************
+
+// sees dynamite
+MI_GREN0 wanted/miner/dynamite
+MI_GREN1 wanted/miner/takecover
+MI_GREN2 wanted/miner/awshit
+MI_GREN3 wanted/miner/lookout
+MI_GREN4 wanted/miner/watchout
+MI_GREN5 wanted/miner/nooo
+MI_GREN6 wanted/miner/mooveit
+
+// Sees player
+MI_ALERT0 wanted/miner/getpistol
+MI_ALERT1 wanted/miner/itsthesherriff
+MI_ALERT2 wanted/miner/iseehim
+MI_ALERT3 wanted/miner/shitlawman
+MI_ALERT4 wanted/miner/getsherriff
+MI_ALERT5 wanted/miner/blowheadoff
+MI_ALERT6 wanted/miner/hesoverhere
+
+//Sees NPC
+MI_MONST0 wanted/miner/iseeoneofem
+MI_MONST1 wanted/miner/visitors
+MI_MONST2 wanted/miner/getawaygold
+MI_MONST3 wanted/miner/stealgold
+
+// Take cover!
+MI_COVER0 wanted/miner/duck
+MI_COVER1 wanted/miner/pinemdown
+MI_COVER2 wanted/miner/gimmehelp
+MI_COVER3 wanted/miner/runferit
+MI_COVER4 wanted/miner/lookoutt
+MI_COVER5 wanted/miner/flushhimout
+MI_COVER6 wanted/miner/goddamnit
+MI_COVER7 wanted/miner/somebodycover
+
+//Throws dynamite
+MI_THROW0 wanted/miner/fireinhole
+MI_THROW1 wanted/miner/takethis
+MI_THROW2 wanted/miner/chewonthis
+MI_THROW3 wanted/miner/likethisone
+
+//taunts player
+MI_TAUNT0 wanted/miner/runout
+MI_TAUNT1 wanted/miner/yermomma
+MI_TAUNT2 wanted/miner/whupass
+MI_TAUNT3 wanted/miner/homeinabox
+MI_TAUNT4 wanted/miner/awavefile
+MI_TAUNT5 wanted/miner/tinstar
+
+//Charge
+MI_CHARGE0 wanted/miner/getim
+MI_CHARGE1 wanted/miner/mooove
+MI_CHARGE2 wanted/miner/yehaw
+
+//Idle
+MI_IDLE0 wanted/miner/newbeams
+MI_IDLE1 wanted/miner/sweetlovin
+MI_IDLE2 wanted/miner/newshovel
+
+//Asking question to other Miners
+MI_QUEST0 wanted/miner/eyeopen
+MI_QUEST1 wanted/miner/damnfools
+MI_QUEST2 wanted/miner/keeplookout
+MI_QUEST3 wanted/miner/shutup
+MI_QUEST4 wanted/miner/stayhere
+MI_QUEST5 wanted/miner/seeflush
+MI_QUEST6 wanted/miner/headdown
+MI_QUEST7 wanted/miner/keepemaway
+MI_QUEST8 wanted/miner/passround
+MI_QUEST9 wanted/miner/makesure
+MI_QUEST10 wanted/miner/allok
+MI_QUEST11 wanted/miner/roundsomewhere
+
+//Answering questions
+MI_ANSWER0 wanted/miner/yep
+MI_ANSWER1 wanted/miner/ok
+MI_ANSWER2 wanted/miner/okok
+MI_ANSWER3 wanted/miner/whomadeyou
+MI_ANSWER4 wanted/miner/yepsure
+MI_ANSWER5 wanted/miner/errok
+MI_ANSWER6 wanted/miner/whatdidyousay
+
+//reporting status
+MI_CLEAR0 wanted/miner/noonehere
+MI_CLEAR1 wanted/miner/cantseeanyone
+MI_CLEAR2 wanted/miner/mustbehiding
+MI_CLEAR3 wanted/miner/nosignofem
+MI_CLEAR4 wanted/miner/canyouseeem
+MI_CLEAR5 wanted/miner/cantseenoone
+MI_CLEAR6 wanted/miner/aintnoone
+MI_CLEAR7 wanted/miner/rats
+MI_CLEAR8 wanted/miner/allquiet
+MI_CLEAR9 wanted/miner/cantseenothin
+MI_CLEAR10 wanted/miner/heardsomething
+MI_CLEAR11 wanted/miner/notevenarat
+MI_CLEAR12 wanted/miner/invisible
+
+//Checking for intruders
+MI_CHECK0 wanted/miner/whereruzeke
+MI_CHECK1 wanted/miner/seeanysign
+MI_CHECK2 wanted/miner/heycharlie
+MI_CHECK3 wanted/miner/damnedifican
+MI_CHECK4 wanted/miner/shootanything
+MI_CHECK5 wanted/miner/seemoving
+MI_CHECK6 wanted/miner/shadows
+MI_CHECK7 wanted/miner/heyjake
+
+//Miner is punching
+MI_PUNCH0 wanted/miner/takethis(p96)
+MI_PUNCH1 wanted/miner/gimmehelp(p98)
+MI_PUNCH2 wanted/miner/hesoverhere(p97)
+MI_PUNCH3 wanted/miner/whupass(p98)
+
+//************************
+//**** Cowboy Outlaws ****
+//**** V1.0  24/08/00 ****
+//************************
+
+// sees dynamite
+OL_GREN0 wanted/cowboy/oldynamite
+OL_GREN1 wanted/cowboy/olrunferit
+OL_GREN2 wanted/cowboy/oljeezus
+OL_GREN3 wanted/cowboy/ollookout
+OL_GREN4 wanted/cowboy/olawhell
+OL_GREN5 wanted/cowboy/olshitno
+OL_GREN6 wanted/cowboy/olmoveit
+
+// Sees player
+OL_ALERT0 wanted/cowboy/oliseehim
+OL_ALERT1 wanted/cowboy/olthereheis
+OL_ALERT2 wanted/cowboy/olitsthesherriff
+OL_ALERT3 wanted/cowboy/olshoothim
+OL_ALERT4 wanted/cowboy/olgetthesherriff
+OL_ALERT5 wanted/cowboy/ollookinferyou
+OL_ALERT6 wanted/cowboy/olfoundhim
+
+//Sees NPC
+OL_MONST0 wanted/cowboy/ollookiehere
+OL_MONST1 wanted/cowboy/olrunhide
+OL_MONST2 wanted/cowboy/olvisitor
+OL_MONST3 wanted/cowboy/olfoundtrouble
+
+// Take cover!
+OL_COVER0 wanted/cowboy/olkeepdown
+OL_COVER1 wanted/cowboy/olusehelp
+OL_COVER2 wanted/cowboy/ollookoutt
+OL_COVER3 wanted/cowboy/oldamn
+OL_COVER4 wanted/cowboy/olshit
+OL_COVER5 wanted/cowboy/olcoverme
+OL_COVER6 wanted/cowboy/olgetdown
+OL_COVER7 wanted/cowboy/olgetback
+
+//Throws Dynamite
+OL_THROW0 wanted/cowboy/oltrythison
+OL_THROW1 wanted/cowboy/oltakethis
+OL_THROW2 wanted/cowboy/oldelivery
+OL_THROW3 wanted/cowboy/olcatch
+
+//Taunting Player
+OL_TAUNT0 wanted/cowboy/olanniefake
+OL_TAUNT1 wanted/cowboy/olcomeonout
+OL_TAUNT2 wanted/cowboy/olcomeout
+OL_TAUNT3 wanted/cowboy/olhideallday
+OL_TAUNT4 wanted/cowboy/olchicken
+OL_TAUNT5 wanted/cowboy/olsmelllawman
+
+//Charge!
+OL_CHARGE0 wanted/cowboy/olseehim
+OL_CHARGE1 wanted/cowboy/olyewaw
+OL_CHARGE2 wanted/cowboy/oligothim
+
+//Idle
+OL_IDLE0 wanted/cowboy/olpoppasaid
+OL_IDLE1 wanted/cowboy/olredeye
+OL_IDLE2 wanted/cowboy/olfart
+
+//Asking question to other Cowboys
+OL_QUEST0 wanted/cowboy/olheybill
+OL_QUEST1 wanted/cowboy/oloutofammo
+OL_QUEST2 wanted/cowboy/olheyseethat
+OL_QUEST3 wanted/cowboy/olshussh
+OL_QUEST4 wanted/cowboy/olyoustayhere
+OL_QUEST5 wanted/cowboy/olpassgelly
+OL_QUEST6 wanted/cowboy/olpassrifle
+OL_QUEST7 wanted/cowboy/olseeanythin
+OL_QUEST8 wanted/cowboy/olstillwithme
+OL_QUEST9 wanted/cowboy/olstayontoes
+OL_QUEST10 wanted/cowboy/oluponrock
+OL_QUEST11 wanted/cowboy/olwatchbacks
+
+//Answering questions
+OL_ANSWER0 wanted/cowboy/olyup
+OL_ANSWER1 wanted/cowboy/olyesiree
+OL_ANSWER2 wanted/cowboy/olok
+OL_ANSWER3 wanted/cowboy/olsurethang
+OL_ANSWER4 wanted/cowboy/olyouincharge
+OL_ANSWER5 wanted/cowboy/olnope
+OL_ANSWER6 wanted/cowboy/olwhat
+
+//reporting status
+OL_CLEAR0 wanted/cowboy/olnothinhere
+OL_CLEAR1 wanted/cowboy/olcantseenothin
+OL_CLEAR2 wanted/cowboy/olholdon
+OL_CLEAR3 wanted/cowboy/olnosign
+OL_CLEAR4 wanted/cowboy/cocanthere
+OL_CLEAR5 wanted/cowboy/olcantseeem
+OL_CLEAR6 wanted/cowboy/olmeneither
+OL_CLEAR7 wanted/cowboy/oldust
+OL_CLEAR8 wanted/cowboy/oleyesopen
+OL_CLEAR9 wanted/cowboy/olidontsee
+OL_CLEAR10 wanted/cowboy/olseenothinhere
+OL_CLEAR11 wanted/cowboy/olnooneheren
+OL_CLEAR12 wanted/cowboy/oljustacactus
+
+//Checking for intruders
+OL_CHECK0 wanted/cowboy/olheysee
+OL_CHECK1 wanted/cowboy/olshitseenoone
+OL_CHECK2 wanted/cowboy/olsharpeye
+OL_CHECK3 wanted/cowboy/olsixin
+OL_CHECK4 wanted/cowboy/olsnakes
+OL_CHECK5 wanted/cowboy/olhellnoone
+OL_CHECK6 wanted/cowboy/olroundback
+OL_CHECK7 wanted/cowboy/olstoodin
+
+//*************************
+//**** Mexican Bandits ****
+//**** V1.0  07/11/00  ****
+//*************************
+
+// sees dynamite
+MB_GREN0 wanted/mexbandit/mbayee
+MB_GREN1 wanted/mexbandit/mbdynrun
+MB_GREN2 wanted/mexbandit/mbsantam
+MB_GREN3 wanted/mexbandit/mblookout
+MB_GREN4 wanted/mexbandit/mbohno
+MB_GREN5 wanted/mexbandit/mbshitno
+MB_GREN6 wanted/mexbandit/mbrun
+
+// Sees player
+MB_ALERT0 wanted/mexbandit/mbiseehim
+MB_ALERT1 wanted/mexbandit/mbtherehe
+MB_ALERT2 wanted/mexbandit/mbitsgringo
+MB_ALERT3 wanted/mexbandit/mbgethim
+MB_ALERT4 wanted/mexbandit/mbgetsherrif
+MB_ALERT5 wanted/mexbandit/mbiseeyou
+MB_ALERT6 wanted/mexbandit/mboverhere
+
+//Sees NPC
+MB_MONST0 wanted/mexbandit/mbiseeyous
+MB_MONST1 wanted/mexbandit/mbcanthide
+MB_MONST2 wanted/mexbandit/mbheyamigos
+MB_MONST3 wanted/mexbandit/mbbigtrouble
+
+// Take cover!
+MB_COVER0 wanted/mexbandit/mbkeepdown
+MB_COVER1 wanted/mexbandit/mbayeee
+MB_COVER2 wanted/mexbandit/mbcoverme
+MB_COVER3 wanted/mexbandit/mbgetdown
+MB_COVER4 wanted/mexbandit/mblookout2
+MB_COVER5 wanted/mexbandit/mbrun2
+MB_COVER6 wanted/mexbandit/mbshit
+MB_COVER7 wanted/mexbandit/mbtakecover
+
+//Throws Dynamite
+MB_THROW0 wanted/mexbandit/mbwantcorn
+MB_THROW1 wanted/mexbandit/mbtakethis
+MB_THROW2 wanted/mexbandit/mbpresent
+MB_THROW3 wanted/mexbandit/mbforyou
+
+//Taunting Player
+MB_TAUNT0 wanted/mexbandit/mbfightornot
+MB_TAUNT1 wanted/mexbandit/mbmanorchook
+MB_TAUNT2 wanted/mexbandit/mbmotherburo
+MB_TAUNT3 wanted/mexbandit/mbtiredbynow
+MB_TAUNT4 wanted/mexbandit/mbgiveup
+MB_TAUNT5 wanted/mexbandit/mbtombstone
+
+//Charge!
+MB_CHARGE0 wanted/mexbandit/mbhereicome
+MB_CHARGE1 wanted/mexbandit/mbtakethis2
+MB_CHARGE2 wanted/mexbandit/mbayeeeee
+
+//Idle
+MB_IDLE0 wanted/mexbandit/mbmissmaria
+MB_IDLE1 wanted/mexbandit/mbsickfood
+MB_IDLE2 wanted/mexbandit/mbbetterfarm
+
+//Asking question to other Bandits
+MB_QUEST0 wanted/mexbandit/mbpassmatch
+MB_QUEST1 wanted/mexbandit/mbstaydown
+MB_QUEST2 wanted/mexbandit/mbshutup
+MB_QUEST3 wanted/mexbandit/mbeyesopen
+MB_QUEST4 wanted/mexbandit/mbstayput
+MB_QUEST5 wanted/mexbandit/mbrustleout
+MB_QUEST6 wanted/mexbandit/mbsantadwn
+MB_QUEST7 wanted/mexbandit/mbwheredyn
+MB_QUEST8 wanted/mexbandit/mbshootkill
+MB_QUEST9 wanted/mexbandit/mbgetaway
+MB_QUEST10 wanted/mexbandit/mbnotime
+MB_QUEST11 wanted/mexbandit/mblazy
+
+//Answering questions
+MB_ANSWER0 wanted/mexbandit/mbokok
+MB_ANSWER1 wanted/mexbandit/mbyes
+MB_ANSWER2 wanted/mexbandit/mbsurething
+MB_ANSWER3 wanted/mexbandit/mbnope
+MB_ANSWER4 wanted/mexbandit/mbstopshout
+MB_ANSWER5 wanted/mexbandit/mbok
+MB_ANSWER6 wanted/mexbandit/mbsi
+
+//reporting status
+MB_CLEAR0 wanted/mexbandit/mbnothinhere
+MB_CLEAR1 wanted/mexbandit/mbiseenothing
+MB_CLEAR2 wanted/mexbandit/mbnonebutus
+MB_CLEAR3 wanted/mexbandit/mbnosign
+MB_CLEAR4 wanted/mexbandit/mbcantsee
+MB_CLEAR5 wanted/mexbandit/mbwind
+MB_CLEAR6 wanted/mexbandit/mbhiding
+MB_CLEAR7 wanted/mexbandit/mbcactusdrt
+MB_CLEAR8 wanted/mexbandit/mbpedrosee
+MB_CLEAR9 wanted/mexbandit/mbquiet
+MB_CLEAR10 wanted/mexbandit/mbhavntseen
+MB_CLEAR11 wanted/mexbandit/mbsnakesdung
+MB_CLEAR12 wanted/mexbandit/mbnosign2
+
+//Checking for intruders
+MB_CHECK0 wanted/mexbandit/mbchiko
+MB_CHECK1 wanted/mexbandit/mbrunaway
+MB_CHECK2 wanted/mexbandit/mbwellhiden
+MB_CHECK3 wanted/mexbandit/mballclear
+MB_CHECK4 wanted/mexbandit/mbghost
+MB_CHECK5 wanted/mexbandit/mbotherside
+MB_CHECK6 wanted/mexbandit/mbscorpions
+
+//*************************
+//****      Masala     ****
+//**** V1.0  10/11/00  ****
+//*************************
+
+// When USED and told to follow
+NB_OK0 wanted/masala/nbok
+NB_OK1 wanted/masala/nbifollow
+
+//Told to stay
+NB_WAIT0 wanted/masala/nbiwaithere
+NB_WAIT1 wanted/masala/nbokiwait
+
+//Cant follow player
+NB_STOP0 wanted/masala/nbinotgo
+NB_STOP1 wanted/masala/nbtooshort
+
+//Player is staring
+NB_STARE0 wanted/masala/nbtotempole
+
+//pre/post masacre hellos
+NB_HELLO0 wanted/masala/nbpaleface
+NB_HELLO1 wanted/masala/nbhellohat
+
+//Generic Answers
+NB_ANSWER0 wanted/masala/nbasktika
+NB_ANSWER1 wanted/masala/nbuhhuh
+NB_ANSWER2 wanted/masala/nbummerrr
+NB_ANSWER3 wanted/masala/nbno
+NB_ANSWER4 wanted/masala/nbsoundpale
+
+//Generic Questions
+NB_QUESTION0 wanted/masala/nbhappyan
+NB_QUESTION1 wanted/masala/nbloincloth
+NB_QUESTION2 wanted/masala/nbnosquaws
+NB_QUESTION3 wanted/masala/nbwhiskey
+NB_QUESTION4 wanted/masala/nbthreelegs
+
+//Masala is Idle - No slur intended!
+NB_IDLE0 wanted/masala/nbthirsty
+NB_IDLE1 wanted/masala/nbkinky
+NB_IDLE2 wanted/masala/nbillshowim
+NB_IDLE3 wanted/masala/nbcrazywoman
+
+// Warning Player
+NB_NOGO wanted/masala/nbdanger
+
+// Sees monster
+NB_MONST0 wanted/masala/nbrun
+
+//Hears something
+NB_HEAR0 wanted/masala/nbquiet
+
+//Smells Something
+NB_SMELL0 wanted/masala/nboldshoes
+
+//Masala is Wounded
+NB_WOUND0 wanted/masala/nbouch
+NB_WOUND1 wanted/masala/nbaagghh
+
+//Masala is mortaly wounded
+NB_MORTAL0 wanted/masala/nbergg
+
+//Sees wounded player
+NB_CUREA wanted/masala/nbcure
+
+//Player USES when wounded
+NB_HEAL0 wanted/masala/nbheal
+
+//Masala is terrified
+NB_FEAR0 wanted/masala/nbprotectme
+NB_FEAR1 wanted/masala/nbcurse
+NB_FEAR2 wanted/masala/nbhey
+NB_FEAR3 wanted/masala/nbprotectme
+
+//Masala Screams
+NB_SCREAM0 wanted/masala/nbaahhh
+NB_SCREAM1 wanted/masala/nbeeerrr
+NB_SCREAM2 wanted/masala/nbaayyee
+NB_SCREAM3 wanted/masala/nbarrghh
+NB_SCREAM4 wanted/masala/nboowwww
+
+//Is scared by player actions
+NB_SCARED0 wanted/masala/nbdontscare
+NB_SCARED1 wanted/masala/nbdosomething
+
+//*************************
+//*** Nagatowai Indians ***
+//***  V1.0  10/11/00   ***
+//*************************
+
+//When Used and told to follow
+NI_OK0 wanted/nagatow/nisoontime
+NI_OK1 wanted/nagatow/nisunfall
+NI_OK2 wanted/nagatow/niwardance
+
+//When used and told to wait
+NI_WAIT0 wanted/nagatow/niyourwish
+NI_WAIT1 wanted/nagatow/niitisso
+
+//Cant follow player
+NI_STOP0 wanted/nagatow/nibeatone
+NI_STOP1 wanted/nagatow/nimoon
+
+//Player is staring
+NI_STARE wanted/nagatow/nieagle
+
+//pre/post masacre hellos
+NI_HELLO0 wanted/nagatow/nipaleface
+NI_HELLO1 wanted/nagatow/nistarman
+
+//Generic Answers
+NI_ANSWER0 wanted/nagatow/nihewillknow
+NI_ANSWER1 wanted/nagatow/niibelieve
+NI_ANSWER2 wanted/nagatow/niitis
+NI_ANSWER3 wanted/nagatow/nino
+NI_ANSWER4 wanted/nagatow/niitwasso
+
+//Generic Questions
+NI_QUESTION0 wanted/nagatow/nispirits
+NI_QUESTION1 wanted/nagatow/niheadband
+NI_QUESTION2 wanted/nagatow/ninosquaws
+NI_QUESTION3 wanted/nagatow/niwhisky
+NI_QUESTION4 wanted/nagatow/niatemother
+
+//Nagatowai are idle
+NI_IDLE0 wanted/nagatow/nisunleaves
+NI_IDLE1 wanted/nagatow/ninewcloth
+NI_IDLE2 wanted/nagatow/nistarstrue
+NI_IDLE3 wanted/nagatow/nidamnchooks
+
+//Warning the Player
+NI_NOGO wanted/nagatow/ninotgood
+
+// Sees monster
+NI_MONST0 wanted/nagatow/nibeswift
+
+//Hears something
+NI_HEAR0 wanted/nagatow/nithewind
+
+//Smells Something
+NI_SMELL0 wanted/nagatow/nismell
+
+//Is Wounded
+NI_WOUND0 wanted/nagatow/niow
+NI_WOUND1 wanted/nagatow/niooww
+
+//Is mortaly wounded
+NI_MORTAL0 wanted/nagatow/nijoindead
+
+//Sees wounded player
+NI_CUREA wanted/nagatow/nistarbright
+
+//Player USES when wounded
+NI_HEAL0 wanted/nagatow/nimedicine
+
+//Is terrified
+NI_FEAR0 wanted/nagatow/niguardme
+NI_FEAR1 wanted/nagatow/nirace
+NI_FEAR2 wanted/nagatow/nipeacefull
+
+//Nancy girly screams....
+NI_SCREAM0 wanted/nagatow/niiscream
+NI_SCREAM1 wanted/nagatow/niyouscream
+NI_SCREAM2 wanted/nagatow/niweallscream
+NI_SCREAM3 wanted/nagatow/niforicecream
+NI_SCREAM4 wanted/nagatow/niscream5
+NI_SCREAM5 wanted/nagatow/niscream6
+
+//Is scared by player actions
+NI_SCARED0 wanted/nagatow/nibrave
+NI_SCARED1 wanted/nagatow/nitruepath
+NI_SCARED2 wanted/nagatow/niguardme(p101)
+
+//*****************************
+//*** Ramone "Marcel" Black ***
+//*****************************
+RA_SPEAK0 ramone/ra_null
+
+//********************************
+//*** Scripts - All charecters ***
+//********************************
+
+//Want1 - scripts
+SS_SCRIP0 wanted/hoss/lookdrunk
+SS_SCRIP1 wanted/hoss/dragdrunk
+SS_SCRIP3 wanted/crispen/cstelegram
+SS_SCRIP4 wanted/annie/script2
+SS_SCRIP47 wanted/twnwest/possie
+SS_SCRIP69 wanted/twnwest/breifboys
+
+//want2 - scripts
+SS_SCRIP5 wanted/twnwest/waiting
+
+//want5 - scripts
+SS_SCRIP6 wanted/twnwest/stichmeup
+
+//Want8 - scripts
+SS_SCRIP7 wanted/colonel/staked
+
+//Want9 - Scripts 
+SS_SCRIP8 wanted/dyndave/ddgiveago
+SS_SCRIP9 wanted/dyndave/ddjesss
+SS_SCRIP10 wanted/dyndave/ddshould
+SS_SCRIP11 wanted/dyndave/ddblownit
+
+//Want10 - Scripts
+SS_SCRIP12 wanted/dyndave/ddtoriver
+SS_SCRIP13 wanted/dyndave/ddkegblow
+SS_SCRIP14 wanted/dyndave/ddnevermind
+
+//Want12 - Scripts
+SS_SCRIP15 wanted/hoss/zebhit
+
+//Want13 - Scripts
+SS_SCRIP16 wanted/nagatow/niscript0
+SS_SCRIP17 wanted/nagatow/niscript1
+SS_SCRIP18 wanted/nagatow/niscript2
+SS_SCRIP19 wanted/masala/nbscript0
+SS_SCRIP20 wanted/masala/nbscript1
+
+//Want15 - Scripts
+SS_SCRIP21 wanted/twnwest/overhere
+
+//hoss song - used in want1
+SS_SCRIP22 wanted/hoss/homeonerange
+
+//Want16 - Scripts
+SS_SCRIP23 wanted/hoss/gonna
+SS_SCRIP24 wanted/townmex/madman
+SS_SCRIP25 wanted/townmex/helpus
+SS_SCRIP26 wanted/townmex/comehelpus
+SS_SCRIP27 wanted/townmex/opengate
+
+//Want17 - Scripts
+SS_SCRIP28 wanted/townmex/baityou
+SS_SCRIP29 wanted/townmex/resthere
+SS_SCRIP30 wanted/hoss/lockin
+SS_SCRIP31 wanted/hoss/lowerst
+SS_SCRIP32 wanted/hoss/fromhere
+
+//Want18 - Scripts
+SS_SCRIP33 wanted/hoss/sucker
+
+//Want25b - Scripts
+SS_SCRIP34 wanted/twnwest/pushit
+SS_SCRIP35 wanted/twnwest/dontwhy
+
+//Want30 - Scrips
+SS_SCRIP36 wanted/annie/ishotzeke
+SS_SCRIP37 wanted/dyndave/dddamnfuse
+SS_SCRIP38 wanted/hoss/yaseezak
+SS_SCRIP39 wanted/hoss/aintsosure
+SS_SCRIP40 wanted/twnwest/damnboxes
+
+//Want32 - Scripts
+SS_SCRIP41 wanted/annie/sixgotaway
+SS_SCRIP42 wanted/hoss/coffinfit
+SS_SCRIP43 wanted/hoss/foolzak
+SS_SCRIP44 wanted/twnwest/liftdead
+
+//Want33 - Scripts
+SS_SCRIP45 wanted/crispen/knockbrd
+SS_SCRIP46 wanted/crispen/pieceofmind
+
+//Want34 - Scripts
+SS_SCRIP48 wanted/annie/hey
+SS_SCRIP49 wanted/annie/goget
+SS_SCRIP50 wanted/annie/brother
+SS_SCRIP51 wanted/annie/beadhead
+SS_SCRIP52 wanted/hoss/ssshhh
+SS_SCRIP53 wanted/hoss/lookslike
+SS_SCRIP54 wanted/hoss/lockedin
+SS_SCRIP55 wanted/hoss/goodidea
+SS_SCRIP56 wanted/hoss/poormiss
+SS_SCRIP57 wanted/hoss/boughtit
+SS_SCRIP58 wanted/hoss/lookout
+SS_SCRIP59 wanted/hoss/dontthink
+SS_SCRIP60 wanted/hoss/sonbitch
+SS_SCRIP61 wanted/dyndave/ddthanks
+SS_SCRIP62 wanted/dyndave/ddyousure
+SS_SCRIP63 wanted/dyndave/ddohmy
+SS_SCRIP64 wanted/dyndave/ddgetback
+SS_SCRIP65 wanted/dyndave/ddseeright
+SS_SCRIP66 wanted/dyndave/ddstaying
+SS_SCRIP67 wanted/twnwest/digholes
+SS_SCRIP68 wanted/twnwest/hossbank
+

@@ -1,0 +1,181 @@
+"!BA_HEY" 		"null.wav"
+"barney/down.wav" 	"null.wav"
+"barney/aghh.wav" 	"null.wav"
+"barney/hey.wav" 	"null.wav"
+"barney/ba_pain1.wav" 	"wanted/annie/an_pain1.wav"
+"barney/ba_pain2.wav" 	"wanted/annie/an_pain2.wav"
+"barney/ba_pain3.wav" 	"wanted/annie/an_pain3.wav"
+"barney/ba_die1.wav" 	"wanted/annie/an_die0.wav"
+"barney/ba_die2.wav" 	"wanted/annie/an_die2.wav"
+"barney/ba_die3.wav" 	"wanted/annie/an_die3.wav"
+
+//Want1 - Scripts
+"!SS_SCRIP4" "wanted/annie/script2.wav"
+
+//Want30 - Scrips
+"!SS_SCRIP36" "wanted/annie/ishotzeke.wav"
+
+//Want32 - Scripts
+"!SS_SCRIP41" "wanted/annie/sixgotaway.wav"
+
+//Want34 - Scripts
+"!SS_SCRIP48" "wanted/annie/hey.wav"
+"!SS_SCRIP49" "wanted/annie/goget.wav"
+"!SS_SCRIP50" "wanted/annie/brother.wav"
+"!SS_SCRIP51" "wanted/annie/beadhead.wav"
+
+// When USED and told to follow
+"!BA_OK0" "wanted/annie/wanthelp.wav"
+"!BA_OK1" "wanted/annie/workwell.wav"
+"!BA_OK2" "wanted/annie/countmein.wav"
+"!BA_OK3" "wanted/annie/beenpractise.wav"
+"!BA_OK4" "wanted/annie/gladtohelp.wav"
+"!BA_OK5" "wanted/annie/letsgo.wav"
+"!BA_OK6" "wanted/annie/moveout.wav"
+
+// When USED and told to stay
+"!BA_WAIT0" "wanted/annie/illwaithere.wav"
+"!BA_WAIT1" "wanted/annie/neverletme.wav"
+"!BA_WAIT2" "wanted/annie/slowyoudown.wav"
+"!BA_WAIT3" "wanted/annie/okillhide.wav"
+"!BA_WAIT4" "wanted/annie/dontforget.wav"
+"!BA_WAIT5" "wanted/annie/dontworry.wav"
+
+// Post masacre hellos
+"!BA_HELLO0" "wanted/annie/hisheriff.wav"
+"!BA_HELLO1" "wanted/annie/swellday.wav"
+"!BA_HELLO2" "wanted/annie/howdysheriff.wav"
+"!BA_HELLO3" "wanted/annie/hellothere.wav"
+"!BA_HELLO4" "wanted/annie/howdy.wav"
+"!BA_HELLO5" "wanted/annie/hello.wav"
+"!BA_HELLO6" "wanted/annie/hithere.wav"
+
+//Generic Post Masacre Annie Questions
+"!BA_QUESTION0" "wanted/annie/lemonade.wav"
+"!BA_QUESTION1" "wanted/annie/cantgetworse.wav"
+"!BA_QUESTION2" "wanted/annie/aimsbetter.wav"
+"!BA_QUESTION3" "wanted/annie/tellpractice.wav"
+"!BA_QUESTION4" "wanted/annie/shootwoman.wav"
+"!BA_QUESTION5" "wanted/annie/whatsgoingon.wav"
+"!BA_QUESTION6" "wanted/annie/notscaredyou.wav"
+"!BA_QUESTION7" "wanted/annie/thinkexcite.wav"
+"!BA_QUESTION8" "wanted/annie/giveup.wav"
+"!BA_QUESTION9" "wanted/annie/hearthat.wav"
+"!BA_QUESTION10" "wanted/annie/whatmetodo.wav"
+"!BA_QUESTION11" "wanted/annie/seemoveing.wav"
+"!BA_QUESTION12" "wanted/annie/hosslikeme.wav"
+"!BA_QUESTION13" "wanted/annie/missinteeth.wav"
+
+// Generic Annie Answers
+"!BA_ANSWER0" "wanted/annie/donthinkso.wav"
+"!BA_ANSWER1" "wanted/annie/reckonso.wav"
+"!BA_ANSWER2" "wanted/annie/soundsright.wav"
+"!BA_ANSWER3" "wanted/annie/iguesso.wav"
+"!BA_ANSWER4" "wanted/annie/eggsiseggs.wav"
+"!BA_ANSWER5" "wanted/annie/surething.wav"
+"!BA_ANSWER6" "wanted/annie/yes.wav"
+"!BA_ANSWER7" "wanted/annie/dontaskme.wav"
+"!BA_ANSWER8" "wanted/annie/putmoneyonit.wav"
+"!BA_ANSWER9" "wanted/annie/hogwash.wav"
+"!BA_ANSWER10" "wanted/annie/youdontsay.wav"
+"!BA_ANSWER11" "wanted/annie/dontbeleive.wav"
+"!BA_ANSWER12" "wanted/annie/hardone.wav"
+"!BA_ANSWER13" "wanted/annie/idontknow.wav"
+"!BA_ANSWER14" "wanted/annie/nope.wav"
+"!BA_ANSWER15" "wanted/annie/nosiree.wav"
+"!BA_ANSWER16" "wanted/annie/cantfigure.wav"
+"!BA_ANSWER17" "wanted/annie/maybee.wav"
+"!BA_ANSWER18" "wanted/annie/notelling.wav"
+"!BA_ANSWER19" "wanted/annie/tattle.wav"
+"!BA_ANSWER20" "wanted/annie/wingsoff.wav"
+"!BA_ANSWER21" "wanted/annie/askyesterday.wav"
+
+// Player is staring at Annie
+"!BA_STARE0" "wanted/annie/rudestare.wav"
+"!BA_STARE1" "wanted/annie/whatnow.wav"
+"!BA_STARE2" "wanted/annie/bigbutt.wav"
+"!BA_STARE3" "wanted/annie/holesock.wav"
+
+// Annie is idle Post masacre
+"!BA_IDLE0" "wanted/annie/thinking.wav"
+"!BA_IDLE1" "wanted/annie/coffee.wav"
+"!BA_IDLE2" "wanted/annie/harmonica.wav"
+"!BA_IDLE3" "wanted/annie/gotochurch.wav"
+"!BA_IDLE4" "wanted/annie/newbeans.wav"
+"!BA_IDLE5" "wanted/annie/lookcloud.wav"
+"!BA_IDLE6" "wanted/annie/gladpractise.wav"
+"!BA_IDLE7" "wanted/annie/intuition.wav"
+"!BA_IDLE8" "wanted/annie/hotbath.wav"
+"!BA_IDLE9" "wanted/annie/sunhotoday.wav"
+"!BA_IDLE10" "wanted/annie/hosslike.wav"
+
+// Annie is attacking something
+"!BA_ATTACK0" "wanted/annie/binpractise.wav"
+"!BA_ATTACK1" "wanted/annie/aimbetter.wav"
+"!BA_ATTACK2" "wanted/annie/shootem.wav"
+"!BA_ATTACK3" "wanted/annie/bitleft.wav"
+"!BA_ATTACK4" "wanted/annie/gunstraight.wav"
+"!BA_ATTACK5" "wanted/annie/sightsout.wav"
+
+// Annie hears something
+"!BA_HEAR0" "wanted/annie/hearsomethin.wav"
+"!BA_HEAR1" "wanted/annie/hearanoise.wav"
+"!BA_HEAR2" "wanted/annie/soundsbad.wav"
+
+// Annie smells something
+"!BA_SMELL0" "wanted/annie/outhouse.wav"
+"!BA_SMELL1" "wanted/annie/deadbird.wav"
+"!BA_SMELL2" "wanted/annie/smell.wav"
+
+// Annie sees a wounded player
+"!BA_CUREA" "wanted/annie/youbeenhit.wav"
+"!BA_CUREB" "wanted/annie/woundclean.wav"
+"!BA_CUREC" "wanted/annie/woundpain.wav"
+
+// Annie is scared by player actions
+"!BA_SCARED0" "wanted/annie/whatareyou.wav"
+"!BA_SCARED1" "wanted/annie/stopitonce.wav"
+
+// Annie is wounded
+"!BA_WOUND0" "wanted/annie/owww.wav"
+"!BA_WOUND1" "wanted/annie/beenhit.wav"
+
+// Annie is mortaly wounded
+"!BA_MORTAL0" "wanted/annie/notmakeit.wav"
+
+// Player has shot Annie
+"!BA_SHOT0" "wanted/annie/owww, dothatfor"
+"!BA_SHOT1" "wanted/annie/whatsmatter.wav"
+"!BA_SHOT2" "wanted/annie/whatthe, stopitonce"
+"!BA_SHOT3" "wanted/annie/cutitout.wav"
+"!BA_SHOT4" "wanted/annie/whatswrong.wav"
+"!BA_SHOT5" "wanted/annie/owww, hopeaccident"
+
+// Annie is mad at the player
+"!BA_MAD0" "wanted/annie/prayimiss.wav"
+"!BA_MAD1" "wanted/annie/enoughis.wav"
+"!BA_MAD2" "wanted/annie/liedown.wav"
+"!BA_MAD3" "wanted/annie/takenomore.wav"
+"!BA_MAD4" "wanted/annie/owww, thatdoesit"
+"!BA_MAD5" "wanted/annie/wayyouwantit.wav"
+"!BA_MAD6" "wanted/annie/turnonme.wav"
+
+// Annie has killed something
+"!BA_KILL0" "wanted/annie/goshseethat.wav"
+"!BA_KILL1" "wanted/annie/oneshot.wav"
+"!BA_KILL2" "wanted/annie/seemyaim.wav"
+"!BA_KILL3" "wanted/annie/tincans.wav"
+"!BA_KILL4" "wanted/annie/sureidmissed.wav"
+"!BA_KILL5" "wanted/annie/diddntthink.wav"
+"!BA_KILL6" "wanted/annie/onebullet.wav"
+
+// Annie cant oblige when you use him (Pre Massacre)
+"!BA_POK0" "wanted/annie/littlebusy.wav"
+"!BA_POK1" "wanted/annie/visitouthouse.wav"
+"!BA_POK2" "wanted/annie/chorestodo.wav"
+"!BA_POK3" "wanted/annie/fiveminutes.wav"
+
+// Annie cant follow you anymore
+"!BA_STOP0" "wanted/annie/corsets.wav"
+"!BA_STOP1" "wanted/annie/toohardforme.wav"
+"!BA_STOP2" "wanted/annie/needrest.wav"

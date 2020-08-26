@@ -1,0 +1,10 @@
+"models/hlclassic/v_grenade.mdl" 	"models/wanted/v_dynamite.mdl"
+"models/hlclassic/w_grenade.mdl" 	"models/wanted/w_dynamite.mdl"
+"models/hlclassic/p_grenade.mdl" 	"models/wanted/p_dynamite.mdl"
+
+"models/w_medkit.mdl" 			"models/wanted/w_medkit.mdl"
+"models/hlclassic/w_medkit.mdl" 	"models/wanted/w_medkit.mdl"
+"models/hlclassic/w_shotbox.mdl" 	"models/wanted/w_shotbox.mdl"
+"models/hlclassic/w_battery.mdl" 	"models/wanted/w_battery.mdl"
+"models/w_saw_clip.mdl" 		"models/wanted/w_gattlinggun_belt.mdl"
+"models/w_weaponbox.mdl" 		"models/wanted/w_weaponbox.mdl"

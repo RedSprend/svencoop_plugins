@@ -1,0 +1,111 @@
+// sees dynamite
+MI_GREN0 wanted/miner/dynamite
+MI_GREN1 wanted/miner/takecover
+MI_GREN2 wanted/miner/awshit
+MI_GREN3 wanted/miner/lookout
+MI_GREN4 wanted/miner/watchout
+MI_GREN5 wanted/miner/nooo
+MI_GREN6 wanted/miner/mooveit
+
+// Sees player
+MI_ALERT0 wanted/miner/getpistol
+MI_ALERT1 wanted/miner/itsthesherriff
+MI_ALERT2 wanted/miner/iseehim
+MI_ALERT3 wanted/miner/shitlawman
+MI_ALERT4 wanted/miner/getsherriff
+MI_ALERT5 wanted/miner/blowheadoff
+MI_ALERT6 wanted/miner/hesoverhere
+
+//Sees NPC
+MI_MONST0 wanted/miner/iseeoneofem
+MI_MONST1 wanted/miner/visitors
+MI_MONST2 wanted/miner/getawaygold
+MI_MONST3 wanted/miner/stealgold
+
+// Take cover!
+MI_COVER0 wanted/miner/duck
+MI_COVER1 wanted/miner/pinemdown
+MI_COVER2 wanted/miner/gimmehelp
+MI_COVER3 wanted/miner/runferit
+MI_COVER4 wanted/miner/lookoutt
+MI_COVER5 wanted/miner/flushhimout
+MI_COVER6 wanted/miner/goddamnit
+MI_COVER7 wanted/miner/somebodycover
+
+//Throws dynamite
+MI_THROW0 wanted/miner/fireinhole
+MI_THROW1 wanted/miner/takethis
+MI_THROW2 wanted/miner/chewonthis
+MI_THROW3 wanted/miner/likethisone
+
+//taunts player
+MI_TAUNT0 wanted/miner/runout
+MI_TAUNT1 wanted/miner/yermomma
+MI_TAUNT2 wanted/miner/whupass
+MI_TAUNT3 wanted/miner/homeinabox
+MI_TAUNT4 wanted/miner/awavefile
+MI_TAUNT5 wanted/miner/tinstar
+
+//Charge
+MI_CHARGE0 wanted/miner/getim
+MI_CHARGE1 wanted/miner/mooove
+MI_CHARGE2 wanted/miner/yehaw
+
+//Idle
+MI_IDLE0 wanted/miner/newbeams
+MI_IDLE1 wanted/miner/sweetlovin
+MI_IDLE2 wanted/miner/newshovel
+
+//Asking question to other Miners
+MI_QUEST0 wanted/miner/eyeopen
+MI_QUEST1 wanted/miner/damnfools
+MI_QUEST2 wanted/miner/keeplookout
+MI_QUEST3 wanted/miner/shutup
+MI_QUEST4 wanted/miner/stayhere
+MI_QUEST5 wanted/miner/seeflush
+MI_QUEST6 wanted/miner/headdown
+MI_QUEST7 wanted/miner/keepemaway
+MI_QUEST8 wanted/miner/passround
+MI_QUEST9 wanted/miner/makesure
+MI_QUEST10 wanted/miner/allok
+MI_QUEST11 wanted/miner/roundsomewhere
+
+//Answering questions
+MI_ANSWER0 wanted/miner/yep
+MI_ANSWER1 wanted/miner/ok
+MI_ANSWER2 wanted/miner/okok
+MI_ANSWER3 wanted/miner/whomadeyou
+MI_ANSWER4 wanted/miner/yepsure
+MI_ANSWER5 wanted/miner/errok
+MI_ANSWER6 wanted/miner/whatdidyousay
+
+//reporting status
+MI_CLEAR0 wanted/miner/noonehere
+MI_CLEAR1 wanted/miner/cantseeanyone
+MI_CLEAR2 wanted/miner/mustbehiding
+MI_CLEAR3 wanted/miner/nosignofem
+MI_CLEAR4 wanted/miner/canyouseeem
+MI_CLEAR5 wanted/miner/cantseenoone
+MI_CLEAR6 wanted/miner/aintnoone
+MI_CLEAR7 wanted/miner/rats
+MI_CLEAR8 wanted/miner/allquiet
+MI_CLEAR9 wanted/miner/cantseenothin
+MI_CLEAR10 wanted/miner/heardsomething
+MI_CLEAR11 wanted/miner/notevenarat
+MI_CLEAR12 wanted/miner/invisible
+
+//Checking for intruders
+MI_CHECK0 wanted/miner/whereruzeke
+MI_CHECK1 wanted/miner/seeanysign
+MI_CHECK2 wanted/miner/heycharlie
+MI_CHECK3 wanted/miner/damnedifican
+MI_CHECK4 wanted/miner/shootanything
+MI_CHECK5 wanted/miner/seemoving
+MI_CHECK6 wanted/miner/shadows
+MI_CHECK7 wanted/miner/heyjake
+
+//Miner is punching
+MI_PUNCH0 wanted/miner/takethis(p96)
+MI_PUNCH1 wanted/miner/gimmehelp(p98)
+MI_PUNCH2 wanted/miner/hesoverhere(p97)
+MI_PUNCH3 wanted/miner/whupass(p98)

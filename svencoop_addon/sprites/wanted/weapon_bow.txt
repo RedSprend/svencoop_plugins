@@ -1,0 +1,11 @@
+10
+weapon			320 wanted/320hud1	80	120	80	20
+weapon_s		320 wanted/320hud1	80	140	80	20
+ammo			320 wanted/320hud2	90	18	18	18
+crosshair		320 wanted/crosshairs	72	48	24	48
+autoaim			320 wanted/crosshairs	96	48	24	48
+weapon			640 wanted/640hud2	0	132	170	45
+weapon_s		640 wanted/640hud5	0	132	170	45
+ammo			640 wanted/640hud7	120	72	24	24
+crosshair		640 wanted/crosshairs	72	48	24	48
+autoaim			640 wanted/crosshairs	96	48	24	48

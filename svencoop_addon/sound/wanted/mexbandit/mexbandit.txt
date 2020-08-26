@@ -1,0 +1,122 @@
+"weapons/hks1.wav" 	"wanted/weapons/pistol_shot1.wav"
+"weapons/hks2.wav" 	"wanted/weapons/pistol_shot2.wav"
+"weapons/hks3.wav" 	"wanted/weapons/pistol_shot1.wav"
+"hgrunt/gr_mgun1.wav" "wanted/weapons/pistol_shot1.wav"
+"hgrunt/gr_mgun2.wav" "wanted/weapons/pistol_shot2.wav"
+"hlclassic/hgrunt/gr_mgun1.wav" "wanted/weapons/pistol_shot1.wav"
+"hlclassic/hgrunt/gr_mgun2.wav" "wanted/weapons/pistol_shot2.wav"
+"hgrunt/gr_die1.wav" "wanted/mexbandit/mb_die1.wav"
+"hgrunt/gr_die2.wav" "wanted/mexbandit/mb_die2.wav"
+"hgrunt/gr_die3.wav" "wanted/mexbandit/mb_die3.wav"
+"hgrunt/gr_pain1.wav" "wanted/mexbandit/mb_pain1.wav"
+"hgrunt/gr_pain2.wav" "wanted/mexbandit/mb_pain2.wav"
+"hgrunt/gr_pain3.wav" "wanted/mexbandit/mb_pain3.wav"
+"hgrunt/gr_pain4.wav" "wanted/mexbandit/mb_pain4.wav"
+"hgrunt/gr_pain5.wav" "wanted/mexbandit/mb_pain5.wav"
+
+// sees dynamite
+"!HG_GREN0" "wanted/mexbandit/mbayee.wav"
+"!HG_GREN1" "wanted/mexbandit/mbdynrun.wav"
+"!HG_GREN2" "wanted/mexbandit/mbsantam.wav"
+"!HG_GREN3" "wanted/mexbandit/mblookout.wav"
+"!HG_GREN4" "wanted/mexbandit/mbohno.wav"
+"!HG_GREN5" "wanted/mexbandit/mbshitno.wav"
+"!HG_GREN6" "wanted/mexbandit/mbrun.wav"
+
+// Sees player
+"!HG_ALERT0" "wanted/mexbandit/mbiseehim.wav"
+"!HG_ALERT1" "wanted/mexbandit/mbtherehe.wav"
+"!HG_ALERT2" "wanted/mexbandit/mbitsgringo.wav"
+"!HG_ALERT3" "wanted/mexbandit/mbgethim.wav"
+"!HG_ALERT4" "wanted/mexbandit/mbgetsherrif.wav"
+"!HG_ALERT5" "wanted/mexbandit/mbiseeyou.wav"
+"!HG_ALERT6" "wanted/mexbandit/mboverhere.wav"
+
+//Sees NPC
+"!HG_MONST0" "wanted/mexbandit/mbiseeyous.wav"
+"!HG_MONST1" "wanted/mexbandit/mbcanthide.wav"
+"!HG_MONST2" "wanted/mexbandit/mbheyamigos.wav"
+"!HG_MONST3" "wanted/mexbandit/mbbigtrouble.wav"
+
+// Take cover
+"!HG_COVER0" "wanted/mexbandit/mbkeepdown.wav"
+"!HG_COVER1" "wanted/mexbandit/mbayeee.wav"
+"!HG_COVER2" "wanted/mexbandit/mbcoverme.wav"
+"!HG_COVER3" "wanted/mexbandit/mbgetdown.wav"
+"!HG_COVER4" "wanted/mexbandit/mblookout2.wav"
+"!HG_COVER5" "wanted/mexbandit/mbrun2.wav"
+"!HG_COVER6" "wanted/mexbandit/mbshit.wav"
+"!HG_COVER7" "wanted/mexbandit/mbtakecover.wav"
+
+//Throws Dynamite
+"!HG_THROW0" "wanted/mexbandit/mbwantcorn.wav"
+"!HG_THROW1" "wanted/mexbandit/mbtakethis.wav"
+"!HG_THROW2" "wanted/mexbandit/mbpresent.wav"
+"!HG_THROW3" "wanted/mexbandit/mbforyou.wav"
+
+//Taunting Player
+"!HG_TAUNT0" "wanted/mexbandit/mbfightornot.wav"
+"!HG_TAUNT1" "wanted/mexbandit/mbmanorchook.wav"
+"!HG_TAUNT2" "wanted/mexbandit/mbmotherburo.wav"
+"!HG_TAUNT3" "wanted/mexbandit/mbtiredbynow.wav"
+"!HG_TAUNT4" "wanted/mexbandit/mbgiveup.wav"
+"!HG_TAUNT5" "wanted/mexbandit/mbtombstone.wav"
+
+//Charge
+"!HG_CHARGE0" "wanted/mexbandit/mbhereicome.wav"
+"!HG_CHARGE1" "wanted/mexbandit/mbtakethis2.wav"
+"!HG_CHARGE2" "wanted/mexbandit/mbayeeeee.wav"
+"!HG_CHARGE3" "wanted/mexbandit/mbhereicome.wav"
+
+//Idle
+"!HG_IDLE0" "wanted/mexbandit/mbmissmaria.wav"
+"!HG_IDLE1" "wanted/mexbandit/mbsickfood.wav"
+"!HG_IDLE2" "wanted/mexbandit/mbbetterfarm.wav"
+
+//Asking question to other Bandits
+"!HG_QUEST0" "wanted/mexbandit/mbpassmatch.wav"
+"!HG_QUEST1" "wanted/mexbandit/mbstaydown.wav"
+"!HG_QUEST2" "wanted/mexbandit/mbshutup.wav"
+"!HG_QUEST3" "wanted/mexbandit/mbeyesopen.wav"
+"!HG_QUEST4" "wanted/mexbandit/mbstayput.wav"
+"!HG_QUEST5" "wanted/mexbandit/mbrustleout.wav"
+"!HG_QUEST6" "wanted/mexbandit/mbsantadwn.wav"
+"!HG_QUEST7" "wanted/mexbandit/mbwheredyn.wav"
+"!HG_QUEST8" "wanted/mexbandit/mbshootkill.wav"
+"!HG_QUEST9" "wanted/mexbandit/mbgetaway.wav"
+"!HG_QUEST10" "wanted/mexbandit/mbnotime.wav"
+"!HG_QUEST11" "wanted/mexbandit/mblazy.wav"
+
+//Answering questions
+"!HG_ANSWER0" "wanted/mexbandit/mbokok.wav"
+"!HG_ANSWER1" "wanted/mexbandit/mbyes.wav"
+"!HG_ANSWER2" "wanted/mexbandit/mbsurething.wav"
+"!HG_ANSWER3" "wanted/mexbandit/mbnope.wav"
+"!HG_ANSWER4" "wanted/mexbandit/mbstopshout.wav"
+"!HG_ANSWER5" "wanted/mexbandit/mbok.wav"
+"!HG_ANSWER6" "wanted/mexbandit/mbsi.wav"
+
+//reporting status
+"!HG_CLEAR0" "wanted/mexbandit/mbnothinhere.wav"
+"!HG_CLEAR1" "wanted/mexbandit/mbiseenothing.wav"
+"!HG_CLEAR2" "wanted/mexbandit/mbnonebutus.wav"
+"!HG_CLEAR3" "wanted/mexbandit/mbnosign.wav"
+"!HG_CLEAR4" "wanted/mexbandit/mbcantsee.wav"
+"!HG_CLEAR5" "wanted/mexbandit/mbwind.wav"
+"!HG_CLEAR6" "wanted/mexbandit/mbhiding.wav"
+"!HG_CLEAR7" "wanted/mexbandit/mbcactusdrt.wav"
+"!HG_CLEAR8" "wanted/mexbandit/mbpedrosee.wav"
+"!HG_CLEAR9" "wanted/mexbandit/mbquiet.wav"
+"!HG_CLEAR10" "wanted/mexbandit/mbhavntseen.wav"
+"!HG_CLEAR11" "wanted/mexbandit/mbsnakesdung.wav"
+"!HG_CLEAR12" "wanted/mexbandit/mbnosign2.wav"
+
+//Checking for intruders
+"!HG_CHECK0" "wanted/mexbandit/mbchiko.wav"
+"!HG_CHECK1" "wanted/mexbandit/mbrunaway.wav"
+"!HG_CHECK2" "wanted/mexbandit/mbwellhiden.wav"
+"!HG_CHECK3" "wanted/mexbandit/mballclear.wav"
+"!HG_CHECK4" "wanted/mexbandit/mbghost.wav"
+"!HG_CHECK5" "wanted/mexbandit/mbotherside.wav"
+"!HG_CHECK6" "wanted/mexbandit/mbscorpions.wav"
+"!HG_CHECK7" "wanted/mexbandit/mbchiko.wav"

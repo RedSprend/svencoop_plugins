@@ -1,0 +1,210 @@
+"!HO_IDLE2" "wanted/hoss/bigolmess.wav"
+"!HO_IDLE5" "wanted/hoss/badfeelin.wav"
+"!HO_IDLE6" "wanted/hoss/ambush.wav"
+"!HO_STARE2" "wanted/hoss/dirtonboots.wav"
+
+//Want1 - Scripts
+"!SS_SCRIP0" "wanted/hoss/lookdrunk.wav"
+"!SS_SCRIP1" "wanted/hoss/dragdrunk.wav"
+"!SS_SCRIP22" "wanted/hoss/homeonerange.wav"
+
+//Want12 - Scripts
+"!SS_SCRIP15" "wanted/hoss/zebhit.wav"
+
+//Want16 - Scripts
+"!SS_SCRIP23" "wanted/hoss/gonna.wav"
+
+//Want17 - Scripts
+"!SS_SCRIP30" "wanted/hoss/lockin.wav"
+"!SS_SCRIP31" "wanted/hoss/lowerst.wav"
+"!SS_SCRIP32" "wanted/hoss/fromhere.wav"
+
+//Want18 - Scripts
+"!SS_SCRIP33" "wanted/hoss/sucker.wav"
+
+//Want30 - Scrips
+"!SS_SCRIP38" "wanted/hoss/yaseezak.wav"
+"!SS_SCRIP39" "wanted/hoss/aintsosure.wav"
+
+//Want32 - Scripts
+"!SS_SCRIP42" "wanted/hoss/coffinfit.wav"
+"!SS_SCRIP43" "wanted/hoss/foolzak.wav"
+
+//Want34 - Scripts
+"!SS_SCRIP52" "wanted/hoss/ssshhh.wav"
+"!SS_SCRIP53" "wanted/hoss/lookslike.wav"
+"!SS_SCRIP54" "wanted/hoss/lockedin.wav"
+"!SS_SCRIP55" "wanted/hoss/goodidea.wav"
+"!SS_SCRIP56" "wanted/hoss/poormiss.wav"
+"!SS_SCRIP57" "wanted/hoss/boughtit.wav"
+"!SS_SCRIP58" "wanted/hoss/lookout.wav"
+"!SS_SCRIP59" "wanted/hoss/dontthink.wav"
+"!SS_SCRIP60" "wanted/hoss/sonbitch.wav"
+
+//When USED and told to follow
+"!BA_OK0" "wanted/hoss/okillcover.wav"
+"!BA_OK1" "wanted/hoss/imyourman.wav"
+"!BA_OK2" "wanted/hoss/surething.wav"
+"!BA_OK3" "wanted/hoss/rightbehind.wav"
+"!BA_OK4" "wanted/hoss/lendahand.wav"
+"!BA_OK5" "wanted/hoss/okmoveout.wav"
+"!BA_OK6" "wanted/hoss/gethellout.wav"
+
+//When USED and told to stay
+"!BA_WAIT0" "wanted/hoss/keeplookout.wav"
+"!BA_WAIT1" "wanted/hoss/okillwait.wav"
+"!BA_WAIT2" "wanted/hoss/yellifihear.wav"
+"!BA_WAIT3" "wanted/hoss/illwaithere.wav"
+"!BA_WAIT4" "wanted/hoss/waitothers.wav"
+"!BA_WAIT5" "wanted/hoss/illwhistle.wav"
+
+//Post masacre hellos
+"!BA_HELLO0" "wanted/hoss/hinicecoat.wav"
+"!BA_HELLO1" "wanted/hoss/howdy.wav"
+"!BA_HELLO2" "wanted/hoss/howdyboss.wav"
+"!BA_HELLO3" "wanted/hoss/heysheriff.wav"
+"!BA_HELLO4" "wanted/hoss/sheriff.wav"
+"!BA_HELLO5" "wanted/hoss/howdydo.wav"
+"!BA_HELLO6" "wanted/hoss/heythere.wav"
+
+//Generic Post Masacre Hoss Questions
+"!BA_QUESTION0" "wanted/hoss/usewhisky.wav"
+"!BA_QUESTION1" "wanted/hoss/getoutalive.wav"
+"!BA_QUESTION2" "wanted/hoss/cantgetworse.wav"
+"!BA_QUESTION3" "wanted/hoss/goshshooting.wav"
+"!BA_QUESTION4" "wanted/hoss/madasramone.wav"
+"!BA_QUESTION5" "wanted/hoss/whatfellers.wav"
+"!BA_QUESTION6" "wanted/hoss/whatinblazes.wav"
+"!BA_QUESTION7" "wanted/hoss/aintscared.wav"
+"!BA_QUESTION8" "wanted/hoss/anycloser.wav"
+"!BA_QUESTION9" "wanted/hoss/youhearthat.wav"
+"!BA_QUESTION10" "wanted/hoss/reckontrue.wav"
+"!BA_QUESTION11" "wanted/hoss/sssshhhh.wav"
+"!BA_QUESTION12" "wanted/hoss/tellthinking.wav"
+"!BA_QUESTION13" "wanted/hoss/everbeenshot.wav"
+"!BA_QUESTION14" "wanted/hoss/maproudofme.wav"
+
+// Generic Hoss Answers
+"!BA_ANSWER0" "wanted/hoss/noway.wav"
+"!BA_ANSWER1" "wanted/hoss/ireckon.wav"
+"!BA_ANSWER2" "wanted/hoss/soundsabout.wav"
+"!BA_ANSWER3" "wanted/hoss/yessiree.wav"
+"!BA_ANSWER4" "wanted/hoss/iguessso.wav"
+"!BA_ANSWER5" "wanted/hoss/soundsright.wav"
+"!BA_ANSWER6" "wanted/hoss/yep.wav"
+"!BA_ANSWER7" "wanted/hoss/iaintsure.wav"
+"!BA_ANSWER8" "wanted/hoss/betonit.wav"
+"!BA_ANSWER9" "wanted/hoss/wayiseeit.wav"
+"!BA_ANSWER10" "wanted/hoss/dontfigure.wav"
+"!BA_ANSWER11" "wanted/hoss/dontguesso.wav"
+"!BA_ANSWER12" "wanted/hoss/maybee.wav"
+"!BA_ANSWER13" "wanted/hoss/justdontknow.wav"
+"!BA_ANSWER14" "wanted/hoss/nope.wav"
+"!BA_ANSWER15" "wanted/hoss/nosirree.wav"
+"!BA_ANSWER16" "wanted/hoss/cantfigureit.wav"
+"!BA_ANSWER17" "wanted/hoss/maybenot.wav"
+"!BA_ANSWER18" "wanted/hoss/aintnotellin.wav"
+"!BA_ANSWER19" "wanted/hoss/quityappin.wav"
+"!BA_ANSWER20" "wanted/hoss/nosense.wav"
+"!BA_ANSWER21" "wanted/hoss/askalready.wav"
+
+// Player is staring at Hoss
+"!BA_STARE0" "wanted/hoss/hmmm.wav"
+"!BA_STARE1" "wanted/hoss/whatyouthinkn.wav"
+"!BA_STARE2" "wanted/hoss/dirtonboots.wav"
+"!BA_STARE3" "wanted/hoss/heyup.wav"
+
+// Hoss is idle Post masacre
+"!BA_IDLE0" "wanted/hoss/mariaprety.wav"
+"!BA_IDLE1" "wanted/hoss/sasparella.wav"
+"!BA_IDLE2" "wanted/hoss/bigolmess.wav"
+"!BA_IDLE3" "wanted/hoss/luckwilturn.wav"
+"!BA_IDLE4" "wanted/hoss/tune.wav"
+"!BA_IDLE5" "wanted/hoss/badfeelin.wav"
+"!BA_IDLE6" "wanted/hoss/ambush.wav"
+"!BA_IDLE7" "wanted/hoss/newboots.wav"
+"!BA_IDLE8" "wanted/hoss/hattoobig.wav"
+"!BA_IDLE9" "wanted/hoss/poetry.wav"
+"!BA_IDLE10" "wanted/hoss/triggerfinger.wav"
+
+// Hoss is attacking something
+"!BA_ATTACK0" "wanted/hoss/shootem.wav"
+"!BA_ATTACK1" "wanted/hoss/igotem.wav"
+"!BA_ATTACK2" "wanted/hoss/standback.wav"
+"!BA_ATTACK3" "wanted/hoss/aimforbelly.wav"
+"!BA_ATTACK4" "wanted/hoss/takethis.wav"
+"!BA_ATTACK5" "wanted/hoss/reachsky.wav"
+
+// Hoss hears something
+"!BA_HEAR0" "wanted/hoss/sshhquietdown.wav"
+"!BA_HEAR1" "wanted/hoss/hearthatnoise.wav"
+"!BA_HEAR2" "wanted/hoss/dontlikesound.wav"
+
+// Hoss smells something
+"!BA_SMELL0" "wanted/hoss/somethindied.wav"
+"!BA_SMELL1" "wanted/hoss/smellsbad.wav"
+"!BA_SMELL2" "wanted/hoss/smellsbaad.wav"
+
+// Hoss sees a wounded player
+"!BA_CUREA" "wanted/hoss/doclookat.wav"
+"!BA_CUREB" "wanted/hoss/needstitch.wav"
+"!BA_CUREC" "wanted/hoss/bulletstilin.wav"
+
+// Hoss is scared by player actions
+"!BA_SCARED0" "wanted/hoss/nothurting.wav"
+"!BA_SCARED1" "wanted/hoss/whataredoing.wav"
+
+// Hoss is wounded
+"!BA_WOUND0" "wanted/hoss/imhit.wav"
+"!BA_WOUND1" "wanted/hoss/goingtoscar.wav"
+
+// Hoss is mortaly wounded
+"!BA_MORTAL0" "wanted/hoss/hurtrealbad.wav"
+
+// Player has shot Hoss
+"!BA_SHOT0" "wanted/hoss/waititsme.wav"
+"!BA_SHOT1" "wanted/hoss/whathaveidone.wav"
+"!BA_SHOT2" "wanted/hoss/whatblazes.wav"
+"!BA_SHOT3" "wanted/hoss/thatsmarts.wav"
+"!BA_SHOT4" "wanted/hoss/careful.wav"
+"!BA_SHOT5" "wanted/hoss/whatthe.wav"
+
+// Hoss is mad at the player
+"!BA_MAD0" "wanted/hoss/ifthatstheway.wav"
+"!BA_MAD1" "wanted/hoss/neverthought.wav"
+"!BA_MAD2" "wanted/hoss/okthatsit.wav"
+"!BA_MAD3" "wanted/hoss/iainttakinno.wav"
+"!BA_MAD4" "wanted/hoss/iwanrnedyou.wav"
+"!BA_MAD5" "wanted/hoss/madassnake.wav"
+"!BA_MAD6" "wanted/hoss/quickordead.wav"
+
+// Hoss has killed something
+"!BA_KILL0" "wanted/hoss/gotone.wav"
+"!BA_KILL1" "wanted/hoss/gotanother.wav"
+"!BA_KILL2" "wanted/hoss/surewasugly.wav"
+"!BA_KILL3" "wanted/hoss/didyouseethat.wav"
+"!BA_KILL4" "wanted/hoss/practice.wav"
+"!BA_KILL5" "wanted/hoss/wildwest.wav"
+"!BA_KILL6" "wanted/hoss/crackshot.wav"
+
+// Hoss cant oblige when you use him (Pre Massacre)
+"!BA_POK0" "wanted/hoss/busynow.wav"
+"!BA_POK1" "wanted/hoss/waterhorse.wav"
+"!BA_POK2" "wanted/hoss/seeyoulater.wav"
+"!BA_POK3" "wanted/hoss/cantnowsorry.wav"
+
+// Hoss cant follow you anymore
+"!BA_STOP0" "wanted/hoss/cantgoon.wav"
+"!BA_STOP1" "wanted/hoss/twistankle.wav"
+"!BA_STOP2" "wanted/hoss/catchbreath.wav"
+
+"!BA_HEY" 		"null.wav"
+"barney/down.wav" 	"null.wav"
+"barney/aghh.wav" 	"null.wav"
+"barney/hey.wav" 	"null.wav"
+"barney/ba_pain1.wav" 	"wanted/hoss/ho_pain0.wav"
+"barney/ba_pain2.wav" 	"wanted/hoss/ho_pain1.wav"
+"barney/ba_pain3.wav" 	"wanted/hoss/ho_pain2.wav"
+"barney/ba_die1.wav" 	"wanted/hoss/ho_die0.wav"
+"barney/ba_die2.wav" 	"wanted/hoss/ho_die2.wav"
+"barney/ba_die3.wav" 	"wanted/hoss/ho_die3.wav"

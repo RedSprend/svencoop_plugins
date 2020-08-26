@@ -1,0 +1,39 @@
+// Weapons
+"weapons/cbe/cbe_hit1.wav" "wanted/weapons/knife_hit1.wav"
+"weapons/cbe/cbe_hit2.wav" "wanted/weapons/knife_hit2.wav"
+"weapons/cbe/cbe_miss1.wav" "wanted/weapons/knife_miss1.wav"
+"weapons/cbe/cbe_miss2.wav" "wanted/weapons/knife_miss1.wav"
+"weapons/cbar_miss1.wav" "wanted/weapons/knife_miss1.wav"
+"weapons/cbar_hitbod1.wav" "wanted/weapons/knife_hitbod1.wav"
+"weapons/cbar_hitbod2.wav" "wanted/weapons/knife_hitbod2.wav"
+"weapons/cbar_hitbod3.wav" "wanted/weapons/knife_hitbod3.wav"
+"weapons/cbar_hit1.wav" "wanted/weapons/knife_hit1.wav"
+"weapons/cbar_hit2.wav" "wanted/weapons/knife_hit2.wav"
+"weapons/pl_gun3.wav" "wanted/weapons/pistol_shot1.wav"
+"weapons/g_bounce1.wav" "wanted/weapons/grenade_hit1.wav"
+"weapons/g_bounce2.wav" "wanted/weapons/grenade_hit2.wav"
+"weapons/g_bounce3.wav" "wanted/weapons/grenade_hit3.wav"
+"weapons/grenade_hit1.wav" "wanted/weapons/grenade_hit1.wav"
+"weapons/grenade_hit2.wav" "wanted/weapons/grenade_hit2.wav"
+"weapons/grenade_hit3.wav" "wanted/weapons/grenade_hit3.wav"
+//"weapons/hks1.wav" 	"wanted/weapons/pistol_shot1.wav"
+//"weapons/hks2.wav" 	"wanted/weapons/pistol_shot2.wav"
+//"weapons/hks3.wav" 	"wanted/weapons/pistol_shot1.wav"
+"weapons/sbarrel1.wav" "wanted/weapons/sbarrel1.wav"
+"weapons/dbarrel1.wav" "wanted/weapons/dbarrel1.wav"
+"hlclassic/weapons/sbarrel1.wav" "wanted/weapons/sbarrel1.wav"
+"hlclassic/weapons/dbarrel1.wav" "wanted/weapons/dbarrel1.wav"
+
+// HEV Suit
+"fvox/hev_logon.wav" "null.wav"
+
+// Items
+"items/smallmedkit1.wav" "wanted/items/smallmedkit1.wav"
+"items/suitchargeok1.wav" "wanted/items/suitchargeok1.wav"
+
+// Eagle
+"boid/boid_alert1.wav" "wanted/eagle/eagle_alert1.wav"
+"boid/boid_alert2.wav" "wanted/eagle/eagle_alert2.wav"
+"boid/boid_idle1.wav" "wanted/eagle/eagle_idle1.wav"
+"boid/boid_idle2.wav" "wanted/eagle/eagle_idle2.wav"
+"boid/boid_idle3.wav" "wanted/eagle/eagle_idle1.wav"

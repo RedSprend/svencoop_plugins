@@ -1,0 +1,154 @@
+"!CS_PQUEST6" "wanted/crispen/telnorp.wav"
+
+//Want1 - Scripts
+"!SS_SCRIP3" "wanted/crispen/cstelegram.wav"
+
+//Want33 - Scripts
+"!SS_SCRIP45" "wanted/crispen/knockbrd.wav"
+"!SS_SCRIP46" "wanted/crispen/pieceofmind.wav"
+
+// When USED and told to follow
+"!SC_OK0" "wanted/crispen/whatuse.wav"
+"!SC_OK1" "wanted/crispen/allrightthen.wav"
+"!SC_OK2" "wanted/crispen/letsgeton.wav"
+
+// When USED and told to stay
+"!SC_WAIT0" "wanted/crispen/illstay.wav"
+"!SC_WAIT1" "wanted/crispen/illwait.wav"
+"!SC_WAIT2" "wanted/crispen/stayhere.wav"
+
+// Fail to follow player any more
+"!SC_STOP0" "wanted/crispen/notstep.wav"
+"!SC_STOP1" "wanted/crispen/helpothers.wav"
+
+// Player is staring at Crispen
+"!SC_STARE0" "wanted/crispen/rulost.wav"
+"!SC_STARE1" "wanted/crispen/canihelpyou.wav"
+
+// Post masacre hellos
+"!SC_HELLO0" "wanted/crispen/sheriffthankgod.wav"
+"!SC_HELLO1" "wanted/crispen/saidyouweredead.wav"
+"!SC_HELLO2" "wanted/crispen/mrblack.wav"
+"!SC_HELLO3" "wanted/crispen/thankyourback.wav"
+"!SC_HELLO4" "wanted/crispen/brigands.wav"
+"!SC_HELLO5" "wanted/crispen/inonepiece.wav"
+
+// Generic Answers
+"!SC_ANSWER0" "wanted/crispen/idlechatter.wav"
+"!SC_ANSWER1" "wanted/crispen/asksomeoneelse.wav"
+"!SC_ANSWER2" "wanted/crispen/icantsay.wav"
+"!SC_ANSWER3" "wanted/crispen/idontknow.wav"
+"!SC_ANSWER4" "wanted/crispen/postulate.wav"
+"!SC_ANSWER5" "wanted/crispen/askoldzeke.wav"
+"!SC_ANSWER6" "wanted/crispen/writeninbook.wav"
+"!SC_ANSWER7" "wanted/crispen/stopshouting.wav"
+"!SC_ANSWER8" "wanted/crispen/yesmaybeeno.wav"
+"!SC_ANSWER9" "wanted/crispen/absolutlynot.wav"
+"!SC_ANSWER10" "wanted/crispen/ibegpardon.wav"
+"!SC_ANSWER11" "wanted/crispen/hogwash.wav"
+
+//Generic Post Masacre Questions
+"!SC_QUESTION0" "wanted/crispen/ruffians.wav"
+"!SC_QUESTION1" "wanted/crispen/telegraphed.wav"
+"!SC_QUESTION2" "wanted/crispen/listentoreason.wav"
+"!SC_QUESTION3" "wanted/crispen/whydidimove.wav"
+"!SC_QUESTION4" "wanted/crispen/damagestuff.wav"
+"!SC_QUESTION5" "wanted/crispen/myglasses.wav"
+"!SC_QUESTION6" "wanted/crispen/seendawson.wav"
+"!SC_QUESTION7" "wanted/crispen/creatediversion.wav"
+"!SC_QUESTION8" "wanted/crispen/mycollection.wav"
+"!SC_QUESTION9" "wanted/crispen/frightfull.wav"
+
+//When Crispen is idle (post masacre)
+"!SC_IDLE0" "wanted/crispen/polishshoes.wav"
+"!SC_IDLE1" "wanted/crispen/stoleduster(P101) seentoday"
+"!SC_IDLE2" "wanted/crispen/cleanshoes.wav"
+"!SC_IDLE3" "wanted/crispen/redwing.wav"
+"!SC_IDLE4" "wanted/crispen/spoiledpie.wav"
+"!SC_IDLE5" "wanted/crispen/pressing.wav"
+"!SC_IDLE6" "wanted/crispen/cleanmess.wav"
+
+// Warning Player
+"!SC_NOGO" "wanted/crispen/dontgo.wav"
+
+// Sees monster
+"!SC_MONST0" "wanted/crispen/prizebirds.wav"
+"!SC_MONST1" "wanted/crispen/goodness.wav"
+
+//Hears something
+"!SC_HEAR0" "wanted/crispen/whatwasthat.wav"
+"!SC_HEAR1" "wanted/crispen/hearsomething.wav"
+
+//Smells Something
+"!SC_SMELL0" "wanted/crispen/vilesmell.wav"
+"!SC_SMELL1" "wanted/crispen/intollerable.wav"
+
+//Crispen is Wounded
+"!SC_WOUND0" "wanted/crispen/ohhh.wav"
+"!SC_WOUND0" "wanted/crispen/ohmyword.wav"
+
+// Crispen is mortaly wounded
+"!SC_MORTAL0" "wanted/cripen/mummy.wav"
+
+// Sees wounded player
+"!SC_CUREA" "wanted/crispen/yourwounded.wav"
+"!SC_CUREB" "wanted/crispen/bloodonshirt.wav"
+
+// Player USES when wounded
+"!SC_HEAL0" "wanted/crispen/needsomeofthis.wav"
+"!SC_HEAL0" "wanted/crispen/wipelips.wav"
+"!SC_HEAL0" "wanted/crispen/sipofthis.wav"
+
+// Crispen is scared of player
+"!SC_PLFEAR0" "wanted/crispen/whatrudoing.wav"
+"!SC_PLFEAR1" "wanted/crispen/playingat.wav"
+"!SC_PLFEAR2" "wanted/crispen/barkingmad.wav"
+
+// Crispen is terrified
+"!SC_FEAR0" "wanted/crispen/breath deargod(p98)"
+"!SC_FEAR1" "wanted/crispen/barkingmad.wav"
+"!SC_FEAR2" "wanted/crispen/youarecrazy.wav"
+
+// Crispen Screams
+"!SC_SCREAM0" "wanted/crispen/scream0.wav"
+"!SC_SCREAM1" "wanted/crispen/scream1.wav"
+"!SC_SCREAM2" "wanted/crispen/help.wav"
+"!SC_SCREAM3" "wanted/crispen/scream3.wav"
+"!SC_SCREAM4" "wanted/crispen/scream4.wav"
+"!SC_SCREAM5" "wanted/crispen/mummmmy.wav"
+
+// Is scared by player actions
+"!SC_SCARED0" "wanted/crispen/ohdear.wav"
+"!SC_SCARED1" "wanted/crispen/isaywhat.wav"
+
+// Pre-massacre Hellos
+"!SC_PHELLO0" "wanted/crispen/gooddaytoyou.wav"
+"!SC_PHELLO1" "wanted/crispen/hellothere.wav"
+"!SC_PHELLO2" "wanted/crispen/goodmorning.wav"
+
+//Pre-massacre Questions
+"!SC_PQUEST0" "wanted/crispen/duster.wav"
+"!SC_PQUEST1" "wanted/crispen/butterflys.wav"
+"!SC_PQUEST2" "wanted/crispen/spottedadmiral.wav"
+"!SC_PQUEST3" "wanted/crispen/gazzette.wav"
+"!SC_PQUEST4" "wanted/crispen/beansinatin.wav"
+"!SC_PQUEST5" "wanted/crispen/seenpreacher.wav"
+"!SC_PQUEST6" "wanted/crispen/telnorp.wav"
+"!SC_PQUEST7" "wanted/crispen/amazongreen.wav"
+"!SC_PQUEST8" "wanted/crispen/dawsontoday.wav"
+
+// Pre masacre Idles
+"!SC_PIDLE0" "wanted/crispen/polishshoes.wav"
+"!SC_PIDLE1" "wanted/crispen/stoleduster.wav"
+"!SC_PIDLE2" "wanted/crispen/polishbrass.wav"
+"!SC_PIDLE3" "wanted/crispen/writeletter.wav"
+"!SC_PIDLE4" "wanted/crispen/redwing.wav"
+"!SC_PIDLE5" "wanted/crispen/polishstove.wav"
+"!SC_PIDLE6" "wanted/crispen/makeapie.wav"
+
+// If you try and use Crispen before the massacre
+"!SC_POK0" "wanted/crispen/section12.wav"
+"!SC_POK1" "wanted/crispen/intherules.wav"
+"!SC_POK2" "wanted/crispen/abandon.wav"
+"!SC_POK3" "wanted/crispen/rule27b.wav"
+"!SC_POK4" "wanted/crispen/breakrules.wav"

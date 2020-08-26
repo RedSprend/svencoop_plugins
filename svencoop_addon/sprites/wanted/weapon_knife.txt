@@ -1,0 +1,5 @@
+4
+weapon			320 wanted/320hud1	0	0	80	20
+weapon_s		320 wanted/320hud1	0	20	80	20
+weapon			640 wanted/640hud1	0	45	170	45
+weapon_s		640 wanted/640hud4	0	45	170	45

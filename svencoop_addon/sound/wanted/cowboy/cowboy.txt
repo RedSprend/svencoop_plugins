@@ -1,0 +1,119 @@
+"hgrunt/gr_mgun1.wav" "wanted/weapons/pistol_shot1.wav"
+"hgrunt/gr_mgun2.wav" "wanted/weapons/pistol_shot2.wav"
+"hlclassic/hgrunt/gr_mgun1.wav" "wanted/weapons/pistol_shot1.wav"
+"hlclassic/hgrunt/gr_mgun2.wav" "wanted/weapons/pistol_shot2.wav"
+"hgrunt/gr_die1.wav" "wanted/cowboy/co_die1.wav"
+"hgrunt/gr_die2.wav" "wanted/cowboy/co_die2.wav"
+"hgrunt/gr_die3.wav" "wanted/cowboy/co_die3.wav"
+"hgrunt/gr_pain1.wav" "wanted/cowboy/co_pain1.wav"
+"hgrunt/gr_pain2.wav" "wanted/cowboy/co_pain2.wav"
+"hgrunt/gr_pain3.wav" "wanted/cowboy/co_pain3.wav"
+"hgrunt/gr_pain4.wav" "wanted/cowboy/co_pain4.wav"
+"hgrunt/gr_pain5.wav" "wanted/cowboy/co_pain5.wav"
+
+// sees dynamite
+"!HG_GREN0" "wanted/cowboy/oldynamite.wav"
+"!HG_GREN1" "wanted/cowboy/olrunferit.wav"
+"!HG_GREN2" "wanted/cowboy/oljeezus.wav"
+"!HG_GREN3" "wanted/cowboy/ollookout.wav"
+"!HG_GREN4" "wanted/cowboy/olawhell.wav"
+"!HG_GREN5" "wanted/cowboy/olshitno.wav"
+"!HG_GREN6" "wanted/cowboy/olmoveit.wav"
+
+// Sees player
+"!HG_ALERT0" "wanted/cowboy/oliseehim.wav"
+"!HG_ALERT1" "wanted/cowboy/olthereheis.wav"
+"!HG_ALERT2" "wanted/cowboy/olitsthesherriff.wav"
+"!HG_ALERT3" "wanted/cowboy/olshoothim.wav"
+"!HG_ALERT4" "wanted/cowboy/olgetthesherriff.wav"
+"!HG_ALERT5" "wanted/cowboy/ollookinferyou.wav"
+"!HG_ALERT6" "wanted/cowboy/olfoundhim.wav"
+
+//Sees NPC
+"!HG_MONST0" "wanted/cowboy/ollookiehere.wav"
+"!HG_MONST1" "wanted/cowboy/olrunhide.wav"
+"!HG_MONST2" "wanted/cowboy/olvisitor.wav"
+"!HG_MONST3" "wanted/cowboy/olfoundtrouble.wav"
+
+// Take cover!
+"!HG_COVER0" "wanted/cowboy/olkeepdown.wav"
+"!HG_COVER1" "wanted/cowboy/olusehelp.wav"
+"!HG_COVER2" "wanted/cowboy/ollookoutt.wav"
+"!HG_COVER3" "wanted/cowboy/oldamn.wav"
+"!HG_COVER4" "wanted/cowboy/olshit.wav"
+"!HG_COVER5" "wanted/cowboy/olcoverme.wav"
+"!HG_COVER6" "wanted/cowboy/olgetdown.wav"
+"!HG_COVER7" "wanted/cowboy/olgetback.wav"
+
+//Throws Dynamite
+"!HG_THROW0" "wanted/cowboy/oltrythison.wav"
+"!HG_THROW1" "wanted/cowboy/oltakethis.wav"
+"!HG_THROW2" "wanted/cowboy/oldelivery.wav"
+"!HG_THROW3" "wanted/cowboy/olcatch.wav"
+
+//Taunting Player
+"!HG_TAUNT0" "wanted/cowboy/olanniefake.wav"
+"!HG_TAUNT1" "wanted/cowboy/olcomeonout.wav"
+"!HG_TAUNT2" "wanted/cowboy/olcomeout.wav"
+"!HG_TAUNT3" "wanted/cowboy/olhideallday.wav"
+"!HG_TAUNT4" "wanted/cowboy/olchicken.wav"
+"!HG_TAUNT5" "wanted/cowboy/olsmelllawman.wav"
+
+//Charge!
+"!HG_CHARGE0" "wanted/cowboy/olseehim.wav"
+"!HG_CHARGE1" "wanted/cowboy/olyewaw.wav"
+"!HG_CHARGE2" "wanted/cowboy/oligothim.wav"
+"!HG_CHARGE3" "wanted/cowboy/oligothim.wav"
+
+//Idle
+"!HG_IDLE0" "wanted/cowboy/olpoppasaid.wav"
+"!HG_IDLE1" "wanted/cowboy/olredeye.wav"
+"!HG_IDLE2" "wanted/cowboy/olfart.wav"
+
+//Asking question to other Cowboys
+"!HG_QUEST0" "wanted/cowboy/olheybill.wav"
+"!HG_QUEST1" "wanted/cowboy/oloutofammo.wav"
+"!HG_QUEST2" "wanted/cowboy/olheyseethat.wav"
+"!HG_QUEST3" "wanted/cowboy/olshussh.wav"
+"!HG_QUEST4" "wanted/cowboy/olyoustayhere.wav"
+"!HG_QUEST5" "wanted/cowboy/olpassgelly.wav"
+"!HG_QUEST6" "wanted/cowboy/olpassrifle.wav"
+"!HG_QUEST7" "wanted/cowboy/olseeanythin.wav"
+"!HG_QUEST8" "wanted/cowboy/olstillwithme.wav"
+"!HG_QUEST9" "wanted/cowboy/olstayontoes.wav"
+"!HG_QUEST10" "wanted/cowboy/oluponrock.wav"
+"!HG_QUEST11" "wanted/cowboy/olwatchbacks.wav"
+
+//Answering questions
+"!HG_ANSWER0" "wanted/cowboy/olyup.wav"
+"!HG_ANSWER1" "wanted/cowboy/olyesiree.wav"
+"!HG_ANSWER2" "wanted/cowboy/olok.wav"
+"!HG_ANSWER3" "wanted/cowboy/olsurethang.wav"
+"!HG_ANSWER4" "wanted/cowboy/olyouincharge.wav"
+"!HG_ANSWER5" "wanted/cowboy/olnope.wav"
+"!HG_ANSWER6" "wanted/cowboy/olwhat.wav"
+
+//reporting status
+"!HG_CLEAR0" "wanted/cowboy/olnothinhere.wav"
+"!HG_CLEAR1" "wanted/cowboy/olcantseenothin.wav"
+"!HG_CLEAR2" "wanted/cowboy/olholdon.wav"
+"!HG_CLEAR3" "wanted/cowboy/olnosign.wav"
+"!HG_CLEAR4" "wanted/cowboy/cocanthere.wav"
+"!HG_CLEAR5" "wanted/cowboy/olcantseeem.wav"
+"!HG_CLEAR6" "wanted/cowboy/olmeneither.wav"
+"!HG_CLEAR7" "wanted/cowboy/oldust.wav"
+"!HG_CLEAR8" "wanted/cowboy/oleyesopen.wav"
+"!HG_CLEAR9" "wanted/cowboy/olidontsee.wav"
+"!HG_CLEAR10" "wanted/cowboy/olseenothinhere.wav"
+"!HG_CLEAR11" "wanted/cowboy/olnooneheren.wav"
+"!HG_CLEAR12" "wanted/cowboy/oljustacactus.wav"
+
+//Checking for intruders
+"!HG_CHECK0" "wanted/cowboy/olheysee.wav"
+"!HG_CHECK1" "wanted/cowboy/olshitseenoone.wav"
+"!HG_CHECK2" "wanted/cowboy/olsharpeye.wav"
+"!HG_CHECK3" "wanted/cowboy/olsixin.wav"
+"!HG_CHECK4" "wanted/cowboy/olsnakes.wav"
+"!HG_CHECK5" "wanted/cowboy/olhellnoone.wav"
+"!HG_CHECK6" "wanted/cowboy/olroundback.wav"
+"!HG_CHECK7" "wanted/cowboy/olstoodin.wav"
