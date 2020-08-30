@@ -96,7 +96,7 @@ class weapon_winchester : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 		
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;
@@ -209,14 +209,11 @@ class weapon_winchester : CBaseCustomWeapon
 
 		TraceResult tr;
 		float x, y;
-		
-		g_Utility.GetCircularGaussianSpread( x, y );
-		
-		Vector vecDir = vecAiming 
-			+ x * VECTOR_CONE_2DEGREES.x * g_Engine.v_right 
-			+ y * VECTOR_CONE_2DEGREES.y * g_Engine.v_up;
 
-		Vector vecEnd	= vecSrc + vecDir * 4096;
+		g_Utility.GetCircularGaussianSpread( x, y );
+
+		Vector vecDir = vecAiming + x * VECTOR_CONE_1DEGREES.x * g_Engine.v_right + y * VECTOR_CONE_1DEGREES.y * g_Engine.v_up;
+		Vector vecEnd = vecSrc + vecDir * 4096;
 
 		g_Utility.TraceLine( vecSrc, vecEnd, dont_ignore_monsters, m_pPlayer.edict(), tr );
 
