@@ -1,11 +1,9 @@
 namespace XENHANDS
 {
 const string ViewModel = "models/hlclassic/pov/v_xenhands.mdl";
-const string WorldModel = "models/dy/w_slave.mdl";
-const string PlayerModel = "models/dy/p_slave.mdl";
 
 const int m_iClawDmg = 10;
-const int m_iZapDmg = 10; // per beam (2 arms, 10 * 2 = 20)
+const int m_iZapDmg = 10; // per beam (2 arms, 2 * amount = total amount)
 
 const int iMaxChargeTime = 20; // in milliseconds
 
@@ -46,7 +44,6 @@ class weapon_slave : ScriptBasePlayerWeaponEntity
 	void Spawn()
 	{
 		Precache();
-		//g_EntityFuncs.SetModel( self, WorldModel );
 
 		m_iMode = 0;
 		m_iMaxBeams = 2;
@@ -60,22 +57,19 @@ class weapon_slave : ScriptBasePlayerWeaponEntity
 
 		g_Game.PrecacheModel( "sprites/lgtning.spr" );
 		g_Game.PrecacheModel( ViewModel );
-		/*g_Game.PrecacheModel( WorldModel );
-		g_Game.PrecacheModel( PlayerModel );*/
 
 		g_SoundSystem.PrecacheSound( "debris/zap4.wav" );
 		g_SoundSystem.PrecacheSound( "weapons/electro4.wav" );
 		g_SoundSystem.PrecacheSound( "weapons/xhand_fire1.wav" );
 		g_Game.PrecacheGeneric( "sound/" + "weapons/xhand_fire1.wav" ); // client has to download
 		//g_SoundSystem.PrecacheSound( "hassault/hw_shoot1.wav" );
-		g_SoundSystem.PrecacheSound( "headcrab/hc_headbite.wav" );
-		g_SoundSystem.PrecacheSound( "weapons/cbar_miss1.wav" );
 		g_SoundSystem.PrecacheSound( "zombie/claw_strike1.wav" );
 		g_SoundSystem.PrecacheSound( "zombie/claw_strike2.wav" );
 		g_SoundSystem.PrecacheSound( "zombie/claw_strike3.wav" );
 		g_SoundSystem.PrecacheSound( "zombie/claw_miss1.wav" );
 		g_SoundSystem.PrecacheSound( "zombie/claw_miss2.wav" );
 
+		// client has to download
 		g_Game.PrecacheGeneric( "sprites/" + "pov/320hud1.spr" );
 		g_Game.PrecacheGeneric( "sprites/" + "pov/320hud2.spr" );
 		g_Game.PrecacheGeneric( "sprites/" + "pov/640hud1.spr" );
@@ -301,7 +295,7 @@ class weapon_slave : ScriptBasePlayerWeaponEntity
 	{
 		if( m_iMode == 0 )
 		{
-			// Animation doesn't nothing
+			// Animation does nothing
 			/*m_pPlayer.pev.frame = 0;
 			m_pPlayer.pev.sequence = m_pPlayer.LookupSequence( "CHARGE" );
 			m_pPlayer.ResetSequenceInfo();*/
@@ -706,7 +700,7 @@ class weapon_slave : ScriptBasePlayerWeaponEntity
 		{
 			if( m_iMode > 4 && m_iMode < iMaxChargeTime )
 			{
-				// Animation doesn't nothing
+				// Animation does nothing
 				/*m_pPlayer.pev.frame = 0;
 				m_pPlayer.pev.sequence = m_pPlayer.LookupSequence( "FIRE" );
 				m_pPlayer.ResetSequenceInfo();*/
