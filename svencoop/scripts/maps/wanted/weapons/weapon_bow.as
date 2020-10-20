@@ -179,7 +179,7 @@ class weapon_bow : CBaseCustomWeapon
 		if( m_flStartThrow > 0 ) // Charged bolt
 		{
 			flVelocity *= 2;
-			flGravity = 0.6;
+			flGravity = 0.4;
 		}
 		else
 			flGravity = 0.8;
