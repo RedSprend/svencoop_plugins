@@ -79,7 +79,7 @@ class weapon_knife : CBaseCustomWeapon
 
 		return true;
 	}
-	
+
 	bool AddToPlayer( CBasePlayer@ pPlayer )
 	{
 		if( !BaseClass.AddToPlayer( pPlayer ) )
@@ -88,9 +88,9 @@ class weapon_knife : CBaseCustomWeapon
 		SetThink( null );
 		@m_pPlayer = pPlayer;
 
-		NetworkMessage weapon( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			weapon.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
-		weapon.End();
+		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
+		message.End();
 
 		return true;
 	}
@@ -149,11 +149,8 @@ class weapon_knife : CBaseCustomWeapon
 			pKnife.pev.nextthink = g_Engine.time + 0.1;
 
 			self.m_flNextPrimaryAttack = g_Engine.time + 1.0;
-
 			self.m_flNextSecondaryAttack = g_Engine.time + 1.0;
-
 			self.m_flNextTertiaryAttack = g_Engine.time + 1.0;
-
 			self.m_flTimeWeaponIdle = g_Engine.time + 1.0;
 
 			CBasePlayerItem@ pItem = m_pPlayer.HasNamedPlayerItem( GetKnifeName() );
@@ -216,7 +213,6 @@ class weapon_knife : CBaseCustomWeapon
 				}
 				self.m_flNextPrimaryAttack = g_Engine.time + 0.5;
 				self.m_flNextSecondaryAttack = self.m_flNextPrimaryAttack;
-
 				self.m_flNextTertiaryAttack = self.m_flNextPrimaryAttack;
 
 				// play wiff or swish sound
@@ -269,9 +265,7 @@ class weapon_knife : CBaseCustomWeapon
 			{
 				self.m_flNextPrimaryAttack = g_Engine.time + 0.30; //0.25
 				self.m_flNextSecondaryAttack = self.m_flNextPrimaryAttack;
-
 				self.m_flNextTertiaryAttack = self.m_flNextPrimaryAttack;
-
 
 				if( pEntity.Classify() != CLASS_NONE && pEntity.Classify() != CLASS_MACHINE && pEntity.BloodColor() != DONT_BLEED )
 				{
@@ -305,10 +299,8 @@ class weapon_knife : CBaseCustomWeapon
 				
 				self.m_flNextPrimaryAttack = g_Engine.time + 0.25; //0.25
 				self.m_flNextSecondaryAttack = self.m_flNextPrimaryAttack;
-
 				self.m_flNextTertiaryAttack = self.m_flNextPrimaryAttack;
 
-				
 				// override the volume here, cause we don't play texture sounds in multiplayer, 
 				// and fvolbar is going to be 0 from the above call.
 

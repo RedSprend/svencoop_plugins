@@ -36,7 +36,7 @@ class weapon_bow : CBaseCustomWeapon
 {
 	float m_flStartThrow;
 	float m_flReleaseThrow;
-	float flVelocity;
+	float flVelocity, flGravity = 0.8;
 
 	void Spawn()
 	{
@@ -86,6 +86,7 @@ class weapon_bow : CBaseCustomWeapon
 		info.iMaxClip 	= BOW_MAX_CLIP;
 		info.iSlot 	= 2;
 		info.iPosition 	= 8;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= ITEM_FLAG_NOAUTOSWITCHEMPTY;
 		info.iWeight 	= BOW_WEIGHT;
 
@@ -100,7 +101,7 @@ class weapon_bow : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;
@@ -108,8 +109,7 @@ class weapon_bow : CBaseCustomWeapon
 
 	bool CanHolster()
 	{
-		// can only holster hand grenades when not primed!
-		return true; //m_flStartThrow == 0;
+		return true;
 	}
 
 	bool Deploy()
@@ -157,22 +157,32 @@ class weapon_bow : CBaseCustomWeapon
 			self.m_flTimeWeaponIdle = g_Engine.time + 0.5f;
 		}
 
-		if( self.m_iClip <= 0 && m_pPlayer.m_rgAmmo( self.m_iPrimaryAmmoType ) <= 0 )
+		if( self.m_iClip <= 0 )
 		{
-			self.SendWeaponAnim( BOW_DRYFIRE, 0, 0 );
+			if( m_pPlayer.m_rgAmmo( self.m_iPrimaryAmmoType ) <= 0 )
+			{
+				self.SendWeaponAnim( BOW_DRYFIRE, 0, 0 );
 
-			self.m_flNextPrimaryAttack = g_Engine.time + 1.7f;
-			self.m_flTimeWeaponIdle = self.m_flNextPrimaryAttack + 1.0f;
+				self.m_flNextPrimaryAttack = g_Engine.time + 1.7f;
+				self.m_flTimeWeaponIdle = self.m_flNextPrimaryAttack + 1.0f;
 
-			SetThink( ThinkFunction( PlayEmptySound ) );
-			pev.nextthink = g_Engine.time + 1.0f;
+				SetThink( ThinkFunction( PlayEmptySound ) );
+				pev.nextthink = g_Engine.time + 1.0f;
+			}
+			else
+				self.Reload();
 		}
 
 		if( self.m_flTimeWeaponIdle > g_Engine.time )
 			return;
 
 		if( m_flStartThrow > 0 ) // Charged bolt
+		{
 			flVelocity *= 2;
+			flGravity = 0.6;
+		}
+		else
+			flGravity = 0.8;
 	}
 
 	void Reload()
@@ -185,7 +195,7 @@ class weapon_bow : CBaseCustomWeapon
 		self.m_flNextPrimaryAttack = g_Engine.time + 0.5f;
 		self.m_flTimeWeaponIdle = self.m_flNextPrimaryAttack + 0.5f;
 
-		self.DefaultReload( BOW_MAX_CLIP, BOW_RELOAD, 0.5, 0 );
+		self.DefaultReload( BOW_MAX_CLIP, BOW_RELOAD, 0.6, 0 );
 
 		//Set 3rd person reloading animation -Sniper
 		BaseClass.Reload();
@@ -221,6 +231,7 @@ class weapon_bow : CBaseCustomWeapon
 				pArrow.pev.velocity = g_Engine.v_forward * flVelocity;
 				pArrow.pev.angles = Math.VecToAngles( pArrow.pev.velocity );
 				pArrow.pev.avelocity.z = 10;
+				pArrow.pev.gravity = flGravity;
 			}
 
 			// player "shoot" animation
@@ -237,7 +248,8 @@ class weapon_bow : CBaseCustomWeapon
 
 			if( self.m_iClip <= 0 )
 			{
-				self.m_flTimeWeaponIdle = self.m_flNextSecondaryAttack = self.m_flNextPrimaryAttack = g_Engine.time + 0.5;
+				self.m_flTimeWeaponIdle = g_Engine.time + 1.4f;
+				self.m_flNextSecondaryAttack = self.m_flNextPrimaryAttack = g_Engine.time + 0.5;
 			}
 			return;
 		}
@@ -253,7 +265,6 @@ class weapon_bow : CBaseCustomWeapon
 
 		int iAnim;
 		if( self.m_iClip != 0 )
-
 		{
 			switch( Math.RandomLong(0, 1) )
 			{

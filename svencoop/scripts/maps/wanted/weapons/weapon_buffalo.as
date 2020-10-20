@@ -84,7 +84,7 @@ class weapon_buffalo : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 		
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;
@@ -93,10 +93,12 @@ class weapon_buffalo : CBaseCustomWeapon
 	bool GetItemInfo( ItemInfo& out info )
 	{
 		info.iMaxAmmo1 	= BUFFALO_MAX_CARRY;
+		info.iAmmo1Drop = BUFFALO_DEFAULT_AMMO;
 		info.iMaxAmmo2 	= -1;
 		info.iMaxClip 	= BUFFALO_MAX_CLIP;
 		info.iSlot 	= 2;
 		info.iPosition 	= 7;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= 0;
 		info.iWeight 	= BUFFALO_WEIGHT;
 

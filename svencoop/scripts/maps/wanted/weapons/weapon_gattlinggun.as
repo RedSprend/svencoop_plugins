@@ -85,6 +85,7 @@ class weapon_gattlinggun : CBaseCustomWeapon
 		info.iMaxClip 	= GAT_MAX_CLIP;
 		info.iSlot 	= 3;
 		info.iPosition 	= 5;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= 0;
 		info.iWeight 	= GAT_WEIGHT;
 
@@ -99,7 +100,7 @@ class weapon_gattlinggun : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;

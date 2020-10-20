@@ -75,7 +75,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 		
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;
@@ -100,6 +100,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 		info.iMaxClip 	= SHOTGUN_MAX_CLIP;
 		info.iSlot 	= 2;
 		info.iPosition 	= 6;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= 0;
 		info.iWeight 	= SHOTGUN_WEIGHT;
 
@@ -114,11 +115,6 @@ class weapon_want_shotgun : CBaseCustomWeapon
 			self.m_flTimeWeaponIdle = g_Engine.time + Math.RandomFloat(1.0, 2.0);
 			return bResult;
 		}
-	}
-
-	float WeaponTimeBase()
-	{
-		return g_Engine.time;
 	}
 
 	void Holster( int skipLocal = 0 )
@@ -171,7 +167,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 
 		if( self.m_iClip <= 0 )
 		{
-			self.m_flNextPrimaryAttack = self.m_flTimeWeaponIdle = g_Engine.time + 0.75;
+			self.m_flNextPrimaryAttack = self.m_flNextSecondaryAttack = self.m_flTimeWeaponIdle = g_Engine.time + 0.75;
 			self.Reload();
 			return;
 		}
@@ -202,8 +198,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 			CreatePelletDecals( vecSrc, vecAiming, VECTOR_CONE_DM_SHOTGUN, 1 );
 		}
 
-		self.m_flNextPrimaryAttack = g_Engine.time + 0.5;
-		self.m_flNextSecondaryAttack = g_Engine.time + 0.5;
+		self.m_flNextPrimaryAttack = self.m_flNextSecondaryAttack = g_Engine.time + 0.5;
 
 		if( self.m_iClip != 0 )
 			self.m_flTimeWeaponIdle = g_Engine.time + 5.0;
@@ -223,11 +218,18 @@ class weapon_want_shotgun : CBaseCustomWeapon
 			return;
 		}
 
+		if( self.m_iClip <= 0 )
+		{
+			self.m_flNextPrimaryAttack = self.m_flNextSecondaryAttack = self.m_flTimeWeaponIdle = g_Engine.time + 0.75;
+			self.Reload();
+			return;
+		}
+
 		if( self.m_iClip <= 1 )
 		{
 			return;
 		}
-		
+
 		self.SendWeaponAnim( SHOTGUN_SHOOT_2, 0, 0 );
 		
 		g_SoundSystem.EmitSoundDyn( m_pPlayer.edict(), CHAN_WEAPON, "wanted/weapons/dbarrel1.wav", Math.RandomFloat( 0.98, 1.0 ), ATTN_NORM, 0, 85 + Math.RandomLong( 0, 0x1f ) );
@@ -240,7 +242,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 		// player "shoot" animation
 		m_pPlayer.SetAnimation( PLAYER_ATTACK1 );
 
-		Vector vecSrc	 = m_pPlayer.GetGunPosition();
+		Vector vecSrc = m_pPlayer.GetGunPosition();
 		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
 
 		int m_iBulletDamage = 15;
@@ -252,8 +254,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 			CreatePelletDecals( vecSrc, vecAiming, VECTOR_CONE_DM_DOUBLESHOTGUN, 1 );
 		}
 
-		self.m_flNextPrimaryAttack = g_Engine.time + 1.5;
-		self.m_flNextSecondaryAttack = g_Engine.time + 1.5;
+		self.m_flNextPrimaryAttack = self.m_flNextSecondaryAttack = g_Engine.time + 1.0f;
 		
 		if( self.m_iClip != 0 )
 			self.m_flTimeWeaponIdle = g_Engine.time + 6.0;
@@ -268,13 +269,14 @@ class weapon_want_shotgun : CBaseCustomWeapon
 		if( m_pPlayer.m_rgAmmo( self.m_iPrimaryAmmoType ) <= 0 || self.m_iClip > 0 )
 			return;
 
-		self.DefaultReload( SHOTGUN_MAX_CLIP, SHOTGUN_RELOAD, 3.5, 0 );
-		self.m_flTimeWeaponIdle = WeaponTimeBase() + 4.5f;
+		self.DefaultReload( SHOTGUN_MAX_CLIP, SHOTGUN_RELOAD, 3.4, 0 );
+		self.m_flTimeWeaponIdle = g_Engine.time + 4.5f;
 
 		//self.SendWeaponAnim( SHOTGUN_RELOAD );
 		SetThink( ThinkFunction( this.CompleteReload ) );
+		self.pev.nextthink = g_Engine.time + 3.4f;
 
-		self.pev.nextthink = g_Engine.time + 3.5f;
+		self.m_flNextPrimaryAttack = self.m_flNextSecondaryAttack = self.pev.nextthink + 0.2;
 
 		BaseClass.Reload();
 	}
@@ -297,17 +299,17 @@ class weapon_want_shotgun : CBaseCustomWeapon
 			{
 				case 0:
 				iAnim = SHOTGUN_IDLE1;
-				self.m_flTimeWeaponIdle = WeaponTimeBase() + 3.0f;
+				self.m_flTimeWeaponIdle = g_Engine.time + 3.0f;
 				break;
 
 				case 1:
 				iAnim = SHOTGUN_IDLE2;
-				self.m_flTimeWeaponIdle = WeaponTimeBase() + 3.7f;
+				self.m_flTimeWeaponIdle = g_Engine.time + 3.7f;
 				break;
 
 				case 2:
 				iAnim = SHOTGUN_IDLE3;
-				self.m_flTimeWeaponIdle = WeaponTimeBase() + 3.8f;
+				self.m_flTimeWeaponIdle = g_Engine.time + 3.8f;
 				break;
 			}
 			self.SendWeaponAnim( iAnim );

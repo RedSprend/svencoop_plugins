@@ -81,6 +81,7 @@ class weapon_cannon : CBaseCustomWeapon
 		info.iMaxClip 	= CANNON_MAX_CLIP;
 		info.iSlot 	= 3;
 		info.iPosition 	= 6;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= 0;
 		info.iWeight 	= CANNON_WEIGHT;
 
@@ -95,7 +96,7 @@ class weapon_cannon : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;
@@ -118,15 +119,10 @@ class weapon_cannon : CBaseCustomWeapon
 		bool bResult;
 		{
 			bResult = self.DefaultDeploy( self.GetV_Model( "models/wanted/v_cannon.mdl" ), self.GetP_Model( "models/wanted/p_cannon.mdl" ), CANNON_DRAW, "saw" );
-			self.m_flNextPrimaryAttack = WeaponTimeBase() + 1.0;
-			self.m_flTimeWeaponIdle = WeaponTimeBase() + 1.5;
+			self.m_flNextPrimaryAttack = g_Engine.time + 1.0;
+			self.m_flTimeWeaponIdle = g_Engine.time + 1.5;
 			return bResult;
 		}
-	}
-
-	float WeaponTimeBase()
-	{
-		return g_Engine.time; //g_WeaponFuncs.WeaponTimeBase();
 	}
 
 	void Holster( int skipLocal = 0 )
@@ -140,7 +136,7 @@ class weapon_cannon : CBaseCustomWeapon
 	{
 		if( self.m_iClip <= 0 || m_pPlayer.pev.waterlevel == WATERLEVEL_HEAD )
 		{
-			self.m_flNextPrimaryAttack = WeaponTimeBase() + 0.15;
+			self.m_flNextPrimaryAttack = g_Engine.time + 0.15;
 			return;
 		}
 
@@ -199,7 +195,7 @@ class weapon_cannon : CBaseCustomWeapon
 
 	void Reload()
 	{
-		if( m_pPlayer.m_rgAmmo( self.m_iPrimaryAmmoType ) <= 0 || self.m_iClip == CANNON_MAX_CLIP || self.m_flNextPrimaryAttack > WeaponTimeBase() ) // Can't reload if we have a full magazine already!
+		if( m_pPlayer.m_rgAmmo( self.m_iPrimaryAmmoType ) <= 0 || self.m_iClip == CANNON_MAX_CLIP || self.m_flNextPrimaryAttack > g_Engine.time ) // Can't reload if we have a full magazine already!
 			return;
 
 		g_SoundSystem.EmitSoundDyn( m_pPlayer.edict(), CHAN_WEAPON, pGunSounds[1], 1.0f, ATTN_NORM, 0, PITCH_NORM );
@@ -208,7 +204,7 @@ class weapon_cannon : CBaseCustomWeapon
 
 		self.DefaultReload( CANNON_MAX_CLIP, CANNON_RELOAD, 2.5, 0 );
 
-		self.m_flTimeWeaponIdle = WeaponTimeBase() + g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
+		self.m_flTimeWeaponIdle = g_Engine.time + g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
 
 		//Set 3rd person reloading animation -Sniper
 		BaseClass.Reload();
@@ -218,7 +214,7 @@ class weapon_cannon : CBaseCustomWeapon
 	{
 		self.ResetEmptySound();
 
-		if( self.m_flTimeWeaponIdle > WeaponTimeBase() )
+		if( self.m_flTimeWeaponIdle > g_Engine.time )
 			return;
 
 		int iAnim;
@@ -240,7 +236,7 @@ class weapon_cannon : CBaseCustomWeapon
 			break;
 		}
 
-		self.m_flTimeWeaponIdle = WeaponTimeBase() + flNextIdle;
+		self.m_flTimeWeaponIdle = g_Engine.time + flNextIdle;
 		self.SendWeaponAnim( iAnim );
 	}
 }

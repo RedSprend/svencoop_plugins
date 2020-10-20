@@ -62,12 +62,14 @@ class weapon_pick : CBaseCustomWeapon
 
 	bool GetItemInfo( ItemInfo& out info )
 	{
-		info.iMaxAmmo1		= -1;
-		info.iMaxAmmo2		= -1;
-		info.iMaxClip		= WEAPON_NOCLIP;
-		info.iSlot		= 0;
-		info.iPosition		= 5;
-		info.iWeight		= 0;
+		info.iMaxAmmo1	= -1;
+		info.iMaxAmmo2	= -1;
+		info.iMaxClip	= WEAPON_NOCLIP;
+		info.iSlot	= 0;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
+		info.iFlags 	= 0;
+		info.iWeight 	= 0;
+
 		return true;
 	}
 	
@@ -77,6 +79,10 @@ class weapon_pick : CBaseCustomWeapon
 			return false;
 			
 		@m_pPlayer = pPlayer;
+
+		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
+		message.End();
 
 		return true;
 	}

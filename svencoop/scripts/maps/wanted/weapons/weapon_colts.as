@@ -78,6 +78,7 @@ class weapon_colts : CBaseCustomWeapon
 		info.iMaxClip 	= COLTS_MAX_CLIP;
 		info.iSlot 	= 1;
 		info.iPosition 	= 6;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= 0;
 		info.iWeight 	= COLTS_WEIGHT;
 
@@ -92,7 +93,7 @@ class weapon_colts : CBaseCustomWeapon
 		@m_pPlayer = pPlayer;
 
 		NetworkMessage message( MSG_ONE, NetworkMessages::WeapPickup, pPlayer.edict() );
-			message.WriteLong( self.m_iId );
+			message.WriteLong( g_ItemRegistry.GetIdForName( self.pev.classname ) );
 		message.End();
 		
 		return true;
@@ -120,14 +121,16 @@ class weapon_colts : CBaseCustomWeapon
 		}
 	}
 
-	float WeaponTimeBase()
+	void Holster( int skipLocal = 0 )
 	{
-		return g_Engine.time; //g_WeaponFuncs.WeaponTimeBase();
+		SetThink( null );
+		self.m_fInReload = false;
+		BaseClass.Holster( skipLocal );
 	}
 
 	void PrimaryAttack()
 	{
-		ColtsFire( 0.01, 0.6, false );
+		ColtsFire( 0.01, 0.5, false );
 	}
 
 	void SecondaryAttack()
@@ -146,7 +149,8 @@ class weapon_colts : CBaseCustomWeapon
 		if( self.m_iClip <= 0 )
 		{
 			self.PlayEmptySound( );
-			self.m_flNextPrimaryAttack = WeaponTimeBase() + 0.15;
+			self.m_flNextPrimaryAttack = g_Engine.time + 0.15;
+			self.Reload();
 			return;
 		}
 
@@ -155,7 +159,7 @@ class weapon_colts : CBaseCustomWeapon
 		{
 			self.SendWeaponAnim( COLTS_DUAL_FIRE );
 			g_SoundSystem.EmitSoundDyn( m_pPlayer.edict(), CHAN_WEAPON, pFireSounds[1], 1.0f, ATTN_NORM, 0, PITCH_NORM );
-			self.m_flTimeWeaponIdle = WeaponTimeBase() + 1.0f;
+			self.m_flTimeWeaponIdle = g_Engine.time + 1.0f;
 
 			self.m_iClip -= 2;
 
@@ -187,7 +191,7 @@ class weapon_colts : CBaseCustomWeapon
 
 			g_SoundSystem.EmitSoundDyn( m_pPlayer.edict(), CHAN_WEAPON, pFireSounds[0], 1.0f, ATTN_NORM, 0, PITCH_NORM );
 
-			self.m_flTimeWeaponIdle = WeaponTimeBase() + g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
+			self.m_flTimeWeaponIdle = g_Engine.time + g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
 
 			--self.m_iClip;
 		}
@@ -277,8 +281,11 @@ class weapon_colts : CBaseCustomWeapon
 
 		self.DefaultReload( COLTS_MAX_CLIP, COLTS_RELOAD, 1.5, 0 );
 
-		self.m_flTimeWeaponIdle = WeaponTimeBase() + g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
+		self.m_flTimeWeaponIdle = g_Engine.time + g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
 
+		//Set 3rd person reloading animation -Sniper
+		//BaseClass.Reload();
+		// for some reason the dual uzi reloading animation uses a different reference set
 		m_pPlayer.m_Activity = ACT_RELOAD;
 		m_pPlayer.pev.frame = 0;
 		m_pPlayer.pev.sequence = 135;
@@ -291,10 +298,11 @@ class weapon_colts : CBaseCustomWeapon
 
 		m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
-		if( self.m_flTimeWeaponIdle > WeaponTimeBase() )
+		if( self.m_flTimeWeaponIdle > g_Engine.time )
 			return;
 
 		//if( self.m_iClip != 0 )
+
 		{
 			int iAnim;
 			float flRand = g_PlayerFuncs.SharedRandomFloat( m_pPlayer.random_seed,  10, 15 );
@@ -304,13 +312,13 @@ class weapon_colts : CBaseCustomWeapon
 				case 0:
 				{
 					iAnim = COLTS_IDLE1;
-					self.m_flTimeWeaponIdle = WeaponTimeBase() + 2.7f;
+					self.m_flTimeWeaponIdle = g_Engine.time + 2.7f;
 				}
 				break;
 				case 1:
 				{
 					iAnim = COLTS_IDLE2;
-					self.m_flTimeWeaponIdle = WeaponTimeBase() + 1.8f;
+					self.m_flTimeWeaponIdle = g_Engine.time + 1.8f;
 				}
 				break;
 			}

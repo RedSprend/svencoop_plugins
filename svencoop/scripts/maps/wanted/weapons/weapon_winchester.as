@@ -121,6 +121,7 @@ class weapon_winchester : CBaseCustomWeapon
 		info.iMaxClip 	= WINCHESTER_MAX_CLIP;
 		info.iSlot 	= 2;
 		info.iPosition 	= 5;
+		info.iId     	= g_ItemRegistry.GetIdForName( self.pev.classname );
 		info.iFlags 	= 0;
 		info.iWeight 	= WINCHESTER_WEIGHT;
 
@@ -137,15 +138,12 @@ class weapon_winchester : CBaseCustomWeapon
 		}
 	}
 
-	float WeaponTimeBase()
-	{
-		return g_Engine.time;
-	}
-	
 	void Holster( int skipLocal = 0 )
 	{
 		m_fWinchesterReload = false;
-		
+
+		SetThink( null );
+		self.m_fInReload = false;
 		BaseClass.Holster( skipLocal );
 	}
 
@@ -173,6 +171,7 @@ class weapon_winchester : CBaseCustomWeapon
 		{
 			self.m_flNextPrimaryAttack = self.m_flTimeWeaponIdle = g_Engine.time + 0.75;
 			self.Reload();
+			self.PlayEmptySound();
 			return;
 		}
 
