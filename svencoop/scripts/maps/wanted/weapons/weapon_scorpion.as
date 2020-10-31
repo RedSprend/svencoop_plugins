@@ -267,6 +267,9 @@ class monster_scorpion : CBaseCustomMonster
 		pev.angles = Math.VecToAngles( pev.velocity );
 		pev.angles.z = 0;
 		pev.angles.x = 0;
+
+		if( pev.movetype != MOVETYPE_FLY ) // Fix for the scorpion to be able to step up on slopes, stairs e.g.
+			g_EngineFuncs.WalkMove( self.edict(), self.pev.angles.y, 0.5, int(WALKMOVE_NORMAL) );
 	}
 
 	void SuperBounceTouch( CBaseEntity@ pOther )
