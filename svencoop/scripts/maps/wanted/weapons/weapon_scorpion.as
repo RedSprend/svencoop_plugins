@@ -119,6 +119,7 @@ class monster_scorpion : CBaseCustomMonster
 		pev.solid = SOLID_NOT;
 		pev.takedamage = DAMAGE_NO;
 		pev.velocity = g_vecZero;
+		pev.movetype = MOVETYPE_STEP; // Prevent from bouncing around in the map
 
 		pev.sequence = self.LookupSequence( "die" );
 
@@ -170,7 +171,7 @@ class monster_scorpion : CBaseCustomMonster
 			SetThink( ThinkFunction( DestroyThink ) );
 			return;
 		}
-	
+
 		self.StudioFrameAdvance( );
 		pev.nextthink = g_Engine.time + 0.1;
 
@@ -202,7 +203,7 @@ class monster_scorpion : CBaseCustomMonster
 			return;
 
 		m_flNextHunt = g_Engine.time + 2.0;
-	
+
 		Vector vecDir;
 		Vector vecDirToEnemy;
 		TraceResult tr;
@@ -566,6 +567,8 @@ class weapon_scorpion : CBaseCustomWeapon
 
 			if( tr.fAllSolid == 0 && tr.fStartSolid == 0 && tr.flFraction > 0.25 )
 			{
+				self.SendWeaponAnim( SCORPION_THROW );
+
 				// player "shoot" animation
 				m_pPlayer.SetAnimation( PLAYER_ATTACK1 );
 

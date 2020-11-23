@@ -196,6 +196,26 @@ class monster_puma : ScriptBaseMonsterEntity
 		return CLASS_ALIEN_MONSTER;
 	}
 
+	//=========================================================
+	// LeapTouch - this is the puma's touch function when it
+	// is in the air
+	//=========================================================
+	void LeapTouch( CBaseEntity@ pOther )
+	{
+		if( pOther.pev.takedamage == DAMAGE_NO )
+			return;
+
+		if( pOther.Classify() == Classify() )
+			return;
+
+		// Don't hit if back on ground
+		if( !self.pev.FlagBitSet( FL_ONGROUND ) )
+		{
+			pOther.TakeDamage( self.pev, self.pev, PUMA_DMG_POUNCE, DMG_SLASH );
+		}
+
+		SetTouch( null );
+	}
 	
 	//=========================================================
 	// RunTask 
@@ -222,27 +242,6 @@ class monster_puma : ScriptBaseMonsterEntity
 		}
 	}
 
-	//=========================================================
-	// LeapTouch - this is the puma's touch function when it
-	// is in the air
-	//=========================================================
-	void LeapTouch( CBaseEntity@ pOther )
-	{
-		if( pOther.pev.takedamage == DAMAGE_NO )
-			return;
-
-		if( pOther.Classify() == Classify() )
-			return;
-
-		// Don't hit if back on ground
-		if( !self.pev.FlagBitSet( FL_ONGROUND ) )
-		{
-			pOther.TakeDamage( self.pev, self.pev, PUMA_DMG_POUNCE, DMG_SLASH );
-		}
-
-		SetTouch( null );
-	}
-
 	void StartTask( Task@ pTask )
 	{
 		self.m_iTaskStatus = TASKSTATUS_RUNNING;
@@ -258,20 +257,13 @@ class monster_puma : ScriptBaseMonsterEntity
 			}
 		case TASK_SOUND_DIE:
 		case TASK_SOUND_DEATH:
-
 			{
-
 				DeathSound();
-
 				self.TaskComplete();
-
 				break;
-
 			}
 		default:
-			{
-				BaseClass.StartTask( pTask );
-			}
+			BaseClass.StartTask( pTask );
 		}
 	}
 
