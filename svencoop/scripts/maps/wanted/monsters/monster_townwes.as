@@ -1,5 +1,26 @@
 namespace HLWanted_TownWes
 {
+enum BodyGroup
+{
+	BODYGROUP_BODY = 0,
+	BODYGROUP_HEAD,
+	BODYGROUP_BOTTLE
+}
+
+enum HeadSubModel
+{
+	HEAD_1 = 0,
+	HEAD_2,
+	HEAD_3,
+	HEAD_4
+}
+
+enum BottleSubModel
+{
+	NONE = 0,
+	BOTTLE
+}
+
 array<string> g_Sounds =
 {
 	"wanted/twnwest/absolutely.wav",
@@ -224,33 +245,271 @@ array<string> g_Sounds =
 	"wanted/twnwest/_comma.wav"
 };
 
-void Precache()
+class monster_twnwesta : ScriptBaseMonsterEntity
 {
-	g_Game.PrecacheModel( "models/wanted/twn2west.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west01.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west02.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west03.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west04.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west05.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west06.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2west07.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twn2westt.mdl" );
-
-	g_Game.PrecacheModel( "models/wanted/twnwesta.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta01.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta02.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta03.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta04.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta05.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta06.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwesta07.mdl" );
-	g_Game.PrecacheGeneric( "models/wanted/twnwestat.mdl" );
-
-	for( uint uiIndex = 0; uiIndex < g_Sounds.length(); ++uiIndex )
+	void Precache()
 	{
-		g_SoundSystem.PrecacheSound( g_Sounds[uiIndex] ); // cache
-		g_Game.PrecacheGeneric( "sound/" + g_Sounds[uiIndex] ); // client has to download
+		g_Game.PrecacheModel( "models/wanted/twnwesta.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta01.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta02.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta03.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta04.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta05.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta06.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwesta07.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twnwestat.mdl" );
+
+		for( uint uiIndex = 0; uiIndex < g_Sounds.length(); ++uiIndex )
+		{
+			g_SoundSystem.PrecacheSound( g_Sounds[uiIndex] ); // cache
+			g_Game.PrecacheGeneric( "sound/" + g_Sounds[uiIndex] ); // client has to download
+		}
 	}
+
+	void Spawn( void )
+	{
+		Precache();
+
+		pev.solid = SOLID_NOT;
+
+		if( pev.body == -1 )
+			self.SetBodygroup( BODYGROUP_HEAD, Math.RandomLong(HEAD_1, HEAD_4) );
+
+		dictionary keyvalues = {
+			{ "model", "models/wanted/twnwesta.mdl" },
+			{ "soundlist", "../wanted/twnwest/townwest.txt" },
+			{ "is_not_revivable", "1" },
+			{ "displayname", "Townie" }
+		};
+		CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity( "monster_scientist", keyvalues, true );
+
+		CBaseMonster@ pSci = pEntity.MyMonsterPointer();
+
+		pSci.pev.origin = pev.origin;
+		pSci.pev.angles = pev.angles;
+		pSci.pev.health = pev.health;
+		pSci.pev.targetname = pev.targetname;
+		pSci.pev.netname = pev.netname;
+		pSci.pev.weapons = pev.weapons;
+		pSci.pev.body = pev.body;
+		pSci.pev.skin = pev.skin;
+		pSci.pev.mins = pev.mins;
+		pSci.pev.maxs = pev.maxs;
+		pSci.pev.scale = pev.scale;
+		pSci.pev.rendermode = pev.rendermode;
+		pSci.pev.renderamt = pev.renderamt;
+		pSci.pev.rendercolor = pev.rendercolor;
+		pSci.pev.renderfx = pev.renderfx;
+		pSci.pev.spawnflags = pev.spawnflags;
+
+		g_EntityFuncs.DispatchSpawn( pSci.edict() );
+
+		pSci.m_iTriggerCondition = self.m_iTriggerCondition;
+		pSci.m_iszTriggerTarget = self.m_iszTriggerTarget;
+
+		g_EntityFuncs.Remove( self );
+	}
+}
+
+class monster_twnwesta_dead : ScriptBaseMonsterEntity
+{
+	int m_iPose = 0;
+	private array<string>m_szPoses = { "lying_on_back", "lying_on_stomach", "dead_sitting", "dead_hang", "dead_table1", "dead_table2", "dead_table3" };
+
+	bool KeyValue( const string& in szKey, const string& in szValue )
+	{
+		if( szKey == "pose" )
+		{
+			m_iPose = atoi( szValue );
+			return true;
+		}
+		else
+			return BaseClass.KeyValue( szKey, szValue );
+	}
+
+	void Precache()
+	{
+		if( string( self.pev.model ).IsEmpty() )
+			g_Game.PrecacheModel( self, "models/wanted/twnwesta.mdl" );
+		else
+			g_Game.PrecacheModel( self, self.pev.model );
+	}
+
+	void Spawn()
+	{
+		Precache();
+
+		if( string( self.pev.model ).IsEmpty() )
+			g_EntityFuncs.SetModel( self, "models/wanted/twnwesta.mdl" );
+		else
+			g_EntityFuncs.SetModel( self, self.pev.model );
+
+		const float flHealth = self.pev.health;
+
+		self.MonsterInitDead();
+
+		self.pev.health = flHealth;
+
+		if( self.pev.health == 0 )
+			self.pev.health = 8;
+
+		self.m_bloodColor 	= BLOOD_COLOR_RED;
+		self.pev.solid 		= SOLID_SLIDEBOX;
+		self.pev.movetype 	= MOVETYPE_STEP;
+		self.pev.takedamage 	= DAMAGE_YES;
+
+		self.SetClassification( CLASS_PLAYER_ALLY );
+
+		self.m_FormattedName = "Dead Townie";
+
+		if( pev.body == -1 )
+			self.SetBodygroup( BODYGROUP_HEAD, Math.RandomLong(HEAD_1, HEAD_4) );
+
+		self.pev.sequence = self.LookupSequence( m_szPoses[m_iPose] );
+		if ( self.pev.sequence == -1 )
+		{
+			g_Game.AlertMessage( at_console, "Dead townie with bad pose\n" );
+		}
+	}
+}
+
+class monster_twnwestb : ScriptBaseMonsterEntity
+{
+	void Precache()
+	{
+		g_Game.PrecacheModel( "models/wanted/twn2west.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west01.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west02.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west03.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west04.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west05.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west06.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2west07.mdl" );
+		g_Game.PrecacheGeneric( "models/wanted/twn2westt.mdl" );
+
+		for( uint uiIndex = 0; uiIndex < g_Sounds.length(); ++uiIndex )
+		{
+			g_SoundSystem.PrecacheSound( g_Sounds[uiIndex] ); // cache
+			g_Game.PrecacheGeneric( "sound/" + g_Sounds[uiIndex] ); // client has to download
+		}
+	}
+
+	void Spawn( void )
+	{
+		Precache();
+
+		pev.solid = SOLID_NOT;
+
+		if( pev.body == -1 )
+			self.SetBodygroup( BODYGROUP_HEAD, Math.RandomLong(HEAD_1, HEAD_4) );
+
+		dictionary keyvalues = {
+			{ "model", "models/wanted/twn2west.mdl" },
+			{ "soundlist", "../wanted/twnwest/townwest.txt" },
+			{ "is_not_revivable", "1" },
+			{ "displayname", "Townie" }
+		};
+		CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity( "monster_scientist", keyvalues, false );
+
+		CBaseMonster@ pSci = pEntity.MyMonsterPointer();
+
+		pSci.pev.origin = pev.origin;
+		pSci.pev.angles = pev.angles;
+		pSci.pev.health = pev.health;
+		pSci.pev.targetname = pev.targetname;
+		pSci.pev.netname = pev.netname;
+		pSci.pev.weapons = pev.weapons;
+		pSci.pev.body = pev.body;
+		pSci.pev.skin = pev.skin;
+		pSci.pev.mins = pev.mins;
+		pSci.pev.maxs = pev.maxs;
+		pSci.pev.scale = pev.scale;
+		pSci.pev.rendermode = pev.rendermode;
+		pSci.pev.renderamt = pev.renderamt;
+		pSci.pev.rendercolor = pev.rendercolor;
+		pSci.pev.renderfx = pev.renderfx;
+		pSci.pev.spawnflags = pev.spawnflags;
+
+		g_EntityFuncs.DispatchSpawn( pSci.edict() );
+
+		g_EntityFuncs.DispatchKeyValue( pSci.edict(), "UnUseSentence", "+wanted/twnwest/ithinkilljust.wav" );
+		g_EntityFuncs.DispatchKeyValue( pSci.edict(), "UseSentence", "+wanted/twnwest/ithinkilljust.wav" );
+
+		pSci.m_iTriggerCondition = self.m_iTriggerCondition;
+		pSci.m_iszTriggerTarget = self.m_iszTriggerTarget;
+
+		g_EntityFuncs.Remove( self );
+	}
+}
+
+class monster_twnwestb_dead : ScriptBaseMonsterEntity
+{
+	int m_iPose = 0;
+	private array<string>m_szPoses = { "lying_on_back", "lying_on_stomach", "dead_sitting", "dead_hang", "dead_table1", "dead_table2", "dead_table3" };
+
+	bool KeyValue( const string& in szKey, const string& in szValue )
+	{
+		if( szKey == "pose" )
+		{
+			m_iPose = atoi( szValue );
+			return true;
+		}
+		else
+			return BaseClass.KeyValue( szKey, szValue );
+	}
+
+	void Precache()
+	{
+		if( string( self.pev.model ).IsEmpty() )
+			g_Game.PrecacheModel( self, "models/wanted/twn2west.mdl" );
+		else
+			g_Game.PrecacheModel( self, self.pev.model );
+	}
+
+	void Spawn()
+	{
+		Precache();
+
+		if( string( self.pev.model ).IsEmpty() )
+			g_EntityFuncs.SetModel( self, "models/wanted/twn2west.mdl" );
+		else
+			g_EntityFuncs.SetModel( self, self.pev.model );
+
+		const float flHealth = self.pev.health;
+
+		self.MonsterInitDead();
+
+		self.pev.health = flHealth;
+
+		if( self.pev.health == 0 )
+			self.pev.health = 8;
+
+		self.m_bloodColor 	= BLOOD_COLOR_RED;
+		self.pev.solid 		= SOLID_SLIDEBOX;
+		self.pev.movetype 	= MOVETYPE_STEP;
+		self.pev.takedamage 	= DAMAGE_YES;
+
+		self.SetClassification( CLASS_PLAYER_ALLY );
+
+		self.m_FormattedName = "Dead Townie";
+
+		if( pev.body == -1 )
+			self.SetBodygroup( BODYGROUP_HEAD, Math.RandomLong(HEAD_1, HEAD_4) );
+
+		self.pev.sequence = self.LookupSequence( m_szPoses[m_iPose] );
+		if ( self.pev.sequence == -1 )
+		{
+			g_Game.AlertMessage( at_console, "Dead townie with bad pose\n" );
+		}
+	}
+}
+
+void Register()
+{
+	g_CustomEntityFuncs.RegisterCustomEntity( "HLWanted_TownWes::monster_twnwesta", "monster_twnwesta" );
+	g_CustomEntityFuncs.RegisterCustomEntity( "HLWanted_TownWes::monster_twnwesta_dead", "monster_twnwesta_dead" );
+	g_CustomEntityFuncs.RegisterCustomEntity( "HLWanted_TownWes::monster_twnwestb", "monster_twnwestb" );
+	g_CustomEntityFuncs.RegisterCustomEntity( "HLWanted_TownWes::monster_twnwestb_dead", "monster_twnwestb_dead" );
 }
 
 } // end of HLWanted_TownWes namespace

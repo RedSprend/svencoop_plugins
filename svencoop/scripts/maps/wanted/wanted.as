@@ -27,26 +27,26 @@
 
 #include "monsters/basemonster"
 
-#include "monsters/monster_annie" // Precache
+#include "monsters/monster_annie"
 #include "monsters/monster_bear"
 #include "monsters/monster_bigminer"
 #include "monsters/monster_chicken"
-#include "monsters/monster_cowboy" // Precache
-#include "monsters/monster_crispen" // Precache
-#include "monsters/monster_dyndave" // Precache
+#include "monsters/monster_cowboy"
+#include "monsters/monster_crispen"
+#include "monsters/monster_dyndave"
 #include "monsters/monster_eagle" // Precache
 #include "monsters/monster_horse"
-#include "monsters/monster_hoss" // Precache
+#include "monsters/monster_hoss"
 #include "monsters/monster_kaiewi" // Precache
-#include "monsters/monster_masala" // Precache
-#include "monsters/monster_mexbandit" // Precache
-#include "monsters/monster_nagatow" // Precache
+#include "monsters/monster_masala"
+#include "monsters/monster_mexbandit"
+#include "monsters/monster_nagatow"
 #include "monsters/monster_puma"
 #include "monsters/monster_smallminer"
 #include "monsters/monster_snake"
 #include "monsters/monster_tied_colonel"
-#include "monsters/monster_townmex" // Precache
-#include "monsters/monster_townwes" // Precache
+#include "monsters/monster_townmex"
+#include "monsters/monster_townwes"
 
 #include "items/item_elixer"
 #include "items/item_herbs"
@@ -118,53 +118,6 @@ void Precache()
 	// Server will crash if precaching everything at once.
 	// Workaround: Separate each precache() for each map the NPC is used in
 
-	if( g_Engine.mapname == "want1" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want32" ||
-		g_Engine.mapname == "want34" )
-	{
-		HLWanted_Annie::Precache();
-	}
-
-	if( g_Engine.mapname == "want6" ||
-		g_Engine.mapname == "want7" ||
-		g_Engine.mapname == "want8" ||
-		g_Engine.mapname == "want16" ||
-		g_Engine.mapname == "want17" ||
-		g_Engine.mapname == "want18" ||
-		g_Engine.mapname == "want19" ||
-		g_Engine.mapname == "want20" ||
-		g_Engine.mapname == "want21" ||
-		g_Engine.mapname == "want22" ||
-		g_Engine.mapname == "want28" ||
-		g_Engine.mapname == "want29" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want31" ||
-		g_Engine.mapname == "want32" ||
-		g_Engine.mapname == "want33" ||
-		g_Engine.mapname == "want34" ||
-		g_Engine.mapname == "want35" ||
-		g_Engine.mapname == "want36" )
-	{
-		HLWanted_Cowboy::Precache();
-	}
-
-	if( g_Engine.mapname == "want1" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want33" )
-	{
-		HLWanted_Crispen::Precache();
-	}
-
-	if( g_Engine.mapname == "want9" ||
-		g_Engine.mapname == "want10" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want32" ||
-		g_Engine.mapname == "want34" )
-	{
-		HLWanted_DynDave::Precache();
-	}
-
 	if( g_Engine.mapname == "want3" ||
 		g_Engine.mapname == "want4" ||
 		g_Engine.mapname == "want5" ||
@@ -177,95 +130,6 @@ void Precache()
 		g_Engine.mapname == "want25b" )
 	{
 		HLWanted_Eagle::Precache();
-	}
-
-	if( g_Engine.mapname == "want1" ||
-		g_Engine.mapname == "want11" ||
-		g_Engine.mapname == "want12" ||
-		g_Engine.mapname == "want14" ||
-		g_Engine.mapname == "want16" ||
-		g_Engine.mapname == "want17" ||
-		g_Engine.mapname == "want18" ||
-		g_Engine.mapname == "want20" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want32" ||
-		g_Engine.mapname == "want34" ||
-		g_Engine.mapname == "want37" )
-	{
-		HLWanted_Hoss::Precache();
-	}
-
-	if( g_Engine.mapname == "want11" ||
-		g_Engine.mapname == "want12" ||
-		g_Engine.mapname == "want13" ||
-		g_Engine.mapname == "want14" ||
-		g_Engine.mapname == "want19" ||
-		g_Engine.mapname == "want22" )
-	{
-		HLWanted_Kaiewi::Precache();
-	}
-
-	if( g_Engine.mapname == "want13" )
-	{
-		HLWanted_Masala::Precache();
-		HLWanted_Nagatow::Precache();
-	}
-
-	if( g_Engine.mapname == "want14" )
-		HLWanted_Nagatow::Precache();
-
-	if( g_Engine.mapname == "want15" ||
-		g_Engine.mapname == "want16" ||
-		g_Engine.mapname == "want17" ||
-		g_Engine.mapname == "want18" ||
-		g_Engine.mapname == "want20" ||
-		g_Engine.mapname == "want21" ||
-		g_Engine.mapname == "want28" ||
-		g_Engine.mapname == "want29" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want31" ||
-		g_Engine.mapname == "want33" ||
-		g_Engine.mapname == "want35" ||
-		g_Engine.mapname == "want36" )
-	{
-		HLWanted_MexBandit::Precache();
-	}
-
-	if( g_Engine.mapname == "want16" ||
-		g_Engine.mapname == "want17" ||
-		g_Engine.mapname == "want18" ||
-		g_Engine.mapname == "want20" )
-	{
-		HLWanted_TownMex::Precache();
-	}
-
-	if( g_Engine.mapname == "want1" ||
-		g_Engine.mapname == "want2" ||
-		g_Engine.mapname == "want4" ||
-		g_Engine.mapname == "want5" ||
-		g_Engine.mapname == "want7" ||
-		g_Engine.mapname == "want8" ||
-		g_Engine.mapname == "want10" ||
-		g_Engine.mapname == "want11" ||
-		g_Engine.mapname == "want12" ||
-		g_Engine.mapname == "want13" ||
-		g_Engine.mapname == "want14" ||
-		g_Engine.mapname == "want15" ||
-		g_Engine.mapname == "want21" ||
-		g_Engine.mapname == "want24" ||
-		g_Engine.mapname == "want25b" ||
-		g_Engine.mapname == "want25c" ||
-		g_Engine.mapname == "want28" ||
-		g_Engine.mapname == "want29" ||
-		g_Engine.mapname == "want30" ||
-		g_Engine.mapname == "want31" ||
-		g_Engine.mapname == "want32" ||
-		g_Engine.mapname == "want33" ||
-		g_Engine.mapname == "want34" ||
-		g_Engine.mapname == "want36" ||
-		g_Engine.mapname == "want37" )
-	{
-		HLWanted_TownWes::Precache();
 	}
 
 	// Player models
@@ -301,15 +165,25 @@ void MapInit()
 	CTalkMonster talkmonster();
 	@g_TalkMonster = @talkmonster;
 
+	HLWanted_Annie::Register();
 	HLWanted_Bear::Register();
 	HLWanted_BigMiner::Register();
+	HLWanted_Cowboy::Register();
+	HLWanted_Crispen::Register();
+	HLWanted_DynDave::Register();
 	HLWanted_Chicken::Register();
 	HLWanted_Horse::Register();
+	HLWanted_Hoss::Register();
+	HLWanted_Kaiewi::Register();
 	HLWanted_Puma::Register();
 	HLWanted_SmallMiner::Register();
 	HLWanted_Snake::Register();
-	if( g_Engine.mapname == "want8" )
-		HLWanted_ColonelTied::Register();
+	HLWanted_Masala::Register();
+	HLWanted_MexBandit::Register();
+	HLWanted_Nagatow::Register();
+	HLWanted_ColonelTied::Register();
+	HLWanted_TownMex::Register();
+	HLWanted_TownWes::Register();
 
 	HLWanted_Elixer::Register();
 	HLWanted_Herbs::Register();

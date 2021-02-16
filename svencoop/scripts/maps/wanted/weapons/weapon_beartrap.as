@@ -58,12 +58,6 @@ class monster_beartrap : ScriptBaseMonsterEntity
 
 	void BeartrapSlide( CBaseEntity@ pOther )
 	{
-		CBaseEntity@ pOwner = g_EntityFuncs.Instance( pev.owner );
-		if( pOther.IsPlayer() && (pOwner !is null && pOwner.entindex() != pOther.entindex())
-			&& pOther.pev.takedamage != DAMAGE_NO
-			|| pOther.pev.flags & FL_GODMODE != 0 )
-			return;
-
 		TraceResult tr;
 
 		g_Utility.TraceLine( pev.origin, pev.origin - Vector(0,0,10), ignore_monsters, self.edict(), tr );
@@ -80,24 +74,29 @@ class monster_beartrap : ScriptBaseMonsterEntity
 			BounceSound();
 		}
 
-		self.StudioFrameAdvance( );
+		self.StudioFrameAdvance();
 
-		int g_npckill = int( g_EngineFuncs.CVarGetFloat( "mp_npckill" ) );
-		if( pev.velocity.Length2D() > 0 
-			|| !pOther.IsAlive() 
-			|| pOther.IsMonster() && pOther.IsPlayerAlly() && (g_npckill == 0 || g_npckill == 2) ) // NPCs are disallowed to be killed
-		{
+		if( pev.velocity.Length2D() > 0 || !pOther.IsPlayer() && !pOther.IsMonster() || !pOther.IsAlive() || pOther.pev.takedamage == DAMAGE_NO || pOther.pev.flags & FL_GODMODE != 0 )
 			return;
+
+		CBaseEntity@ pOwner = g_EntityFuncs.Instance( pev.owner );
+		if( pOwner !is null )
+		{
+			if( pOther != pOwner && (pOwner.Classify() >= CLASS_TEAM1 && pOwner.Classify() <= CLASS_TEAM4 && pOther.Classify() == pOwner.Classify() || pOwner.IRelationship(pOther) <= R_NO) )
+				return;
+
+			int g_npckill = int( g_EngineFuncs.CVarGetFloat( "mp_npckill" ) );
+			if( pOwner.Classify() == CLASS_PLAYER && pOther.IsMonster() && pOther.IsPlayerAlly() && (g_npckill == 0 || g_npckill == 2) ) // NPCs are disallowed to be killed
+				return;
 		}
 
 		self.m_hEnemy = pOther;
-		//@pev.enemy = @pOther.edict();
 
 		SetTouch( null );
 
 		g_SoundSystem.EmitSoundDyn( self.edict(), CHAN_WEAPON, "wanted/weapons/beartrap_sprung.wav", 1.0f, ATTN_NORM );
 
-		self.StudioFrameAdvance( );
+		self.StudioFrameAdvance();
 	}
 
 	void BeartrapThink()

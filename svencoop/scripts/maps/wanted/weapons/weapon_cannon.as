@@ -175,6 +175,7 @@ class weapon_cannon : CBaseCustomWeapon
 		{
 			g_EntityFuncs.SetModel( pCannon, "models/wanted/cannonball.mdl" );
 			pCannon.pev.dmg = CANNON_DMG;
+			//pCannon.pev.eflags |= EFLAG_PROJECTILE; // for the future when exposed (if ever)
 		}
 
 		Vector vecGunPos = vecSrc + (g_Engine.v_forward * 20 + g_Engine.v_right * 5 - g_Engine.v_up * 15);

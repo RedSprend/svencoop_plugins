@@ -17,39 +17,54 @@ void ManipulateEntities( CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE
 		if( pEntity.pev.classname != "monster_bear" )
 			continue;
 
-		if( int(pEntity.pev.health) > 500 )
-			pEntity.pev.health = 500;
-
-		iHealth = CalcNewHealth( int( pEntity.pev.health ), 1000 );
+		iHealth = CalcNewHealth( int( pEntity.pev.health ), 500 );
 	}
 }
 
-int CalcNewHealth( int iBaseHealth, int iPerPlayerInc )
+// Apply full health for every even player count and half on odd player count
+int CalcNewHealth( int iBaseHealth, int iPerPlayerInc, bool bEvenOddNum = false )
 {
-	int iNumPlayers = 0;
+	bool bSurvival = false;
+
 	if( g_SurvivalMode.MapSupportEnabled() && g_SurvivalMode.IsActive() )
+		bSurvival = true;
+
+	int iNumPlayers = 0;
+	int iCalcNewHealth = 0;
+
+	CBasePlayer@ pPlayer = null;
+	for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer )
 	{
-		CBasePlayer@ pPlayer = null;
-		for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer )
+		@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
+
+		if( pPlayer is null || !pPlayer.IsConnected() )
+			continue;
+
+		if( bSurvival )
 		{
-			@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
-
-			if( pPlayer is null || !pPlayer.IsConnected() || !pPlayer.IsAlive() )
+			if( !pPlayer.IsAlive() )
 				continue;
-
-			iNumPlayers++;
 		}
-	}
-	else
-	{
-		iNumPlayers = g_PlayerFuncs.GetNumPlayers();
+
+		iNumPlayers++;
+
+		if( iNumPlayers == 1 )
+			continue;
+
+		if( bEvenOddNum )
+		{
+			if( iNumPlayers % 2 == 0 )
+			{ // even number
+				iCalcNewHealth += iPerPlayerInc;
+			}
+			else
+			{ // odd number
+				iCalcNewHealth += iPerPlayerInc / 2;
+			}
+		}
+		else
+			iCalcNewHealth += iPerPlayerInc;
 	}
 
-	int iPlayerMul = Math.clamp( 0, 8, iNumPlayers );
-	int iSkill = int( g_EngineFuncs.CVarGetFloat( "skill" ) );
-	iSkill = Math.clamp( 1, 3, iSkill );
-
-	int iRelBaseHealth = iBaseHealth + ( iBaseHealth / 3 ) * ( iSkill - 2 );
-	int iRelPerPlayerInc = iPerPlayerInc + ( iPerPlayerInc / 3 ) * ( iSkill - 2 );
-	return iRelBaseHealth + iRelPerPlayerInc * iPlayerMul;
+	return iBaseHealth + iCalcNewHealth;
 }

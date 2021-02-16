@@ -222,10 +222,7 @@ class monster_bear : CBaseCustomMonster
 				}
 				break;
 			}
-		default:
-			{
-				BaseClass.RunTask( pTask );
-			}
+		default: BaseClass.RunTask( pTask );
 		}
 	}
 
@@ -265,57 +262,42 @@ class monster_bear : CBaseCustomMonster
 			}
 		case TASK_SOUND_DIE:
 		case TASK_SOUND_DEATH:
-
 			{
-
 				DeathSound();
-
 				self.TaskComplete();
-
 				break;
-
 			}
 		default:
-			{
-				BaseClass.StartTask( pTask );
-			}
+			BaseClass.StartTask( pTask );
 		}
 	}
 
 	bool CheckMeleeAttack1( float flDot, float flDist )
 	{
 		if( self.pev.health >= (self.pev.max_health / 2) )
-		{
 			return false;
-		}
 
 		if( flDist <= 80 && flDot >= 0.7 && self.m_hEnemy.GetEntity() !is null && self.pev.FlagBitSet( FL_ONGROUND ) )
-		{
 			return true;
-		}
+
 		return false;
 	}
 
 	bool CheckMeleeAttack2( float flDot, float flDist )
 	{
 		if( flDist <= 80 && flDot >= 0.7 )
-		{
 			return true;
-		}
+
 		return false;
 	}
 
 	bool CheckRangeAttack1( float flDot, float flDist )
 	{
 		if( m_flNextRangeAttack > g_Engine.time )
-		{
 			return false;
-		}
 
 		if( self.m_hEnemy.GetEntity() !is null && self.m_hEnemy.GetEntity().pev.velocity != g_vecZero && self.pev.FlagBitSet( FL_ONGROUND ) && flDist > 80 && flDist <= 128 && flDot >= 0.65 )
-		{
 			return true;
-		}
 
 		return false;
 	}

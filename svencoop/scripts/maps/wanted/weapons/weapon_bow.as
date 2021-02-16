@@ -203,7 +203,7 @@ class weapon_bow : CBaseCustomWeapon
 
 	void WeaponIdle()
 	{
-		m_pPlayer.GetAutoaimVector( AUTOAIM_2DEGREES );
+		m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		if( m_flReleaseThrow == 0 and m_flStartThrow > 0 )
 			 m_flReleaseThrow = g_Engine.time;

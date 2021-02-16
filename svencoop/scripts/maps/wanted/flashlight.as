@@ -42,31 +42,28 @@ class flashlight
 	{
 		CBasePlayer@ pPlayer = g_ConCommandSystem.GetCurrentPlayer();
 
-		//if( pPlayer.IsAlive() )
+		if( args.ArgC() == 1 )
 		{
-			if( args.ArgC() == 1 )
+			string szSteamId = g_EngineFuncs.GetPlayerAuthId( pPlayer.edict() );
+
+			if( g_PlayerFL.exists( szSteamId ) )
 			{
-				string szSteamId = g_EngineFuncs.GetPlayerAuthId( pPlayer.edict() );
-
-				if( g_PlayerFL.exists( szSteamId ) )
-				{
-					if( pPlayer.IsAlive() )
-						removeFL( pPlayer );
-					else
-						removeFL( pPlayer, false );
-				}
+				if( pPlayer.IsAlive() )
+					removeFL( pPlayer );
 				else
-				{
-					if( pPlayer.IsAlive() && !pPlayer.HasSuit() )
-						return;
+					removeFL( pPlayer, false );
+			}
+			else
+			{
+				if( pPlayer.IsAlive() && !pPlayer.HasSuit() )
+					return;
 
-					PlayerFLData data;
-					data.flColor = Vector( 0, 255, 0 );
-					g_PlayerFL[szSteamId] = data;
+				PlayerFLData data;
+				data.flColor = Vector( 0, 255, 0 );
+				g_PlayerFL[szSteamId] = data;
 
-					if( pPlayer.IsAlive() )
-						g_SoundSystem.EmitSoundDyn( pPlayer.edict(), CHAN_WEAPON, "wanted/items/flashlight1.wav", 1.0, ATTN_NORM, 0, PITCH_NORM );
-				}
+				if( pPlayer.IsAlive() )
+					g_SoundSystem.EmitSoundDyn( pPlayer.edict(), CHAN_WEAPON, "wanted/items/flashlight1.wav", 1.0, ATTN_NORM, 0, PITCH_NORM );
 			}
 		}
 	}

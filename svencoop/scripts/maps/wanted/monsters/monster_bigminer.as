@@ -1,5 +1,6 @@
-﻿/*
-* 	(!) Neither CTalkMonster or CSquadMonster are exposed. Useless until SC dev implements it. Dammit!
+﻿/* Bug:
+* - SetActivity() never gets called - reported to Sniper already, ignored.
+* A must to fix the 'freeze animation' loop.
 */
 
 namespace HLWanted_BigMiner
@@ -417,9 +418,10 @@ class monster_bigminer : CBaseCustomMonster//ScriptBaseMonsterEntity
 			break;
 
 		case TASK_PLAY_THROWGRENADE_SEQUENCE:
-			pev.sequence = self.LookupSequence( "throwgrenade" );
 			pev.frame = 0;
+			pev.sequence = self.LookupSequence( "throwgrenade" );
 			self.ResetSequenceInfo();
+			self.SetYawSpeed();
 			break;
 
 		default: 
@@ -1026,7 +1028,7 @@ class monster_bigminer : CBaseCustomMonster//ScriptBaseMonsterEntity
 				// can't see enemy
 				else if( self.HasConditions( bits_COND_ENEMY_OCCLUDED ) )
 				{
-					/*if( self.HasConditions( bits_COND_CAN_RANGE_ATTACK2 ) )
+					if( self.HasConditions( bits_COND_CAN_RANGE_ATTACK2 ) )
 					{
 						//!!!KELLY - this grunt is about to throw or fire a grenade at the player. Great place for "fire in the hole"  "frag out" etc
 						if ( FOkToSpeak() )
@@ -1036,7 +1038,7 @@ class monster_bigminer : CBaseCustomMonster//ScriptBaseMonsterEntity
 						}
 						return GetScheduleOfType( SCHED_RANGE_ATTACK2 );
 					}
-					else*/
+					else
 					{
 						//!!!KELLY - grunt is going to stay put for a couple seconds to see if
 						// the enemy wanders back out into the open, or approaches the

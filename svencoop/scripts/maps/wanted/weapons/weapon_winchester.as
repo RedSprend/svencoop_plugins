@@ -190,7 +190,7 @@ class weapon_winchester : CBaseCustomWeapon
 		m_pPlayer.SetAnimation( PLAYER_ATTACK1 );
 
 		Vector vecSrc	 = m_pPlayer.GetGunPosition();
-		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		int m_iBulletDamage = 75;
 		m_pPlayer.FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_1DEGREES, 8192, BULLET_PLAYER_CUSTOMDAMAGE, 0, m_iBulletDamage );
@@ -297,7 +297,7 @@ class weapon_winchester : CBaseCustomWeapon
 	{
 		self.ResetEmptySound();
 
-		m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		if( self.m_flTimeWeaponIdle < g_Engine.time )
 		{

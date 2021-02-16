@@ -236,9 +236,7 @@ class monster_puma : ScriptBaseMonsterEntity
 				break;
 			}
 		default:
-			{
-				BaseClass.RunTask( pTask );
-			}
+			BaseClass.RunTask( pTask );
 		}
 	}
 
@@ -448,10 +446,7 @@ class monster_puma : ScriptBaseMonsterEntity
 	{
 		switch( Type )
 		{
-			case SCHED_RANGE_ATTACK1:
-			{
-				return slPumaRangeAttack;
-			}
+			case SCHED_RANGE_ATTACK1: return slPumaRangeAttack;
 		}
 		return BaseClass.GetScheduleOfType( Type );
 	}

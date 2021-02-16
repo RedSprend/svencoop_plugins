@@ -187,7 +187,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 		m_pPlayer.SetAnimation( PLAYER_ATTACK1 );
 
 		Vector vecSrc	 = m_pPlayer.GetGunPosition();
-		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		int m_iBulletDamage = 15;
 
@@ -243,7 +243,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 		m_pPlayer.SetAnimation( PLAYER_ATTACK1 );
 
 		Vector vecSrc = m_pPlayer.GetGunPosition();
-		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		int m_iBulletDamage = 15;
 
@@ -290,7 +290,7 @@ class weapon_want_shotgun : CBaseCustomWeapon
 	{
 		self.ResetEmptySound();
 
-		m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		if( self.m_flTimeWeaponIdle < g_Engine.time )
 		{

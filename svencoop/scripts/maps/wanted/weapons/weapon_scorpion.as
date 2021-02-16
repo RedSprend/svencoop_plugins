@@ -36,11 +36,22 @@ class monster_scorpion : CBaseCustomMonster
 		if( self.m_hEnemy.IsValid() )
 		{
 			m_iMyClass = CLASS_INSECT; // no one cares about it
+
+			if( m_hOwner.IsValid() && m_hOwner.GetEntity().Classify() >= CLASS_TEAM1 && m_hOwner.GetEntity().Classify() <= CLASS_TEAM4 )
+			{
+				m_iMyClass = 0;
+				return m_hOwner.GetEntity().Classify();
+			}
+
 			switch( self.m_hEnemy.GetEntity().Classify() )
 			{
 				case CLASS_PLAYER:
 				case CLASS_HUMAN_PASSIVE:
 				case CLASS_HUMAN_MILITARY:
+				case CLASS_TEAM1:
+				case CLASS_TEAM2:
+				case CLASS_TEAM3:
+				case CLASS_TEAM4:
 					m_iMyClass = 0;
 					return CLASS_ALIEN_MILITARY; // barney's get mad, grunts get mad at it
 			}
@@ -278,10 +289,17 @@ class monster_scorpion : CBaseCustomMonster
 		float flpitch;
 
 		// it's not another scorpiongrenade
-		if( pOther.pev.modelindex == pev.modelindex // it's not another scorpiongrenade
-			|| pev.owner !is null && pOther.edict() is pev.owner // don't hit the guy that launched this grenade
-			|| pOther.IsPlayer() && (m_hOwner.IsValid() && m_hOwner.GetEntity().entindex() != pOther.entindex()) ) // don't hit owner's teammates
+		if( pOther.pev.modelindex == pev.modelindex // it's another scorpion
+			|| pev.owner !is null && pOther.edict() is pev.owner ) // don't hit the guy that launched this scorpion
 			return;
+
+		/*if( m_hOwner.IsValid() && pOther != m_hOwner.GetEntity() // is not the owner
+			&& (m_hOwner.GetEntity().Classify() >= CLASS_TEAM1 && m_hOwner.GetEntity().Classify() <= CLASS_TEAM4 && pOther.Classify() == m_hOwner.GetEntity().Classify() // this entity in same team
+			|| m_hOwner.GetEntity().IRelationship(self) <= R_NO) ) // this entity is allied with the owner
+		{
+			g_EngineFuncs.ServerPrint("-- DEBUG: 1\n");
+			return;
+		}*/
 
 		// at least until we've bounced once
 		@pev.owner = null;
@@ -338,27 +356,32 @@ class monster_scorpion : CBaseCustomMonster
 	CBaseEntity@ FindClosestEnemy()
 	{
 		CBaseEntity@ ent = null;
-		float iNearest = 4096;
+		float iNearest = 512;
 
 		do
 		{
 			@ent = g_EntityFuncs.FindEntityInSphere( ent, self.pev.origin, iNearest, "*", "classname" );
 
-			if( ent is null || ent.pev.classname == "squadmaker" || !ent.IsAlive() ||
+			if( ent is null || !ent.IsAlive() || !ent.IsPlayer() && !ent.IsMonster() ||
 				ent.pev.classname == "monster_horse" ||
 				ent.pev.classname == "monster_chicken" ||
 				ent.pev.classname == "monster_tied_colonel" )
 				continue;
 
-			if( ent.entindex() == self.entindex() || ent.pev.modelindex == pev.modelindex )
+			if( ent.entindex() == self.entindex() || ent.pev.modelindex == pev.modelindex ) // another scorpion, ignore
 				continue;
 
-			if( m_hOwner.IsValid() && ( ent.entindex() == m_hOwner.GetEntity().entindex() || ent.IsPlayer() || ent.IsPlayerAlly() ) )
+			if( m_hOwner.IsValid() && ent is m_hOwner.GetEntity() )
 				continue;
 
-			int rel = self.IRelationship(ent);
-			if ( rel == R_AL || rel == R_NO )
+			if( m_hOwner.IsValid()
+				&& (m_hOwner.GetEntity().Classify() >= CLASS_TEAM1 && m_hOwner.GetEntity().Classify() <= CLASS_TEAM4 && ent.Classify() == m_hOwner.GetEntity().Classify()
+				|| m_hOwner.GetEntity().IRelationship(ent) <= R_NO) )
 				continue;
+
+			/*int rel = self.IRelationship(ent);
+			if( rel == R_AL || rel == R_NO )
+				continue;*/
 
 			float iDist = ( ent.pev.origin - self.pev.origin ).Length();
 			if ( iDist < iNearest )
@@ -642,39 +665,12 @@ class weapon_scorpion : CBaseCustomWeapon
 	void Materialize()
 	{
 		BaseClass.Materialize();
-		//SetTouch( TouchFunction( CustomTouch ) );
 	}
 
 	bool CanHaveDuplicates()
 	{
 		return true;
 	}
-
-/*	void CustomTouch( CBaseEntity@ pOther ) 
-	{
-		if( !pOther.IsPlayer() )
-			return;
-		
-		CBasePlayer@ pPlayer = cast<CBasePlayer@>( pOther );
-
-		if( pPlayer.HasNamedPlayerItem( GetScorpionName() ) !is null )
-		{
-	  		if( pPlayer.GiveAmmo( SCORPION_DEFAULT_GIVE, GetScorpionName(), SCORPION_MAX_CARRY ) != -1 ) 
-			{
-				self.CheckRespawn();
-
-				g_SoundSystem.EmitSound( self.edict(), CHAN_ITEM, "items/gunpickup2.wav", 1, ATTN_NORM );
-				g_EntityFuncs.Remove( self );
-	  		}
-
-	  		return;
-		}
-		else if( pPlayer.AddPlayerItem( self ) != APIR_NotAdded )
-		{
-	  		self.AttachToPlayer( pPlayer );
-	  		g_SoundSystem.EmitSound( self.edict(), CHAN_ITEM, "items/gunpickup2.wav", 1, ATTN_NORM );
-		}
-	}*/
 }
 
 string GetScorpionName()

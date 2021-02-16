@@ -157,7 +157,7 @@ class weapon_buffalo : CBaseCustomWeapon
 		m_pPlayer.SetAnimation( PLAYER_ATTACK1 );
 
 		Vector vecSrc	 = m_pPlayer.GetGunPosition();
-		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		Vector vecAiming = m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		int m_iBulletDamage = 110;
 		m_pPlayer.FireBullets( 1, vecSrc, vecAiming, self.m_fInZoom ? VECTOR_CONE_BUFFALO_ZOOMED : VECTOR_CONE_2DEGREES, 8196, BULLET_PLAYER_CUSTOMDAMAGE, 0, m_iBulletDamage );
@@ -269,7 +269,7 @@ class weapon_buffalo : CBaseCustomWeapon
 	{
 		self.ResetEmptySound();
 
-		m_pPlayer.GetAutoaimVector( AUTOAIM_5DEGREES );
+		m_pPlayer.GetAutoaimVector( AUTOAIM_10DEGREES );
 
 		if( self.m_flTimeWeaponIdle > WeaponTimeBase() )
 			return;
