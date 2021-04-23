@@ -1,0 +1,5 @@
+Peace: music/AmonComplex2/Peace.ogg
+Medium: music/AmonComplex2/Medium.ogg
+Volume: 10
+Start On: Yes
+Delete All Other Music: Yes

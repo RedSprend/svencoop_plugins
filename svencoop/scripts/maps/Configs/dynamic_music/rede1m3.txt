@@ -1,0 +1,8 @@
+Peace: music/rede1m3/peace.mp3
+Medium: music/rede1m3/medium.mp3
+Tension: music/rede1m3/tension.mp3
+Volume: 10
+Start On: No
+Delete All Other Music: No
+Tension time: 7
+Tension double: Yes
