@@ -268,7 +268,9 @@ class weapon_gattlinggun : CBaseCustomWeapon
 
 			m_pPlayer.pev.punchangle.x = Math.RandomLong( -2, 2 );
 			m_pPlayer.pev.punchangle.y = Math.RandomLong( -2, 2 );
-			m_pPlayer.pev.velocity = -64 * g_Engine.v_forward; // Knockback!
+			// Knockback! (done properly)
+			m_pPlayer.pev.velocity.x = -64 * g_Engine.v_forward.x;
+			m_pPlayer.pev.velocity.y = -64 * g_Engine.v_forward.y;
 
 			self.m_flNextPrimaryAttack = g_Engine.time + 0.08;
 			self.m_flTimeWeaponIdle = WeaponTimeBase() + 1.0;
