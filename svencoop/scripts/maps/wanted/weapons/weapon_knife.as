@@ -158,6 +158,7 @@ class weapon_knife : CBaseCustomWeapon
 			{
 				m_pPlayer.RemovePlayerItem( pItem );
 				m_pPlayer.SetItemPickupTimes( 0.0 ); // a fix
+				g_EntityFuncs.Remove( self ); // prevent player from quick-switching
 			}
 		}
 	}

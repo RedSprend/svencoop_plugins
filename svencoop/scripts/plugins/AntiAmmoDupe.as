@@ -26,9 +26,10 @@ void MapActivate()
 	bInitialized = false;
 }
 
-void MapChange()
+HookReturnCode MapChange()
 {
 	ClearTimer();
+	return HOOK_CONTINUE;
 }
 
 HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer )
