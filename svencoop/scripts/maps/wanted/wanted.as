@@ -62,6 +62,7 @@ array<ItemMapping@> g_ItemMappings = {
 	ItemMapping( "weapon_shotgun", HLWanted_Shotgun::GetShotgunName() ),
 	ItemMapping( "weapon_handgrenade", HLWanted_Dynamite::GetDynamiteName() ),
 	ItemMapping( "weapon_pickaxe", HLWanted_PickAxe::GetPickName() ),
+	ItemMapping( "weapon_m249", HLWanted_Gattlinggun::GetGattlinggunName() ),
 	ItemMapping( "weapon_saw", HLWanted_Gattlinggun::GetGattlinggunName() ),
 	ItemMapping( "ammo_9mmclip", HLWanted_Pistol::GetPistolAmmoName() ),
 	ItemMapping( "ammo_crossbow", HLWanted_Bow::GetBowAmmoName() ),

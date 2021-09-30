@@ -5,6 +5,8 @@ void PluginInit()
 	g_Module.ScriptInfo.SetAuthor( "Rick" );
 	g_Module.ScriptInfo.SetContactInfo( "gameswitch.org" );
 	g_Module.ScriptInfo.SetMinimumAdminLevel( ADMIN_YES );
+
+	g_Hooks.RegisterHook( Hooks::Player::ClientPutInServer, @ClientPutInServer );
 }
 
 CClientCommand g_concuss( "concussall", "- concuss all", @cmdConcuss );
@@ -12,6 +14,16 @@ CClientCommand g_concuss( "concussall", "- concuss all", @cmdConcuss );
 void MapStart()
 {
 	bConcussAll = false;
+}
+
+HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer )
+{
+	if( bConcussAll )
+	{
+		g_PlayerFuncs.ConcussionEffect( pPlayer, 50, 0.8, 5 );
+	}
+
+	return HOOK_CONTINUE;
 }
 
 void cmdConcuss( const CCommand@ args )
