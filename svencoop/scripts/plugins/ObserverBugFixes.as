@@ -1,5 +1,6 @@
 /*
-* Fix for: Observers are able to trigger NPCs with SF_MONSTER_WAIT_TILL_SEEN flag set.
+* 1. Prevent Observers are able to trigger NPCs with SF_MONSTER_WAIT_TILL_SEEN flag set.
+* 2. Prevent Observers from making swim sounds.
 */
 
 void PluginInit()
@@ -17,6 +18,8 @@ HookReturnCode PlayerPostThink( CBasePlayer@ pPlayer )
 
 	if( !pPlayer.IsAlive() )
 	{
+		pPlayer.pev.movetype = MOVETYPE_NOCLIP; // Prevent Observers from making swim sounds.
+
 		if( pPlayer.pev.flags & FL_NOTARGET == 0 )
 			pPlayer.pev.flags |= FL_NOTARGET; // Fix for monsters with SF_MONSTER_WAIT_TILL_SEEN flag
 	}
