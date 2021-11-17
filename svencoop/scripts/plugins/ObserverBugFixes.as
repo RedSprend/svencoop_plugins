@@ -1,5 +1,5 @@
 /*
-* 1. Prevent Observers are able to trigger NPCs with SF_MONSTER_WAIT_TILL_SEEN flag set.
+* 1. Prevent Observers from triggering NPCs with SF_MONSTER_WAIT_TILL_SEEN flag set.
 * 2. Prevent Observers from making swim sounds.
 */
 
