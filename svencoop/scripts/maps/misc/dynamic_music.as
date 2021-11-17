@@ -17,8 +17,6 @@ namespace Music
 {
 final class MusicClass
 {
-	private bool debug = false;
-
 	string g_szMusicPeaceName = "";
 	string g_szMusicMediumName = "";
 	string g_szMusicTensionName = "";
@@ -137,8 +135,6 @@ final class MusicClass
 					{
 						if( pEntity.GetTargetname() != "peace_music" && pEntity.GetTargetname() != "medium_music" && pEntity.GetTargetname() != "tension_music" )
 						{
-							if( debug )
-								g_EngineFuncs.ServerPrint("-- DEBUG: Deleted "+pEntity.GetTargetname()+"\n");
 							g_EntityFuncs.Remove( pEntity );
 						}
 					}
@@ -178,8 +174,6 @@ final class MusicClass
 			{
 				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "peace_music" ) ) !is null )
 				{
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Turn off "+pEntity.pev.targetname+"\n");
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bPeaceOn = false;
 				}
@@ -189,8 +183,6 @@ final class MusicClass
 			{
 				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "tension_music" ) ) !is null )
 				{
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Turn off "+pEntity.pev.targetname+"\n");
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bTensionOn = false;
 				}
@@ -204,8 +196,7 @@ final class MusicClass
 				if( !bMediumOn )
 				{
 					pEntity.Use( null, null, USE_ON, 0 );
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Play Medium\n");
+
 					bPeaceOn = false;
 					bTensionOn = false;
 					bMediumOn = true;
@@ -218,8 +209,6 @@ final class MusicClass
 			{
 				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "medium_music" ) ) !is null )
 				{
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Turn off "+pEntity.pev.targetname+"\n");
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bPeaceOn = false;
 					bMediumOn = false;
@@ -230,8 +219,6 @@ final class MusicClass
 						{
 							while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "tension_music" ) ) !is null )
 							{
-								if( debug )
-									g_EngineFuncs.ServerPrint("-- DEBUG: Play Tension\n");
 								pEntity.Use( null, null, USE_ON, 0 );
 								bTensionOn = true;
 
@@ -253,20 +240,13 @@ final class MusicClass
 			if( bTensionMusic )
 			{
 				if( flTensionTime > g_Engine.time )
-				{
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Don't play peace yet\n");
-
 					return;
-				}
 			}
 
 			if( bTensionOn )
 			{
 				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "tension_music" ) ) !is null )
 				{
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Turn off "+pEntity.pev.targetname+"\n");
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bTensionOn = false;
 				}
@@ -280,8 +260,7 @@ final class MusicClass
 				if( !bPeaceOn )
 				{
 					pEntity.Use( null, null, USE_ON, 0 );
-					if( debug )
-						g_EngineFuncs.ServerPrint("-- DEBUG: Play Peace\n");
+
 					bMediumOn = false;
 					bTensionOn = false;
 					bPeaceOn = true;
@@ -374,8 +353,6 @@ final class MusicClass
 		CBaseEntity@ pEntity = null;
 		while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "peace_music" ) ) !is null )
 		{
-			if( debug )
-				g_EngineFuncs.ServerPrint("-- DEBUG: Turn off "+pEntity.pev.targetname+"\n");
 			pEntity.Use( null, null, USE_OFF, 0 );
 			bPeaceOn = false;
 		}
