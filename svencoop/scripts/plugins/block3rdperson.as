@@ -13,26 +13,19 @@ void PluginInit()
 {
 	g_Module.ScriptInfo.SetAuthor( "Rick" );
 	g_Module.ScriptInfo.SetContactInfo( "gameswitch.org" );
-	
-	@g_Disable = CCVar( "disable", 0, "block 3rd person view", ConCommandFlag::AdminOnly );
+
+	g_Hooks.RegisterHook( Hooks::Player::PlayerPostThink, @PlayerPostThink );
+
+	@g_Disable = CCVar( "disable", 1, "block 3rd person view", ConCommandFlag::AdminOnly );
 }
 
-void MapActivate()
+HookReturnCode PlayerPostThink( CBasePlayer@ pPlayer )
 {
-	g_Scheduler.SetInterval( "Block3rdPersonLoop", 0.1f, g_Scheduler.REPEAT_INFINITE_TIMES );
-}
+	if( pPlayer is null || !pPlayer.IsConnected() || !pPlayer.IsAlive() )
+		return HOOK_CONTINUE;
 
-void Block3rdPersonLoop()
-{
-	CBasePlayer@ pPlayer = null;
-	for( int i = 1; i <= g_Engine.maxClients; i++ )
-	{
-		@pPlayer = g_PlayerFuncs.FindPlayerByIndex( i );
+	if( g_Disable.GetBool() )
+		pPlayer.SetViewMode(ViewMode_FirstPerson); // Block 3rd person view
 
-		if( pPlayer is null || !pPlayer.IsConnected() )
-			continue;
-
-		if( g_Disable.GetBool() )
-			pPlayer.SetViewMode(ViewMode_FirstPerson); // Block 3rd person view
-	}
+	return HOOK_CONTINUE;
 }
