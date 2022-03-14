@@ -1,0 +1,1 @@
+// Write the map names here for RandomNextMapCycle to choose between randomly
