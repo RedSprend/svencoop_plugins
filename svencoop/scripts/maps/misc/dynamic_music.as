@@ -172,7 +172,8 @@ final class MusicClass
 		{
 			if( bPeaceOn )
 			{
-				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "peace_music" ) ) !is null )
+				@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "peace_music" );
+				if( pEntity !is null )
 				{
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bPeaceOn = false;
@@ -181,17 +182,19 @@ final class MusicClass
 
 			if( bTensionOn )
 			{
-				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "tension_music" ) ) !is null )
+				@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "tension_music" );
+				if( pEntity !is null )
 				{
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bTensionOn = false;
 				}
 			}
 
-			while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "medium_music" ) ) !is null )
+			@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "medium_music" );
+			if( pEntity !is null )
 			{
 				if( string(pEntity.pev.message).IsEmpty() )
-					continue;
+					return;
 
 				if( !bMediumOn )
 				{
@@ -207,7 +210,8 @@ final class MusicClass
 		{
 			if( bMediumOn )
 			{
-				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "medium_music" ) ) !is null )
+				@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "medium_music" );
+				if( pEntity !is null )
 				{
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bPeaceOn = false;
@@ -217,7 +221,8 @@ final class MusicClass
 					{
 						if( !bTensionOn )
 						{
-							while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "tension_music" ) ) !is null )
+							@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "tension_music" );
+							if( pEntity !is null )
 							{
 								pEntity.Use( null, null, USE_ON, 0 );
 								bTensionOn = true;
@@ -245,17 +250,19 @@ final class MusicClass
 
 			if( bTensionOn )
 			{
-				while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "tension_music" ) ) !is null )
+				@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "tension_music" );
+				if( pEntity!is null )
 				{
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bTensionOn = false;
 				}
 			}
 
-			while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "peace_music" ) ) !is null )
+			@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "peace_music" );
+			if( pEntity !is null )
 			{
 				if ( string(pEntity.pev.message).IsEmpty() )
-					continue;
+					return;
 
 				if( !bPeaceOn )
 				{
@@ -350,8 +357,8 @@ final class MusicClass
 
 	void Activate()
 	{
-		CBaseEntity@ pEntity = null;
-		while( ( @pEntity = g_EntityFuncs.FindEntityByTargetname( pEntity, "peace_music" ) ) !is null )
+		CBaseEntity@ pEntity = g_EntityFuncs.FindEntityByTargetname( null, "peace_music" );
+		if( pEntity !is null )
 		{
 			pEntity.Use( null, null, USE_OFF, 0 );
 			bPeaceOn = false;
