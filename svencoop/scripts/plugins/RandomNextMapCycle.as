@@ -1,3 +1,12 @@
+/*
+default_plugins.txt:
+	"plugin"
+	{
+		"name" "RandomNextMapCycle"
+		"script" "RandomNextMapCycle"
+	}
+*/
+
 void PluginInit()
 {
 	g_Module.ScriptInfo.SetAuthor( "Rick" );
