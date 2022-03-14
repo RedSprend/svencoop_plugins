@@ -97,7 +97,6 @@ string GetHerbsName()
 void Register()
 {
 	g_CustomEntityFuncs.RegisterCustomEntity( "HLWanted_Herbs::item_herbs", GetHerbsName() );
-	g_ItemRegistry.RegisterItem( GetHerbsName(), "" );
 }
 
 } //namespace HLWanted_Herbs END

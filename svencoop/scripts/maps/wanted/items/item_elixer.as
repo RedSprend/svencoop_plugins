@@ -97,7 +97,6 @@ string GetElixerName()
 void Register()
 {
 	g_CustomEntityFuncs.RegisterCustomEntity( "HLWanted_Elixer::item_elixer", GetElixerName() );
-	g_ItemRegistry.RegisterItem( GetElixerName(), "" );
 }
 
 } //namespace HLWanted_Elixer END
