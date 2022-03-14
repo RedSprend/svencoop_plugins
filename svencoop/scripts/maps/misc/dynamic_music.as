@@ -251,7 +251,7 @@ final class MusicClass
 			if( bTensionOn )
 			{
 				@pEntity = g_EntityFuncs.FindEntityByTargetname( null, "tension_music" );
-				if( pEntity!is null )
+				if( pEntity !is null )
 				{
 					pEntity.Use( null, null, USE_OFF, 0 );
 					bTensionOn = false;
