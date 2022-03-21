@@ -27,19 +27,20 @@ bool StartTimer()
 {
 	if( g_pThink is null )
 	{
-		ExcludedMapList();
-		
-		m_flNextThink = g_Engine.time + m_flCooldownTime;
-
-		if( debug )
+		if( !ExcludedMapList() )
 		{
-			float flTime = m_flNextThink - g_Engine.time;
-			g_EngineFuncs.ServerPrint("-- DEBUG: Next time: "+flTime+"\n");
-		}
+			m_flNextThink = g_Engine.time + m_flCooldownTime;
 
-		@g_pThink = g_Scheduler.SetInterval( "Think", 1.0f, g_Scheduler.REPEAT_INFINITE_TIMES );
-		
-		return true;
+			if( debug )
+			{
+				float flTime = m_flNextThink - g_Engine.time;
+				g_EngineFuncs.ServerPrint("-- DEBUG: Next time: "+flTime+"\n");
+			}
+
+			@g_pThink = g_Scheduler.SetInterval( "Think", 1.0f, g_Scheduler.REPEAT_INFINITE_TIMES );
+
+			return true;
+		}
 	}
 
 	return false;
@@ -309,7 +310,7 @@ void SpawnMonster( const string& in szClassname, Vector& in vecOrigin, EHandle h
 	}
 }
 
-void ExcludedMapList()
+bool ExcludedMapList()
 {
 	string szExcludedMapList = "scripts/plugins/store/ATele-Maplist.txt";
 	File@ pFile = g_FileSystem.OpenFile( szExcludedMapList, OpenFile::READ );
@@ -317,7 +318,7 @@ void ExcludedMapList()
 	if( pFile is null || !pFile.IsOpen() )
 	{
 		g_EngineFuncs.ServerPrint("WARNING! Failed to open "+szExcludedMapList+"\n");
-		return;
+		return false;
 	}
 
 	string strMap = g_Engine.mapname;
@@ -338,7 +339,7 @@ void ExcludedMapList()
 		if( strMap == line )
 		{
 			pFile.Close();
-			return;
+			return true;
 		}
 
 		if( line.EndsWith("*", String::CaseInsensitive) )
@@ -348,12 +349,14 @@ void ExcludedMapList()
 			if( strMap.Find(line) != Math.SIZE_MAX )
 			{
 				pFile.Close();
-				return;
+				return true;
 			}
 		}
 	}
 
 	pFile.Close();
+
+	return false;
 }
 
 int GetRandomPlayer() 
