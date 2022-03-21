@@ -328,6 +328,7 @@ void ExcludedMapList()
 	while( !pFile.EOFReached() )
 	{
 		pFile.ReadLine( line );
+		line.Trim();
 
 		if( line.Length() < 1 || line[0] == '/' && line[1] == '/' || line[0] == '#' || line[0] == ';' )
 			continue;
