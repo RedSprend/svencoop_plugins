@@ -334,11 +334,22 @@ void ExcludedMapList()
 
 		line.ToLowercase();
 
-		if( line.EndsWith("*") )
-			return;
-
 		if( strMap == line )
+		{
+			pFile.Close();
 			return;
+		}
+
+		if( line.EndsWith("*", String::CaseInsensitive) )
+		{
+			line = line.SubString(0, line.Length()-1);
+
+			if( strMap.Find(line) != Math.SIZE_MAX )
+			{
+				pFile.Close();
+				return;
+			}
+		}
 	}
 
 	pFile.Close();
