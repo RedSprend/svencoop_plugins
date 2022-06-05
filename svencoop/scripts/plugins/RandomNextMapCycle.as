@@ -52,7 +52,7 @@ bool RandomNextMapCycle()
 
 		szLine.ToLowercase();
 
-		if( g_szCurrentMap == szLine )
+		if( g_szCurrentMap == szLine || !g_EngineFuncs.IsMapValid(szLine) )
 			continue;
 
 		g_iMapNums++;
