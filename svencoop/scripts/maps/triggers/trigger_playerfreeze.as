@@ -1,48 +1,40 @@
-// TO-DO:
-// - I hate Think() loops, but all (re)spawn (& Revive()) functions aren't exposed >:(
+/*
+* Add to main map script:
+*
+* #include "trigger_playerfreeze"
+*
+* Under MapInit(), add:
+*
+* TriggerPlayerFreeze::Register();
+*/
 
-trigger_playerfreeze g_TriggerPlayerFreeze;
+namespace TriggerPlayerFreeze
+{
+enum spawnflags
+{
+	SF_INVIS = 1 << 0
+};
 
 class trigger_playerfreeze : ScriptBaseEntity
 {
-	CScheduledFunction@ g_pThink = null;
-	string m_sMaster;
-	bool g_bFreezePlayers = false;
+	private bool m_bUnFrozen;
 
-	void MapInit()
+	void Spawn()
 	{
-		g_Hooks.RegisterHook( Hooks::Player::ClientPutInServer, ClientPutInServerHook( this.ClientPutInServer ) );
+		self.pev.movetype 	= MOVETYPE_NONE;
+		self.pev.solid 		= SOLID_NOT;
+		self.pev.effects	|= EF_NODRAW;
+
+		g_EntityFuncs.SetOrigin( self, self.pev.origin );
+
+		m_bUnFrozen = true;
 	}
 
-	bool KeyValue( const string& in szKey, const string& in szValue )
+	void FreezeThink()
 	{
-		if ( szKey == "master" )
-		{
-			m_sMaster = szValue;
-			return true;
-		}
-		return BaseClass.KeyValue( szKey, szValue );
-	}
+		self.pev.nextthink = g_Engine.time + 0.1;
 
-	void Think()
-	{
-		CBasePlayer@ pPlayer;
-
-		if( !g_bFreezePlayers )
-		{
-			for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer )
-			{
-				@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
-
-				if( pPlayer is null || !pPlayer.IsConnected() || !pPlayer.IsAlive() )
-					continue;
-
-				pPlayer.SetMaxSpeed( int(g_EngineFuncs.CVarGetPointer( "sv_maxspeed" ).value) );
-				//pPlayer.SetMaxSpeedOverride( -1.0f );
-			}
-			return;
-		}
-
+		CBasePlayer@ pPlayer = null;
 		for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer )
 		{
 			@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
@@ -50,69 +42,64 @@ class trigger_playerfreeze : ScriptBaseEntity
 			if( pPlayer is null || !pPlayer.IsConnected() )
 				continue;
 
-			if ( pPlayer.IsAlive() )
+			if( pPlayer.IsAlive() )
 			{
-				//pPlayer.SetMaxSpeedOverride( 0.0f );
-				pPlayer.SetMaxSpeed( 0.0f );
+				if( self.pev.SpawnFlagBitSet( SF_INVIS ) && (pPlayer.pev.effects & EF_NODRAW) == 0 )
+					pPlayer.pev.effects |= EF_NODRAW;
+
+				pPlayer.EnableControl( m_bUnFrozen );
 			}
 			else
 			{
-				//pPlayer.SetMaxSpeedOverride( -1.0f );
-				pPlayer.SetMaxSpeed( int(g_EngineFuncs.CVarGetPointer( "sv_maxspeed" ).value) );
+				pPlayer.EnableControl( !m_bUnFrozen );
 			}
 		}
-
-		g_Scheduler.SetTimeout( @this, "Think", 0.1 );
 	}
 
 	void Use( CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float value )
 	{
-		CBaseEntity@ pEntity = g_EntityFuncs.FindEntityByTargetname( null, m_sMaster );
-		if ( pEntity !is null )
-		{
-			if( !g_EntityFuncs.IsMasterTriggered( m_sMaster, pActivator ) )
-				return;
-		}
+		m_bUnFrozen = !m_bUnFrozen;
 
 		switch( useType )
 		{
 			case USE_OFF:
 			{
-				g_bFreezePlayers = false;
-				Think();
+				SetThink( null );
+				m_bUnFrozen = true;
+
+				CBasePlayer@ pPlayer = null;
+				for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer )
+				{
+					@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
+
+					if( pPlayer is null || !pPlayer.IsConnected() )
+						continue;
+
+					if( pPlayer.IsAlive() )
+					{
+						if( self.pev.SpawnFlagBitSet( SF_INVIS ) && (pPlayer.pev.effects & EF_NODRAW) != 0 )
+							pPlayer.pev.effects &= ~EF_NODRAW;
+
+						pPlayer.EnableControl( m_bUnFrozen );
+					}
+				}
 			}
 			break;
 			case USE_ON:
 			{
-				g_bFreezePlayers = true;
-				Think();
+				m_bUnFrozen = false;
+
+				SetThink( ThinkFunction(FreezeThink) );
+				self.pev.nextthink = g_Engine.time + 0.1;
 			}
 			break;
-			case USE_TOGGLE: self.Use( null, null, g_bFreezePlayers ? USE_OFF : USE_ON, 0 ); break;
+			case USE_TOGGLE: self.Use( self, self, m_bUnFrozen ? USE_OFF : USE_ON, 0 ); break;
 		}
-	}
-
-	HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer )
-	{
-		if ( g_bFreezePlayers )
-		{
-			if( pPlayer.IsAlive() )
-			{
-				//pPlayer.SetMaxSpeedOverride( 0.0f );
-				pPlayer.SetMaxSpeed( 0.0f );
-			}
-			else
-			{
-				//pPlayer.SetMaxSpeedOverride( -1.0f );
-				pPlayer.SetMaxSpeed( int(g_EngineFuncs.CVarGetPointer( "sv_maxspeed" ).value) );
-			}
-		}
-
-		return HOOK_CONTINUE;
 	}
 }
 
-void RegisterTriggerPlayerFreeze()
+void Register()
 {
-	g_CustomEntityFuncs.RegisterCustomEntity( "trigger_playerfreeze", "trigger_playerfreeze" );
+	g_CustomEntityFuncs.RegisterCustomEntity( "TriggerPlayerFreeze::trigger_playerfreeze", "trigger_playerfreeze" );
+}
 }
