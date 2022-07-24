@@ -25,7 +25,7 @@ class weapon_knife : CBaseCustomWeapon
 	void Spawn()
 	{
 		self.Precache();
-		g_EntityFuncs.SetModel( self, self.GetW_Model( "models/wanted/w_knife.mdl") );
+		g_EntityFuncs.SetModel( self, "models/wanted/w_knife.mdl" );
 		self.m_iClip			= -1;
 		self.m_flCustomDmg		= self.pev.dmg;
 
@@ -39,7 +39,6 @@ class weapon_knife : CBaseCustomWeapon
 
 		g_Game.PrecacheModel( "models/wanted/v_knife.mdl" );
 		g_Game.PrecacheModel( "models/wanted/w_knife.mdl" );
-		g_Game.PrecacheModel( "models/wanted/w_knifeT.mdl" );
 		g_Game.PrecacheModel( "models/wanted/p_knife.mdl" );
 
 		g_SoundSystem.PrecacheSound( "wanted/weapons/knife_hit1.wav" );
@@ -337,12 +336,19 @@ class weapon_knife : CBaseCustomWeapon
 
 		if( pPlayer.HasNamedPlayerItem( GetKnifeName() ) is null )
 		{
+			/*self.CheckRespawn();
 			pPlayer.SetItemPickupTimes(0);
 			pPlayer.GiveNamedItem( self.pev.classname );
 
 			g_EntityFuncs.Remove( self );
 
-	  		return;
+	  		return;*/
+
+			if( pPlayer.AddPlayerItem( self ) != APIR_NotAdded ) // makes respawning sound but it works as expected at least
+			{
+				self.AttachToPlayer( pPlayer );
+				g_SoundSystem.EmitSound( self.edict(), CHAN_ITEM, "items/gunpickup2.wav", 1, ATTN_NORM );
+			}
 		}
 	}
 
