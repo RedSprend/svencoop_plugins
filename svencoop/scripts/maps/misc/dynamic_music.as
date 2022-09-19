@@ -47,7 +47,6 @@ final class MusicClass
 		g_Game.PrecacheGeneric( "sound/" + g_szMusicPeaceName );
 		g_SoundSystem.PrecacheSound( g_szMusicMediumName );
 		g_Game.PrecacheGeneric( "sound/" + g_szMusicMediumName );
-
 		g_SoundSystem.PrecacheSound( g_szMusicTensionName );
 		g_Game.PrecacheGeneric( "sound/" + g_szMusicTensionName );
 	}
@@ -56,8 +55,6 @@ final class MusicClass
 	{
 		LoadMusicFile();
 		Precache();
-
-		g_Hooks.RegisterHook( Hooks::Game::MapChange, MapChangeHook( this.MapChange ) );
 
 		CBaseEntity@ pEntity = null;
 		if( !g_szMusicPeaceName.IsEmpty() )
@@ -101,6 +98,7 @@ final class MusicClass
 	void MapActivate()
 	{
 		ClearTimer();
+
 		if( bStartOn )
 			@g_pThink = g_Scheduler.SetInterval( @this, "Think", 0.3f );
 
@@ -127,18 +125,23 @@ final class MusicClass
 					bDeleteAmbientMusic = true;
 				else if( szDeleteAmbientMusic.opEquals("False") || szDeleteAmbientMusic.opEquals("No") || szDeleteAmbientMusic.opEquals("0") )
 					bDeleteAmbientMusic = false;
+				break;
+			}
+		}
 
-				if( bDeleteAmbientMusic )
-				{
-					CBaseEntity@ pEntity = null;
-					while( (@pEntity = g_EntityFuncs.FindEntityByClassname(pEntity, "ambient_music")) !is null )
-					{
-						if( pEntity.GetTargetname() != "peace_music" && pEntity.GetTargetname() != "medium_music" && pEntity.GetTargetname() != "tension_music" )
-						{
-							g_EntityFuncs.Remove( pEntity );
-						}
-					}
-				}
+		if( bDeleteAmbientMusic )
+		{
+			CBaseEntity@ pEntity = null;
+			while( (@pEntity = g_EntityFuncs.FindEntityByClassname(pEntity, "ambient_music")) !is null )
+			{
+				if( pEntity.GetTargetname() != "peace_music" && pEntity.GetTargetname() != "medium_music" && pEntity.GetTargetname() != "tension_music" )
+					g_EntityFuncs.Remove( pEntity );
+			}
+
+			@pEntity = null;
+			while( (@pEntity = g_EntityFuncs.FindEntityByClassname(pEntity, "target_cdaudio")) !is null )
+			{
+				g_EntityFuncs.Remove( pEntity );
 			}
 		}
 
@@ -347,12 +350,6 @@ final class MusicClass
 		}
 
 		pFile.Close();
-	}
-
-	HookReturnCode MapChange()
-	{
-		ClearTimer();
-		return HOOK_CONTINUE;
 	}
 
 	void Activate()
