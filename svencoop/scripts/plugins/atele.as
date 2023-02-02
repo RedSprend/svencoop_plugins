@@ -1,13 +1,13 @@
 // Description: Randomly teleport in aliens on a random player.
-// Based on m_flCooldownTime and REQUIRED_PLAYER_COUNT
 
 // TODO: (I will most likely not finish this plugin as I got bored of it)
 // - prevent spawning the monster on (or too close) the player.
-// - Trace a line from vecEnd downwards (vecEnd.z) to not let the alien spawn in mid air.
-// - Use SetTimeout instead of SetInterval.
+// - Trace a szLine from vecEnd downwards (vecEnd.z) to not let the alien spawn in mid air.
 
-const bool debug = false;
-const int REQUIRED_PLAYER_COUNT = 1;
+bool bInitialized = false;
+
+uint iMinTime = 40; // in seconds
+uint iMaxTime = 300; // in seconds
 
 void PluginInit()
 {
@@ -17,11 +17,53 @@ void PluginInit()
 
 	g_Hooks.RegisterHook( Hooks::Player::ClientPutInServer, @ClientPutInServer );
 	g_Hooks.RegisterHook( Hooks::Game::MapChange, @MapChange );
+
+	ATele::ClearTimer();
+
+	if( g_PlayerFuncs.GetNumPlayers() >= 1 ) // if the plugin got reloaded
+		ATele::StartTimer();
 }
 
-bool bInitialized = false;
+void MapInit()
+{
+	g_CustomEntityFuncs.RegisterCustomEntity( "EnvPortal::env_portal", "env_portal" );
+	g_Game.PrecacheOther( "env_portal" );
+
+	for( uint i = 0; i < ATele::g_szMonsters.length(); i++ )
+	{
+		g_Game.PrecacheMonster( ATele::g_szMonsters[i], false );
+		g_Game.PrecacheMonster( ATele::g_szMonsters[i], true );
+	}
+
+	g_Game.PrecacheMonster( "monster_leech", false );
+
+	ATele::ClearTimer();
+	bInitialized = false;
+}
+
+HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer )
+{
+	if( bInitialized )
+		return HOOK_CONTINUE;
+
+	bInitialized = true;
+	ATele::StartTimer();
+
+	return HOOK_CONTINUE;
+}
+
+HookReturnCode MapChange()
+{
+	ATele::ClearTimer();
+	return HOOK_CONTINUE;
+}
+
+namespace ATele
+{
+uint iMinTime = 40; // in seconds
+uint iMaxTime = 300; // in seconds
+
 CScheduledFunction@ g_pThink = null;
-float m_flNextThink, m_flCooldownTime;
 
 bool StartTimer()
 {
@@ -29,16 +71,7 @@ bool StartTimer()
 	{
 		if( !ExcludedMapList() )
 		{
-			m_flNextThink = g_Engine.time + m_flCooldownTime;
-
-			if( debug )
-			{
-				float flTime = m_flNextThink - g_Engine.time;
-				g_EngineFuncs.ServerPrint("-- DEBUG: Next time: "+flTime+"\n");
-			}
-
-			@g_pThink = g_Scheduler.SetInterval( "Think", 1.0f, g_Scheduler.REPEAT_INFINITE_TIMES );
-
+			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", Math.RandomLong(iMinTime, iMaxTime) );
 			return true;
 		}
 	}
@@ -63,94 +96,117 @@ array<string> g_szMonsters =
 	"monster_headcrab",
 	"monster_houndeye",
 	"monster_snark",
-	"monster_sqknest"
+	"monster_sqknest",
+	"monster_zombie",
+	"monster_zombie_barney",
+	"monster_zombie_soldier"
 };
 
-void MapInit()
-{
-	for( uint i = 0; i < g_szMonsters.length(); i++ )
-	{
-		g_Game.PrecacheMonster( g_szMonsters[i], false );
-		g_Game.PrecacheMonster( g_szMonsters[i], true );
-	}
-	
-	g_Game.PrecacheMonster( "monster_leech", false );
+CClientCommand g_sm( "at", "- toggle alien spawner", @cmdATele ); // .at in console to toggle the alien spawner
 
-	ClearTimer();
-}
-
-void MapActivate()
-{
-	bInitialized = false;
-	m_flNextThink = g_Engine.time;
-	m_flCooldownTime = Math.RandomLong(60,600); // random delay between 1 min. to 10 min.
-}
-
-HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer )
-{
-	if( bInitialized )
-	{
-		if( g_PlayerFuncs.GetNumPlayers() == REQUIRED_PLAYER_COUNT )
-			m_flCooldownTime = Math.RandomLong(60,600); // random delay between 1 min. to 10 min.
-
-		return HOOK_CONTINUE;
-	}
-
-	bInitialized = true;
-	StartTimer();
-
-	return HOOK_CONTINUE;
-}
-
-HookReturnCode MapChange()
-{
-	ClearTimer();
-	return HOOK_CONTINUE;
-}
-
-CClientCommand g_sm( "at", "- toggle alien spawner", @cmdATele );
 void cmdATele( const CCommand@ args )
 {
 	CBasePlayer@ pPlayer = g_ConCommandSystem.GetCurrentPlayer();
-	
+
 	if( pPlayer is null || !pPlayer.IsConnected() )
 		return;
-		
-	if( g_PlayerFuncs.AdminLevel(pPlayer) < ADMIN_OWNER )
+
+	if( g_PlayerFuncs.AdminLevel(pPlayer) == ADMIN_NO )
+	{
+		g_EngineFuncs.ClientPrintf( pPlayer, print_console, "You have no access to this command.\n" );
 		return;
+	}
+
+	if( ExcludedMapList() )
+	{
+		g_EngineFuncs.ClientPrintf( pPlayer, print_console, "[Alien Spawner] This map is black listed.\n" );
+		return;
+	}
 
 	if( StartTimer() )
 	{
-		g_PlayerFuncs.ClientPrint( pPlayer, HUD_PRINTNOTIFY, "Enabled alien spawner.\n" );
+		g_PlayerFuncs.ClientPrint( pPlayer, HUD_PRINTNOTIFY, "[Alien Spawner] Enabled alien spawner.\n" );
 
-		if( debug )
+		float flTime = 1;
+		g_PlayerFuncs.ClientPrint( pPlayer, HUD_PRINTNOTIFY, "[Alien Spawner] Next spawn in "+flTime+" second"+(string(flTime) > 1 ? "s" : "")+".\n" );
+
+		if( g_pThink !is null )
 		{
-			m_flNextThink = g_Engine.time + 1;
-			float flTime = m_flNextThink - g_Engine.time;
-			g_EngineFuncs.ServerPrint("-- DEBUG: Next time: "+flTime+"\n");
+			g_Scheduler.RemoveTimer( g_pThink );
+			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", flTime );
 		}
 	}
 	else
 	{
 		ClearTimer();
 
-		g_PlayerFuncs.ClientPrint( pPlayer, HUD_PRINTNOTIFY, "Disabled alien spawner.\n" );
+		g_PlayerFuncs.ClientPrint( pPlayer, HUD_PRINTNOTIFY, "[Alien Spawner] Disabled alien spawner.\n" );
 	}
 }
 
-void Think()
+void ATeleThink()
 {
-	if( m_flNextThink > g_Engine.time || !debug && g_PlayerFuncs.GetNumPlayers() < REQUIRED_PLAYER_COUNT )
-		return;
-
 	int iPlayerIndex = GetRandomPlayer();
-	if( iPlayerIndex == -1)
+
+	if( iPlayerIndex == -1 )
+	{
+		if( g_pThink !is null )
+		{
+			g_Scheduler.RemoveTimer( g_pThink );
+			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 2.0f );
+		}
 		return;
+	}
 
 	CBasePlayer@ pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayerIndex );
 
 	string szMonster = g_szMonsters[Math.RandomLong(0,g_szMonsters.length() - 1)];
-	
+
+	if( szMonster == "monster_alien_slave" )
+	{
+		bool bFound = false;
+		for( uint i = 0; i < MAX_ITEM_TYPES; i++ )
+		{
+			CBasePlayerWeapon@ pWeapon = cast<CBasePlayerWeapon@>( pPlayer.m_rgpPlayerItems(i) );
+
+			while( pWeapon !is null )
+			{
+				if( pWeapon.m_iId >= WEAPON_GLOCK && pWeapon.m_iId <= WEAPON_DISPLACER )
+				{
+					if( pWeapon.m_iId == WEAPON_MEDKIT ||
+						pWeapon.m_iId == WEAPON_PIPEWRENCH ||
+						pWeapon.m_iId == WEAPON_GRAPPLE ||
+						pWeapon.m_iId == WEAPON_HANDGRENADE ||
+						pWeapon.m_iId == WEAPON_TRIPMINE ||
+						pWeapon.m_iId == WEAPON_SATCHEL )
+						break;
+
+					if( (pWeapon.m_iClip == 0 && // gun clip is empty
+						pPlayer.m_rgAmmo(pWeapon.m_iPrimaryAmmoType) <= 0) ) // player do not have enough ammo for the gun
+						break;
+
+					bFound = true;
+					break;
+				}
+
+				@pWeapon = cast<CBasePlayerWeapon@>( pWeapon.m_hNextItem.GetEntity() );
+			}
+
+			if( bFound )
+				break;
+		}
+
+		if( !bFound ) // do not spawn alien slave if the player do not have any weapon to fight against it with.
+		{
+			if( g_pThink !is null )
+			{
+				g_Scheduler.RemoveTimer( g_pThink );
+				@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f ); //  Try again (TODO: pass the classname to prevent selecting alien slave over and over again)
+			}
+			return;
+		}
+	}
+
 	if( pPlayer.pev.waterlevel > WATERLEVEL_DRY )
 	{
 		if( pPlayer.pev.waterlevel >= WATERLEVEL_WAIST ) // Spawn a leech instead if the player is under water
@@ -180,6 +236,14 @@ void Think()
 	{
 		CheckFreeSpace( szMonster, vecEnd, pPlayer);
 	}
+	else
+	{
+		if( g_pThink !is null )
+		{
+			g_Scheduler.RemoveTimer( g_pThink );
+			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f );
+		}
+	}
 }
 
 void CheckFreeSpace( const string& in szClassname, Vector& in vecOrigin, CBaseEntity@ pPlayer )
@@ -207,7 +271,11 @@ void CheckFreeSpace( const string& in szClassname, Vector& in vecOrigin, CBaseEn
 	if( tr.fAllSolid == 1 || tr.fStartSolid == 1 || tr.fInOpen == 0 )
 	{
 		// Obstructed! Try again
-		m_flNextThink = g_Engine.time;
+		if( g_pThink !is null )
+		{
+			g_Scheduler.RemoveTimer( g_pThink );
+			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f );
+		}
 		return;
 	}
 	else
@@ -217,15 +285,19 @@ void CheckFreeSpace( const string& in szClassname, Vector& in vecOrigin, CBaseEn
 		CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity( szClassname, null, true );
 		if( pEntity !is null )
 		{
-			CreateSpawnEffect( szClassname, vecOrigin, EHandle(pPlayer) );
+			CBaseEntity@ cbePortal = g_EntityFuncs.CreateEntity( "env_portal", null,  false );
+			EnvPortal::env_portal@ pPortal = cast<EnvPortal::env_portal@>(CastToScriptClass(cbePortal));
+			g_EntityFuncs.SetOrigin( pPortal.self, vecOrigin );
+			pPortal.szMonster = szClassname;
+			pPortal.hPlayer = EHandle(pPlayer);
+			pPortal.Spawn();
 
-			m_flNextThink = g_Engine.time + m_flCooldownTime;
+			float flTime = Math.RandomLong(iMinTime, iMaxTime) + 1;
 
-			if( debug )
+			if( g_pThink !is null )
 			{
-				m_flNextThink = g_Engine.time + 1;
-				float flTime = m_flNextThink - g_Engine.time;
-				g_EngineFuncs.ServerPrint("-- DEBUG: Next time: "+flTime+"\n");
+				g_Scheduler.RemoveTimer( g_pThink );
+				@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", flTime );
 			}
 
 			for( int i = 1; i <= g_Engine.maxClients; i++ )
@@ -234,79 +306,11 @@ void CheckFreeSpace( const string& in szClassname, Vector& in vecOrigin, CBaseEn
 				if( pAdmin is null || !pAdmin.IsConnected() || g_PlayerFuncs.AdminLevel(pAdmin) == ADMIN_NO )
 					continue;
 
-				g_PlayerFuncs.ClientPrint( pAdmin, HUD_PRINTNOTIFY, "(ADMINS) Spawned "+szClassname+" on "+pPlayer.pev.netname+"\n" );
+				g_PlayerFuncs.ClientPrint( pAdmin, HUD_PRINTNOTIFY, "(ADMINS) Spawned "+szClassname+" on "+pPlayer.pev.netname+" (next spawn in "+flTime+" second"+(string(flTime) > 1 ? "s" : "")+")\n" );
 			}
 		}
 
 		return;
-	}
-}
-
-void CreateSpawnEffect( const string& in szClassname, Vector& in vecOrigin, EHandle hPlayer )
-{
-	if( !hPlayer.IsValid() )
-		return;
-
-	int iBeamCount = 8;
-	Vector vBeamColor = Vector(30, 150, 50);//Vector(217,226,146);
-	int iBeamAlpha = 128;
-	float flBeamRadius = 256;
-
-	Vector vLightColor = Vector(39,209,137);
-	float flLightRadius = 160;
-
-	Vector vStartSpriteColor = Vector(65,209,61);
-	float flStartSpriteScale = 1.0f;
-	float flStartSpriteFramerate = 12;
-	int iStartSpriteAlpha = 255;
-
-	Vector vEndSpriteColor = Vector(159,240,214);
-	float flEndSpriteScale = 1.0f;
-	float flEndSpriteFramerate = 12;
-	int iEndSpriteAlpha = 255;
-
-	// create the clientside effect
-	NetworkMessage msg( MSG_PVS, NetworkMessages::TE_CUSTOM, vecOrigin );
-		msg.WriteByte( 2 );
-		msg.WriteVector( vecOrigin );
-		// for the beams
-		msg.WriteByte( iBeamCount );
-		msg.WriteVector( vBeamColor );
-		msg.WriteByte( iBeamAlpha );
-		msg.WriteCoord( flBeamRadius );
-		// for the dlight
-		msg.WriteVector( vLightColor );
-		msg.WriteCoord( flLightRadius );
-		// for the sprites
-		msg.WriteVector( vStartSpriteColor );
-		msg.WriteByte( int( flStartSpriteScale*10 ) );
-		msg.WriteByte( int( flStartSpriteFramerate ) );
-		msg.WriteByte( iStartSpriteAlpha );
-
-		msg.WriteVector( vEndSpriteColor );
-		msg.WriteByte( int( flEndSpriteScale*10 ) );
-		msg.WriteByte( int( flEndSpriteFramerate ) );
-		msg.WriteByte( iEndSpriteAlpha );
-	msg.End();
-	
-	g_Scheduler.SetTimeout( "SpawnMonster", 0.8f, szClassname, vecOrigin, hPlayer );
-}
-
-void SpawnMonster( const string& in szClassname, Vector& in vecOrigin, EHandle hPlayer )
-{
-	if( !hPlayer.IsValid() )
-		return;
-
-	CBasePlayer@ pPlayer = cast<CBasePlayer@>(hPlayer.GetEntity());
-	if( pPlayer is null )
-		return;
-
-	CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity( szClassname, null, true );
-	if( pEntity !is null )
-	{
-		g_EntityFuncs.SetOrigin( pEntity, vecOrigin );
-		Vector vecAngles = Math.VecToAngles( pPlayer.pev.origin - pEntity.pev.origin );
-		pEntity.pev.angles.y = vecAngles.y;
 	}
 }
 
@@ -324,29 +328,29 @@ bool ExcludedMapList()
 	string strMap = g_Engine.mapname;
 	strMap.ToLowercase();
 
-	string line;
+	string szLine;
 
 	while( !pFile.EOFReached() )
 	{
-		pFile.ReadLine( line );
-		line.Trim();
+		pFile.ReadLine( szLine );
+		szLine.Trim();
 
-		if( line.Length() < 1 || line[0] == '/' && line[1] == '/' || line[0] == '#' || line[0] == ';' )
+		if( szLine.Length() < 1 || szLine[0] == '/' && szLine[1] == '/' || szLine[0] == '#' || szLine[0] == ';' )
 			continue;
 
-		line.ToLowercase();
+		szLine.ToLowercase();
 
-		if( strMap == line )
+		if( strMap == szLine )
 		{
 			pFile.Close();
 			return true;
 		}
 
-		if( line.EndsWith("*", String::CaseInsensitive) )
+		if( szLine.EndsWith("*", String::CaseInsensitive) )
 		{
-			line = line.SubString(0, line.Length()-1);
+			szLine = szLine.SubString(0, szLine.Length()-1);
 
-			if( strMap.Find(line) != Math.SIZE_MAX )
+			if( strMap.Find(szLine) != Math.SIZE_MAX )
 			{
 				pFile.Close();
 				return true;
@@ -373,4 +377,165 @@ int GetRandomPlayer()
 		iPlayerCount++;
 	}
 	return (iPlayerCount == 0) ? -1 : iPlayer[Math.RandomLong(0,iPlayerCount-1)];
+}
+}
+
+namespace EnvPortal
+{
+class env_portal : ScriptBaseAnimating
+{
+	private EHandle m_hSpriteStart, m_hSpriteTele;
+	private CSprite@ m_pSpriteStart
+	{
+		get const { return cast<CSprite@>( m_hSpriteStart.GetEntity() ); }
+		set { m_hSpriteStart = EHandle( @value ); }
+	};
+	private CSprite@ m_pSpriteTele
+	{
+		get const { return cast<CSprite@>( m_hSpriteTele.GetEntity() ); }
+		set { m_hSpriteTele = EHandle( @value ); }
+	};
+
+	EHandle hPlayer;
+	string szMonster;
+	private float flScale = 1.0;
+
+	void Precache()
+	{
+		g_Game.PrecacheModel( "sprites/b-tele1.spr" );
+		g_Game.PrecacheModel( "sprites/enter1.spr" );
+
+		g_SoundSystem.PrecacheSound( "ambience/alien_cycletone.wav" );
+		g_SoundSystem.PrecacheSound( "ambience/port_suckout1.wav" );
+		g_SoundSystem.PrecacheSound( "debris/beamstart7.wav" );
+	}
+
+	void Spawn()
+	{
+		if( string(szMonster).IsEmpty() )
+			return;
+
+		if( szMonster == "monster_babycrab" ||
+			szMonster == "monster_headcrab" ||
+			szMonster == "monster_snark" ||
+			szMonster == "monster_sqknest" ||
+			szMonster == "monster_stukabat" ||
+			szMonster == "monster_leech" )
+		{
+			flScale = 0.6; // scale down the sprites for small monsters
+		}
+		else
+		{
+			g_EntityFuncs.SetOrigin( self, self.pev.origin + Vector(0,0,16) );
+		}
+
+		g_SoundSystem.EmitSound( self.edict(), CHAN_STATIC, "ambience/port_suckout1.wav", 1.0f, ATTN_NORM );
+
+		SetThink( ThinkFunction( this.StartThink ) );
+		self.pev.nextthink = g_Engine.time + 1.0f;
+	}
+
+	void StartThink()
+	{
+		if( m_pSpriteStart !is null )
+			g_EntityFuncs.Remove( m_pSpriteStart );
+
+		@m_pSpriteStart = g_EntityFuncs.CreateSprite( "sprites/b-tele1.spr", self.pev.origin, true, 10 );
+		m_pSpriteStart.TurnOn();
+		m_pSpriteStart.pev.rendermode = kRenderTransAdd;
+		m_pSpriteStart.pev.renderamt = 255;
+		m_pSpriteStart.pev.scale = flScale;
+
+		SetThink( ThinkFunction( this.TeleEffectsThink ) );
+		self.pev.nextthink = g_Engine.time + 2.25f;
+	}
+
+	void TeleEffectsThink()
+	{
+		if( m_pSpriteStart !is null )
+		{
+			g_EntityFuncs.Remove( m_pSpriteStart );
+			@m_pSpriteStart = null;
+		}
+
+		CreateTeleEffect();
+
+		SetThink( ThinkFunction( this.StartKillSpriteThink ) );
+		self.pev.nextthink = g_Engine.time + 3.0f;
+	}
+
+	void StartKillSpriteThink()
+	{
+		g_SoundSystem.EmitSound( self.edict(), CHAN_STATIC, "ambience/port_suckout1.wav", 1.0f, ATTN_NORM );
+
+		SetThink( ThinkFunction( this.KillSpriteThink ) );
+		self.pev.nextthink = g_Engine.time + 3.0f;
+	}
+
+	void KillSpriteThink()
+	{
+		if( m_pSpriteTele !is null )
+		{
+			g_EntityFuncs.Remove( m_pSpriteTele );
+			@m_pSpriteTele = null;
+		}
+
+		g_SoundSystem.EmitSoundDyn( self.edict(), CHAN_WEAPON, "ambience/alien_cycletone.wav", 0, 0, SND_STOP, 100);
+	}
+
+	void CreateTeleEffect()
+	{
+		if( m_pSpriteTele !is null )
+			g_EntityFuncs.Remove( m_pSpriteTele );
+
+		@m_pSpriteTele = g_EntityFuncs.CreateSprite( "sprites/enter1.spr", self.pev.origin, true, 10 );
+		m_pSpriteTele.TurnOn();
+		m_pSpriteTele.pev.rendermode = kRenderTransAdd;
+		m_pSpriteTele.pev.renderamt = 200;
+		m_pSpriteTele.pev.scale = flScale;
+
+		// light
+		NetworkMessage msg( MSG_BROADCAST, NetworkMessages::SVC_TEMPENTITY );
+			msg.WriteByte( TE_DLIGHT );
+			msg.WriteCoord( self.pev.origin.x );
+			msg.WriteCoord( self.pev.origin.y );
+			msg.WriteCoord( self.pev.origin.z );
+			if( flScale <= 0.6 )
+				msg.WriteByte( 10 ); // radius
+			else
+				msg.WriteByte( 16 ); // radius
+			msg.WriteByte( 77 ); // red
+			msg.WriteByte( 210 ); // green
+			msg.WriteByte( 130 ); // blue
+			msg.WriteByte( 60 ); // life
+			msg.WriteByte( 0 ); // decay rate
+		msg.End();
+
+		// sound
+		g_SoundSystem.EmitSound( self.edict(), CHAN_STATIC, "debris/beamstart7.wav", 1.0f, ATTN_NORM );
+		g_SoundSystem.EmitSoundDyn( self.edict(), CHAN_WEAPON, "ambience/alien_cycletone.wav", 0.8f, ATTN_NORM, 0, 100 );
+
+		// beam
+		// TODO
+
+		// monster
+		CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity( szMonster, null, true );
+		if( pEntity !is null )
+		{
+			g_EntityFuncs.SetOrigin( pEntity, self.pev.origin );
+
+			if( pEntity.pev.health > 1 )
+			{
+				pEntity.pev.health /= 2; // spawn the monster with half of the original health
+				pEntity.pev.max_health = pEntity.pev.health;
+			}
+
+			if( hPlayer.IsValid() )
+			{
+				Vector vecAngles = Math.VecToAngles( hPlayer.GetEntity().pev.origin - pEntity.pev.origin );
+				pEntity.pev.angles.y = vecAngles.y;
+			}
+		}
+	}
+}
 }
