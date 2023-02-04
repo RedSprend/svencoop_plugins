@@ -63,15 +63,15 @@ namespace ATele
 uint iMinTime = 40; // in seconds
 uint iMaxTime = 300; // in seconds
 
-CScheduledFunction@ g_pThink = null;
+CScheduledFunction@ g_pNextThink = null;
 
 bool StartTimer()
 {
-	if( g_pThink is null )
+	if( g_pNextThink is null )
 	{
 		if( !ExcludedMapList() )
 		{
-			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", Math.RandomLong(iMinTime, iMaxTime) );
+			@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", Math.RandomLong(iMinTime, iMaxTime) );
 			return true;
 		}
 	}
@@ -81,10 +81,10 @@ bool StartTimer()
 
 void ClearTimer()
 {
-	if( g_pThink !is null )
+	if( g_pNextThink !is null )
 	{
-		g_Scheduler.RemoveTimer( g_pThink );
-		@g_pThink = null;
+		g_Scheduler.RemoveTimer( g_pNextThink );
+		@g_pNextThink = null;
 	}
 }
 
@@ -130,10 +130,10 @@ void cmdATele( const CCommand@ args )
 		float flTime = 1;
 		g_PlayerFuncs.ClientPrint( pPlayer, HUD_PRINTNOTIFY, "[Alien Spawner] Next spawn in "+flTime+" second"+(string(flTime) > 1 ? "s" : "")+".\n" );
 
-		if( g_pThink !is null )
+		if( g_pNextThink !is null )
 		{
-			g_Scheduler.RemoveTimer( g_pThink );
-			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", flTime );
+			g_Scheduler.RemoveTimer( g_pNextThink );
+			@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", flTime );
 		}
 	}
 	else
@@ -150,10 +150,10 @@ void ATeleThink()
 
 	if( iPlayerIndex == -1 )
 	{
-		if( g_pThink !is null )
+		if( g_pNextThink !is null )
 		{
-			g_Scheduler.RemoveTimer( g_pThink );
-			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 2.0f );
+			g_Scheduler.RemoveTimer( g_pNextThink );
+			@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", 2.0f );
 		}
 		return;
 	}
@@ -198,10 +198,10 @@ void ATeleThink()
 
 		if( !bFound ) // do not spawn alien slave if the player do not have any weapon to fight against it with.
 		{
-			if( g_pThink !is null )
+			if( g_pNextThink !is null )
 			{
-				g_Scheduler.RemoveTimer( g_pThink );
-				@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f ); //  Try again (TODO: pass the classname to prevent selecting alien slave over and over again)
+				g_Scheduler.RemoveTimer( g_pNextThink );
+				@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f ); //  Try again (TODO: pass the classname to prevent selecting alien slave over and over again)
 			}
 			return;
 		}
@@ -238,10 +238,10 @@ void ATeleThink()
 	}
 	else
 	{
-		if( g_pThink !is null )
+		if( g_pNextThink !is null )
 		{
-			g_Scheduler.RemoveTimer( g_pThink );
-			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f );
+			g_Scheduler.RemoveTimer( g_pNextThink );
+			@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f );
 		}
 	}
 }
@@ -271,10 +271,10 @@ void CheckFreeSpace( const string& in szClassname, Vector& in vecOrigin, CBaseEn
 	if( tr.fAllSolid == 1 || tr.fStartSolid == 1 || tr.fInOpen == 0 )
 	{
 		// Obstructed! Try again
-		if( g_pThink !is null )
+		if( g_pNextThink !is null )
 		{
-			g_Scheduler.RemoveTimer( g_pThink );
-			@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f );
+			g_Scheduler.RemoveTimer( g_pNextThink );
+			@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", 0.1f );
 		}
 		return;
 	}
@@ -282,32 +282,28 @@ void CheckFreeSpace( const string& in szClassname, Vector& in vecOrigin, CBaseEn
 	{
 		// All clear! Spawn here
 
-		CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity( szClassname, null, true );
-		if( pEntity !is null )
+		CBaseEntity@ cbePortal = g_EntityFuncs.CreateEntity( "env_portal", null,  false );
+		EnvPortal::env_portal@ pPortal = cast<EnvPortal::env_portal@>(CastToScriptClass(cbePortal));
+		g_EntityFuncs.SetOrigin( pPortal.self, vecOrigin );
+		pPortal.szMonster = szClassname;
+		pPortal.hPlayer = EHandle(pPlayer);
+		pPortal.Spawn();
+
+		float flTime = Math.RandomLong(iMinTime, iMaxTime) + 1;
+
+		if( g_pNextThink !is null )
 		{
-			CBaseEntity@ cbePortal = g_EntityFuncs.CreateEntity( "env_portal", null,  false );
-			EnvPortal::env_portal@ pPortal = cast<EnvPortal::env_portal@>(CastToScriptClass(cbePortal));
-			g_EntityFuncs.SetOrigin( pPortal.self, vecOrigin );
-			pPortal.szMonster = szClassname;
-			pPortal.hPlayer = EHandle(pPlayer);
-			pPortal.Spawn();
+			g_Scheduler.RemoveTimer( g_pNextThink );
+			@g_pNextThink = g_Scheduler.SetTimeout( "ATeleThink", flTime );
+		}
 
-			float flTime = Math.RandomLong(iMinTime, iMaxTime) + 1;
+		for( int i = 1; i <= g_Engine.maxClients; i++ )
+		{ // notify all admins
+			CBasePlayer@ pAdmin = g_PlayerFuncs.FindPlayerByIndex( i );
+			if( pAdmin is null || !pAdmin.IsConnected() || g_PlayerFuncs.AdminLevel(pAdmin) == ADMIN_NO )
+				continue;
 
-			if( g_pThink !is null )
-			{
-				g_Scheduler.RemoveTimer( g_pThink );
-				@g_pThink = g_Scheduler.SetTimeout( "ATeleThink", flTime );
-			}
-
-			for( int i = 1; i <= g_Engine.maxClients; i++ )
-			{ // notify all admins
-				CBasePlayer@ pAdmin = g_PlayerFuncs.FindPlayerByIndex( i );
-				if( pAdmin is null || !pAdmin.IsConnected() || g_PlayerFuncs.AdminLevel(pAdmin) == ADMIN_NO )
-					continue;
-
-				g_PlayerFuncs.ClientPrint( pAdmin, HUD_PRINTNOTIFY, "(ADMINS) Spawned "+szClassname+" on "+pPlayer.pev.netname+" (next spawn in "+flTime+" second"+(string(flTime) > 1 ? "s" : "")+")\n" );
-			}
+			g_PlayerFuncs.ClientPrint( pAdmin, HUD_PRINTNOTIFY, "(ADMINS) Spawned "+szClassname+" on "+pPlayer.pev.netname+" (next spawn in "+flTime+" second"+(string(flTime) > 1 ? "s" : "")+")\n" );
 		}
 
 		return;
